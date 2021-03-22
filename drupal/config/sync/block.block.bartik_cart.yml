@@ -1,0 +1,21 @@
+uuid: 7984e208-77da-4c11-9686-4e69cd0885fb
+langcode: tr
+status: true
+dependencies:
+  module:
+    - commerce_cart
+  theme:
+    - bartik
+id: bartik_cart
+theme: bartik
+region: header
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Sepet
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: false
+visibility: {  }

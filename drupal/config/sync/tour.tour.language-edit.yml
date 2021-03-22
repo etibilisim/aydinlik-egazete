@@ -1,0 +1,51 @@
+uuid: 17782f22-8aea-4f6f-a70a-1cf940102287
+langcode: tr
+status: true
+dependencies:
+  module:
+    - language
+_core:
+  default_config_hash: U57EDaiQ66sSYVn_GC7iaPNRdz54pKWFNdT6xI1XkXw
+id: language-edit
+label: 'Diller Düzenleniyor'
+module: language
+routes:
+  -
+    route_name: entity.configurable_language.edit_form
+tips:
+  language-edit-overview:
+    id: language-edit-overview
+    plugin: text
+    label: 'Diller Düzenleniyor'
+    body: '<p>Sitenizde yüklü bulunan özel diller de dahil dilleri bu bölümden düzenleyebilirsiniz.</p>'
+    weight: 1
+  language-edit-langcode:
+    id: language-edit-langcode
+    plugin: text
+    label: 'Dil kodu'
+    body: '<p>Sistem tarafından dili izlemek için kullanıldığından, dilin sitedeki kodunu değiştiremezsiniz.</p>'
+    weight: 2
+    attributes:
+      data-id: edit-langcode-view
+  language-edit-label:
+    id: language-edit-label
+    plugin: text
+    label: 'Dil adı'
+    body: '<p>Dilin İngilizce adı site genelinde tüm kullanıcılar için kullanılır. Gömülü dillerin adları Arayüz Çeviri modülü ile, gömülü ve özel dillerin adları Çeviri Yapılandırma modülü ile çevrilebilir.</p>'
+    weight: 3
+    attributes:
+      data-id: edit-label
+  language-edit-direction:
+    id: language-edit-direction
+    plugin: text
+    label: 'Dil yönü'
+    body: '<p>Dilin yazım yönünü "Soldan Sağa" ya da "Sağdan Sola" olarak seçin.</p><p>Her temanın "Sağdan Sola" yazımı desteklemediğini unutmayın ve temayı denemeden kullanmayın.</p>'
+    weight: 4
+    attributes:
+      data-id: edit-direction--wrapper--description
+  language-edit-continue:
+    id: language-edit-continue
+    plugin: text
+    label: 'Devam ediliyor'
+    body: '<p>"Dili düzenleme" özelliği hakkında özet bilgileri aldığınıza göre şimdi şu işlemleri yapabilirsiniz:<ul><li>Dili düzenleme</li><li>Özel dil ekleme</li><li><a href="[site:url]/admin/config/regional/language">Ayarlanmış dilleri görüntüleme</a></li></ul></p>'
+    weight: 5

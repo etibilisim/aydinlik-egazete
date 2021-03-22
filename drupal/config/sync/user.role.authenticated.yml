@@ -1,0 +1,42 @@
+uuid: 32fb5de0-8807-4197-abd6-6426068c30b8
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: btW6TFHajhy7Eo6YUvdFiPh4TcPggo8GBXYctjV6zag
+id: authenticated
+label: 'Kimliği doğrulanmış kullanıcı'
+weight: 1
+is_admin: false
+permissions:
+  - 'access checkout'
+  - 'access comments'
+  - 'access commerce_order overview'
+  - 'access content'
+  - 'administer ajax document viewer'
+  - 'administer commerce_order'
+  - 'administer commerce_payment_method'
+  - 'change own e-mail'
+  - 'change own password'
+  - 'create field_onay'
+  - 'delete default commerce_order'
+  - 'manage own commerce_payment_method'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'update default commerce_order'
+  - 'use advanced search'
+  - 'use text format filtered_html'
+  - 'view commerce_order'
+  - 'view commerce_product'
+  - 'view default commerce_order'
+  - 'view files'
+  - 'view media'
+  - 'view own commerce_order'
+  - 'view own field_abonelik_baslangic_tarihi'
+  - 'view own field_abonelik_bitis_tarihi'
+  - 'view own field_abonelik_suresi'
+  - 'view own field_abonelik_turu'
+  - 'view own field_onay'
+  - 'view own field_satin_alinan_icerik'
+  - 'view own field_satin_alinan_yil'

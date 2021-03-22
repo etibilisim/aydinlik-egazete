@@ -1,0 +1,9 @@
+uuid: dd2453d7-f070-4c48-8f1a-c28a482d1527
+langcode: tr
+status: true
+dependencies: {  }
+id: abone
+label: Abone
+weight: 5
+is_admin: null
+permissions: {  }

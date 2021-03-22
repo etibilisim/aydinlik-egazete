@@ -1,0 +1,33 @@
+uuid: ee562c8d-35c5-4b54-afa6-721ed611fe7e
+langcode: tr
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - bartik
+id: bartik_kullanicigirisi
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'Kullanıcı girişi'
+  provider: user
+  label_display: visible
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: "/checkout/*/login\r\n/user/login\r\n/user/register"
+    negate: true
+    context_mapping: {  }

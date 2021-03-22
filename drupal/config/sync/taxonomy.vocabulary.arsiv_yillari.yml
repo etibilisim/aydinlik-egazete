@@ -1,0 +1,8 @@
+uuid: bd1b4884-d103-4153-b031-9e7617e85370
+langcode: tr
+status: true
+dependencies: {  }
+name: 'Arşiv Yılları'
+vid: arsiv_yillari
+description: ''
+weight: 0

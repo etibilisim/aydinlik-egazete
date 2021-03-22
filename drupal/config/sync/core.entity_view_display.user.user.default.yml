@@ -1,0 +1,106 @@
+uuid: c9b6b17c-b7b6-4e94-9757-033a056ad318
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_abonelik_baslangic_tarihi
+    - field.field.user.user.field_abonelik_bitis_tarihi
+    - field.field.user.user.field_abonelik_suresi
+    - field.field.user.user.field_abonelik_turu
+    - field.field.user.user.field_adiniz_soyadiniz
+    - field.field.user.user.field_adres
+    - field.field.user.user.field_onay
+    - field.field.user.user.field_tc
+    - field.field.user.user.field_telefon
+    - field.field.user.user.user_picture
+  module:
+    - datetime
+    - telephone
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_abonelik_baslangic_tarihi:
+    type: datetime_custom
+    weight: 2
+    region: content
+    label: above
+    settings:
+      timezone_override: ''
+      date_format: d-m-Y
+    third_party_settings: {  }
+  field_abonelik_bitis_tarihi:
+    type: datetime_custom
+    weight: 3
+    region: content
+    label: above
+    settings:
+      timezone_override: ''
+      date_format: d-m-Y
+    third_party_settings: {  }
+  field_abonelik_suresi:
+    weight: 4
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_abonelik_turu:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_adiniz_soyadiniz:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_onay:
+    weight: 8
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_tc:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_telefon:
+    weight: 5
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  member_for:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  commerce_remote_id: true
+  customer_profiles: true
+  field_adres: true
+  langcode: true
+  user_picture: true

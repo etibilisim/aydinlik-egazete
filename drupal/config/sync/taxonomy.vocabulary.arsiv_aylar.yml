@@ -1,0 +1,8 @@
+uuid: bc572226-05f0-4e38-a577-94b36b7a09b5
+langcode: tr
+status: true
+dependencies: {  }
+name: 'Arşiv Aylar'
+vid: arsiv_aylar
+description: ''
+weight: 0

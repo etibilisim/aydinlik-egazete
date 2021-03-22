@@ -1,0 +1,31 @@
+uuid: aaddefb4-46e1-4757-a706-c878ed56fa45
+langcode: tr
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: true
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
+name: E-Arşiv
+type: e_arsiv
+description: 'Gazetenin arşiv dosyalarını bu içerik türünü kullanarak ekleyebilirsiniz.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

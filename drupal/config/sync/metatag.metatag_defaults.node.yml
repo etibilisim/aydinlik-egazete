@@ -1,0 +1,12 @@
+uuid: 93b8b985-1a4d-4ef9-bfc6-4645d4434b92
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: İçerik
+tags:
+  title: '[node:title] | [site:name]'
+  description: '[node:summary]'
+  canonical_url: '[node:url]'

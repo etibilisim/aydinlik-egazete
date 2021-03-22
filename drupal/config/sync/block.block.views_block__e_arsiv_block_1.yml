@@ -1,0 +1,30 @@
+uuid: d5e31c28-8808-4f4f-b1a2-7e547dc82908
+langcode: tr
+status: true
+dependencies:
+  config:
+    - views.view.e_arsiv
+  module:
+    - system
+    - views
+  theme:
+    - conference_lite
+id: views_block__e_arsiv_block_1
+theme: conference_lite
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:e_arsiv-block_1'
+settings:
+  id: 'views_block:e_arsiv-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

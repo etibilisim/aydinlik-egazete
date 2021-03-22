@@ -1,0 +1,14 @@
+uuid: c6caff2c-53ac-4948-b7f4-011129efd77c
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.yonetici
+  module:
+    - user
+id: user_remove_role_action.yonetici
+label: 'yonetici rolünü seçili kullanıcı(lar)dan alın.'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: yonetici

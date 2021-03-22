@@ -1,0 +1,15 @@
+uuid: 6b8ff8ab-4036-4b6e-ab0b-c069036ffa69
+langcode: tr
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_checkout
+  module:
+    - commerce_product
+_core:
+  default_config_hash: 23R0npqqL2T9F-gDL2Lor2GfZj_lDvmv-kwdQzPCxMw
+id: commerce_product_variation.summary
+label: Özet
+targetEntityType: commerce_product_variation
+cache: true

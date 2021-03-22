@@ -1,0 +1,33 @@
+uuid: 00c261ee-e2e7-42d7-86a9-45ff0ca5e1a4
+langcode: tr
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - conference_lite
+id: kullanicigirisi
+theme: conference_lite
+region: sidebar_first
+weight: -11
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'Kullanıcı girişi'
+  provider: user
+  label_display: visible
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: "/checkout/*/login\r\n/satin-al\r\n/cart\r\n/user/*\r\n/users/\r\n/users/*\r\n/user"
+    negate: true
+    context_mapping: {  }

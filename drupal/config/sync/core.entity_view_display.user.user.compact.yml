@@ -1,0 +1,51 @@
+uuid: 80b30b62-29d2-4981-bab0-b6a0d9946978
+langcode: tr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_abonelik_baslangic_tarihi
+    - field.field.user.user.field_abonelik_bitis_tarihi
+    - field.field.user.user.field_abonelik_suresi
+    - field.field.user.user.field_abonelik_turu
+    - field.field.user.user.field_adiniz_soyadiniz
+    - field.field.user.user.field_adres
+    - field.field.user.user.field_onay
+    - field.field.user.user.field_tc
+    - field.field.user.user.field_telefon
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  commerce_remote_id: true
+  customer_profiles: true
+  field_abonelik_baslangic_tarihi: true
+  field_abonelik_bitis_tarihi: true
+  field_abonelik_suresi: true
+  field_abonelik_turu: true
+  field_adiniz_soyadiniz: true
+  field_adres: true
+  field_onay: true
+  field_tc: true
+  field_telefon: true
+  langcode: true
+  member_for: true

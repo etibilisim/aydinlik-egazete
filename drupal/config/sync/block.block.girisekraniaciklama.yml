@@ -1,0 +1,31 @@
+uuid: f00af36a-5a1d-453d-a50a-ec41f32e7cd5
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2a0b3de5-dcbe-4a7f-8f9b-e04f9bf2a6bc'
+  module:
+    - block_content
+    - system
+  theme:
+    - conference_lite
+id: girisekraniaciklama
+theme: conference_lite
+region: content
+weight: -8
+provider: null
+plugin: 'block_content:2a0b3de5-dcbe-4a7f-8f9b-e04f9bf2a6bc'
+settings:
+  id: 'block_content:2a0b3de5-dcbe-4a7f-8f9b-e04f9bf2a6bc'
+  label: 'Giriş ekranı açıklama'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/users/*'
+    negate: false
+    context_mapping: {  }

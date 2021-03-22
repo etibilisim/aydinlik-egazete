@@ -1,0 +1,11 @@
+uuid: 571187f3-bb76-4bd1-9609-e48ccce127f5
+langcode: tr
+status: true
+dependencies:
+  config:
+    - node.type.e_dergi
+id: node.e_dergi
+target_entity_type_id: node
+target_bundle: e_dergi
+default_langcode: site_default
+language_alterable: false

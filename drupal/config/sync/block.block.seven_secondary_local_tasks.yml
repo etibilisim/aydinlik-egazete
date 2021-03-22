@@ -1,0 +1,22 @@
+uuid: fc375c03-b45f-45d4-9a79-331418a797d9
+langcode: tr
+status: true
+dependencies:
+  theme:
+    - seven
+_core:
+  default_config_hash: QeZBeCilQfeET3GeW6ZtJkEiwROADTZktFgKWwPieD4
+id: seven_secondary_local_tasks
+theme: seven
+region: pre_content
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'İkincil sekmeler'
+  provider: core
+  label_display: '0'
+  primary: false
+  secondary: true
+visibility: {  }

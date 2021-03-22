@@ -1,0 +1,38 @@
+uuid: 82fa03b3-61bd-499d-80d5-3de6b359fd95
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_terim_gorseli
+    - taxonomy.vocabulary.arsiv_yillari
+  module:
+    - image
+id: taxonomy_term.arsiv_yillari.field_terim_gorseli
+field_name: field_terim_gorseli
+entity_type: taxonomy_term
+bundle: arsiv_yillari
+label: 'Terim Görseli'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_extensions: 'png gif jpg jpeg'
+  file_directory: ''
+  max_filesize: ''
+  alt_field: false
+  title_field: false
+  max_resolution: ''
+  min_resolution: ''
+  default_image:
+    alt: ''
+    title: ''
+    width: null
+    height: null
+    uuid: ''
+  alt_field_required: true
+  title_field_required: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

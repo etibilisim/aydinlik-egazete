@@ -1,0 +1,14 @@
+uuid: 60d951f1-1eff-4792-a35b-a1972632f813
+langcode: tr
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: W88NYg31DbaVNQx1Uir_dwwXHVtF09QOq4VBGsH1Snk
+id: yes_no
+label: Yes/No
+category: Genel
+likert: false
+options: "Yes: Yes\nNo: No\n"

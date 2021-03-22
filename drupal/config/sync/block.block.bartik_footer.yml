@@ -1,0 +1,27 @@
+uuid: 0f8b34a7-1751-4752-ab37-508aa76d5876
+langcode: tr
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - bartik
+_core:
+  default_config_hash: bmrwBySmfv75ke53qDLlWQjuq0IMMZc8yY1pM36joec
+id: bartik_footer
+theme: bartik
+region: header
+weight: -13
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

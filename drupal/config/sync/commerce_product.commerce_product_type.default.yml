@@ -1,0 +1,12 @@
+uuid: cff9ca6c-291f-4e79-904d-b4d4e392547b
+langcode: tr
+status: true
+dependencies: {  }
+id: default
+label: Default
+description: ''
+variationType: default
+multipleVariations: true
+injectVariationFields: true
+traits: {  }
+locked: false

@@ -1,0 +1,9 @@
+uuid: b7645d67-9059-4e66-9f54-1e1630fda5b8
+langcode: tr
+status: true
+dependencies: {  }
+currencyCode: TRY
+name: 'Türk Lirası'
+numericCode: '949'
+symbol: ₺
+fractionDigits: 2

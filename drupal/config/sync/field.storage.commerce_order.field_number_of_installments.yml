@@ -1,0 +1,21 @@
+uuid: d99c5b61-450d-42fc-b8ff-ada304d843e4
+langcode: tr
+status: true
+dependencies:
+  module:
+    - commerce_order
+id: commerce_order.field_number_of_installments
+field_name: field_number_of_installments
+entity_type: commerce_order
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

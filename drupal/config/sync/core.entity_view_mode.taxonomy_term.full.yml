@@ -1,0 +1,12 @@
+uuid: 8819b049-22ec-4a05-ac0f-d3df91d104a7
+langcode: tr
+status: true
+dependencies:
+  module:
+    - taxonomy
+_core:
+  default_config_hash: '-PPKjsNQPvoIDjOuUAvlLocYD976MNjb9Zpgyz5_BWE'
+id: taxonomy_term.full
+label: 'Sınıflandırma (taksonomi) terimleri sayfası'
+targetEntityType: taxonomy_term
+cache: true

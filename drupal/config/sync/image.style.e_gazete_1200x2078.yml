@@ -1,0 +1,15 @@
+uuid: 040aae43-8908-4058-bf03-e65c6f4ef853
+langcode: tr
+status: true
+dependencies: {  }
+name: e_gazete_1200x2078
+label: 'E-Gazete 1200x2078'
+effects:
+  4c507b11-d0ac-422c-8c0e-d75c5777d413:
+    uuid: 4c507b11-d0ac-422c-8c0e-d75c5777d413
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 2078
+      anchor: center-center

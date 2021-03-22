@@ -1,0 +1,13 @@
+uuid: f0501bf0-cf82-428a-96fc-de923241db52
+langcode: tr
+status: true
+dependencies:
+  module:
+    - taxonomy
+_core:
+  default_config_hash: z2sNRM3ECa7FPCGnSNje_9SmZJQgwhD_6fG_L4Mr8zI
+id: taxonomy_term_unpublish_action
+label: 'Sınıflandırma terimini yayından kaldır'
+type: taxonomy_term
+plugin: 'entity:unpublish_action:taxonomy_term'
+configuration: {  }

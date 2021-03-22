@@ -1,0 +1,26 @@
+uuid: ce9955ce-d7c8-407c-9b8a-b7f00c8974ae
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yayimlandigi_yil
+    - node.type.e_arsiv
+    - taxonomy.vocabulary.arsiv_yillari
+id: node.e_arsiv.field_yayimlandigi_yil
+field_name: field_yayimlandigi_yil
+entity_type: node
+bundle: e_arsiv
+label: 'Yayımlandığı Yıl'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    sort:
+      field: _none
+    target_bundles:
+      arsiv_yillari: arsiv_yillari
+  handler: 'default:taxonomy_term'
+field_type: entity_reference

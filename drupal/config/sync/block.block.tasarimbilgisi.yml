@@ -1,0 +1,25 @@
+uuid: fffdff41-12ee-4143-b5c3-b07846ab0647
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:70b0d38b-034b-4742-9e86-ffcb040e259c'
+  module:
+    - block_content
+  theme:
+    - conference_lite
+id: tasarimbilgisi
+theme: conference_lite
+region: sub_footer_first
+weight: -10
+provider: null
+plugin: 'block_content:70b0d38b-034b-4742-9e86-ffcb040e259c'
+settings:
+  id: 'block_content:70b0d38b-034b-4742-9e86-ffcb040e259c'
+  label: 'Tasarım Bilgisi'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

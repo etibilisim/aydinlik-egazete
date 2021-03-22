@@ -1,0 +1,21 @@
+uuid: be27f724-7b4b-4581-ac3a-d15a0359b1af
+langcode: und
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_baglanti_yolu
+field_name: field_baglanti_yolu
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

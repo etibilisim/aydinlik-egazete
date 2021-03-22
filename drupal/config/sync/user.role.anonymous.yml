@@ -1,0 +1,22 @@
+uuid: b5ce51f0-7545-4a43-992b-78b24b3ab5f3
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
+id: anonymous
+label: 'Konuk kullanıcı'
+weight: 0
+is_admin: false
+permissions:
+  - 'access checkout'
+  - 'access comments'
+  - 'access content'
+  - 'administer ajax document viewer'
+  - 'create field_onay'
+  - 'restful post user_registration'
+  - 'search content'
+  - 'use text format filtered_html'
+  - 'view commerce_product'
+  - 'view files'
+  - 'view media'

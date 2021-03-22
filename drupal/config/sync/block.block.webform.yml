@@ -1,0 +1,31 @@
+uuid: f0dc3499-07b1-4445-a7c6-a6e758c03e76
+langcode: tr
+status: true
+dependencies:
+  config:
+    - webform.webform.iletisim
+  module:
+    - system
+    - webform
+  theme:
+    - conference_lite
+id: webform
+theme: conference_lite
+region: hidden_blocks_collection
+weight: -11
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Bize Ulaşın'
+  provider: webform
+  label_display: visible
+  webform_id: iletisim
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/ayrintili-kullanici-tablosu\r\n/bize-ulasin"
+    negate: true
+    context_mapping: {  }

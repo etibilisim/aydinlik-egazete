@@ -1,0 +1,22 @@
+definitions:
+  contact__site_page:
+    enabled: false
+    menu_name: footer
+    parent: ''
+    expanded: false
+    weight: 0
+  sitemap__page:
+    menu_name: tools
+    parent: ''
+    weight: 0
+    expanded: false
+    enabled: false
+  standard__front_page:
+    weight: -50
+    menu_name: main
+    parent: ''
+    enabled: true
+    expanded: false
+_core:
+  default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ
+langcode: tr

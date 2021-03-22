@@ -1,0 +1,31 @@
+uuid: f0f72d26-b8a7-4f95-a820-d1999c46e4b0
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:51276151-c9ab-47e9-9b25-9fa3ffd916ef'
+  module:
+    - block_content
+    - system
+  theme:
+    - conference_lite
+id: satinalaciklama
+theme: conference_lite
+region: hidden_blocks_collection
+weight: 0
+provider: null
+plugin: 'block_content:51276151-c9ab-47e9-9b25-9fa3ffd916ef'
+settings:
+  id: 'block_content:51276151-c9ab-47e9-9b25-9fa3ffd916ef'
+  label: 'Satın Al Açıklama'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /satin-al
+    negate: false
+    context_mapping: {  }

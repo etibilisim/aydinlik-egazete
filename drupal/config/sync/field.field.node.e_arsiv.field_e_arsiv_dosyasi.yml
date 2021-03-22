@@ -1,0 +1,27 @@
+uuid: e2070848-6bfc-4e65-aa7e-72456753cfb1
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_e_arsiv_dosyasi
+    - node.type.e_arsiv
+  module:
+    - file
+id: node.e_arsiv.field_e_arsiv_dosyasi
+field_name: field_e_arsiv_dosyasi
+entity_type: node
+bundle: e_arsiv
+label: 'E-Arşiv Dosyası'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: dergi-arsivi
+  file_extensions: 'pdf jpeg jpg png'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

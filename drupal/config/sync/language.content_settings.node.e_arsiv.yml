@@ -1,0 +1,11 @@
+uuid: 7bc44116-74d2-4bd2-9b0f-f4967b4e199d
+langcode: tr
+status: true
+dependencies:
+  config:
+    - node.type.e_arsiv
+id: node.e_arsiv
+target_entity_type_id: node
+target_bundle: e_arsiv
+default_langcode: site_default
+language_alterable: false

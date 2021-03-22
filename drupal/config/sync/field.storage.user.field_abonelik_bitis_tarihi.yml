@@ -1,0 +1,24 @@
+uuid: b9bfa9fb-b0db-42e0-b6e2-5e34f18a603e
+langcode: und
+status: true
+dependencies:
+  module:
+    - datetime
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_abonelik_bitis_tarihi
+field_name: field_abonelik_bitis_tarihi
+entity_type: user
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

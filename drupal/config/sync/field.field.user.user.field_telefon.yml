@@ -1,0 +1,21 @@
+uuid: 0ad2f982-4486-4492-b149-0ff6ee646def
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_telefon
+  module:
+    - telephone
+    - user
+id: user.user.field_telefon
+field_name: field_telefon
+entity_type: user
+bundle: user
+label: Telefon
+description: 'Size ulaşabileceğimiz geçerli bir telefon numarası yazınız.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

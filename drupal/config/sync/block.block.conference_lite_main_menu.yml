@@ -1,0 +1,27 @@
+uuid: 514887e8-c3c0-46fc-9a9c-c91df0bdac2d
+langcode: tr
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: ozqKKrHC3GXxZVvPaD2HpN32F9fh4xTHu2fZHPjFwNM
+id: conference_lite_main_menu
+theme: conference_lite
+region: hidden_blocks_collection
+weight: -8
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

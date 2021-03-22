@@ -1,0 +1,38 @@
+uuid: abbd7102-e7b8-4db6-838a-d52ba6b463b1
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_e_gazete_gorseller
+    - node.type.e_dergi
+  module:
+    - image
+id: node.e_dergi.field_e_gazete_gorseller
+field_name: field_e_gazete_gorseller
+entity_type: node
+bundle: e_dergi
+label: 'E-Gazete Görseller'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'gazete-gorselleri/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '8 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

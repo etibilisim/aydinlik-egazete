@@ -1,0 +1,22 @@
+uuid: aa0e8938-5627-4b05-90e3-331c1dcdae39
+langcode: tr
+status: true
+dependencies: {  }
+id: kdv_18
+label: KDV(%18)
+plugin: custom
+configuration:
+  display_label: tax
+  round: true
+  rates:
+    -
+      id: e69fbf12-a903-4145-be7b-a85555558c19
+      label: KDV
+      percentage: '0.18'
+  territories:
+    -
+      country_code: TR
+      administrative_area: ''
+    -
+      country_code: UM
+  display_inclusive: true

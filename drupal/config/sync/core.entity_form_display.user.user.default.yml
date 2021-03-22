@@ -1,0 +1,129 @@
+uuid: 71de530c-5daa-4759-b4e2-b1dbc86b9e49
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_abonelik_baslangic_tarihi
+    - field.field.user.user.field_abonelik_bitis_tarihi
+    - field.field.user.user.field_abonelik_suresi
+    - field.field.user.user.field_abonelik_turu
+    - field.field.user.user.field_adiniz_soyadiniz
+    - field.field.user.user.field_adres
+    - field.field.user.user.field_onay
+    - field.field.user.user.field_tc
+    - field.field.user.user.field_telefon
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - address
+    - datetime
+    - image
+    - path
+    - telephone
+    - user
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_abonelik_baslangic_tarihi:
+    weight: 8
+    type: datetime_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_abonelik_bitis_tarihi:
+    weight: 9
+    type: datetime_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_abonelik_suresi:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_abonelik_turu:
+    weight: 5
+    type: options_buttons
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_adiniz_soyadiniz:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_adres:
+    weight: 10
+    type: address_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_onay:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_tc:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_telefon:
+    weight: 1
+    settings:
+      placeholder: 5xxxxxxxxx
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  language:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  commerce_remote_id: true
+  customer_profiles: true
+  langcode: true

@@ -1,0 +1,22 @@
+uuid: c2f8dbe9-5c3d-4e23-80b2-f4bb7c1054dd
+langcode: tr
+status: true
+dependencies:
+  config:
+    - node.type.e_dergi
+id: node.e_dergi.promote
+field_name: promote
+entity_type: node
+bundle: e_dergi
+label: 'Ana sayfaya yükseltilmiş'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Açık
+  off_label: Kapalı
+field_type: boolean

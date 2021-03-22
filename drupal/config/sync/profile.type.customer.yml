@@ -1,0 +1,20 @@
+uuid: 5b6a01a3-41d3-4e4b-ab01-232f4b8deca6
+langcode: tr
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_order
+third_party_settings:
+  commerce_order:
+    customer_profile_type: true
+_core:
+  default_config_hash: I3_fH4tUQVejPgxvJzH1-mGg9A9OaY4Hm5iN2G2Fz20
+id: customer
+label: Müşteri
+display_label: 'Müşteri Bilgileri'
+multiple: true
+registration: false
+roles: {  }
+allow_revisions: false
+new_revision: false

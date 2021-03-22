@@ -1,0 +1,15 @@
+uuid: acee6363-7cd1-4094-afab-f50280314f27
+langcode: tr
+status: true
+dependencies: {  }
+name: e-gazete_608x1024
+label: 'E-Gazete 608x1024'
+effects:
+  00a1e36b-062e-4a7c-8efd-b18cfdc8e095:
+    uuid: 00a1e36b-062e-4a7c-8efd-b18cfdc8e095
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 608
+      height: 1024
+      anchor: center-center

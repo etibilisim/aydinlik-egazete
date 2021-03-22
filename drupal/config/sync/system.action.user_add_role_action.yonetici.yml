@@ -1,0 +1,14 @@
+uuid: 5377f64c-eb2f-4854-bc9d-07a49f8cc4a9
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.yonetici
+  module:
+    - user
+id: user_add_role_action.yonetici
+label: 'yonetici rolünü seçili kullanıcı(lar)a ekleyin.'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: yonetici

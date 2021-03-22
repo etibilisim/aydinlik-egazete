@@ -1,0 +1,22 @@
+uuid: 77ff8e66-29ec-4a83-9946-32a443f39618
+langcode: tr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: 6UvqM0mTKljxsEucUWNr3UdP3IwKLUXkjA2uW09aAnI
+id: conference_lite_powered
+theme: conference_lite
+region: hidden_blocks_collection
+weight: -9
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

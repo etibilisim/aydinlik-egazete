@@ -1,0 +1,20 @@
+uuid: 1270e925-2f9f-4683-8fab-351a52030b5b
+langcode: tr
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - hal
+    - serialization
+    - user
+id: user_registration
+plugin_id: user_registration
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - hal_json
+    - json
+  authentication:
+    - basic_auth

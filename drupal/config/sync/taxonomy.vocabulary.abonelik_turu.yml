@@ -1,0 +1,8 @@
+uuid: 3630f8d1-99b4-43a5-b7af-03f9ed0b8661
+langcode: tr
+status: true
+dependencies: {  }
+name: 'Abonelik Türü'
+vid: abonelik_turu
+description: 'Abone olan kullanıcıların abonelik türlerini barındırır.'
+weight: 0

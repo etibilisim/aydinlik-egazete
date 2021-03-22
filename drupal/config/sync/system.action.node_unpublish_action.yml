@@ -1,0 +1,13 @@
+uuid: b335897c-7d8d-4108-ac1e-015e37a58da6
+langcode: tr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: C7X8h9FWlwkQ9y5mnU2JzgaZICAdc6HFbPVbhvjlAYE
+id: node_unpublish_action
+label: 'İçeriği yayından kaldır'
+type: node
+plugin: 'entity:unpublish_action:node'
+configuration: {  }

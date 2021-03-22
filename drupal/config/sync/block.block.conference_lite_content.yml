@@ -1,0 +1,22 @@
+uuid: 28cd183d-80b4-4a1e-b598-8185f943e1cc
+langcode: tr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: 3ePff69GxvKimMMqvt-_WXRxuGuIBw1w0RvknOAlN9c
+id: conference_lite_content
+theme: conference_lite
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,15 @@
+uuid: 82097d1b-7e1d-45d7-9827-25c53be03193
+name: 'Aydınlık E-Gazete'
+mail: egazete@aydlinlik.com.tr
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: tr
+default_langcode: tr
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
+mail_notification: egazete@aydinlik.com.tr

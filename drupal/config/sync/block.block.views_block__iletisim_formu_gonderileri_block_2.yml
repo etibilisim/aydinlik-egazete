@@ -1,0 +1,30 @@
+uuid: 27ef9c7b-689b-46e0-98a4-cecee35d0198
+langcode: tr
+status: true
+dependencies:
+  config:
+    - views.view.iletisim_formu_gonderileri
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: views_block__iletisim_formu_gonderileri_block_2
+theme: seven
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:iletisim_formu_gonderileri-block_2'
+settings:
+  id: 'views_block:iletisim_formu_gonderileri-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/pano
+    negate: false
+    context_mapping: {  }

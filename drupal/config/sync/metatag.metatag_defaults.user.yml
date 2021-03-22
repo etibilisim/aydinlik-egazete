@@ -1,0 +1,12 @@
+uuid: cf5e49d4-019f-4f7f-bd2d-141cb620fc87
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MvQPTbQx0Vxwy0ordSHyixdZmLCMpvMdLD69dlwkrKc
+id: user
+label: Kullanıcı
+tags:
+  canonical_url: '[user:url]'
+  description: '[site:name]'
+  title: '[user:display-name] | [site:name]'

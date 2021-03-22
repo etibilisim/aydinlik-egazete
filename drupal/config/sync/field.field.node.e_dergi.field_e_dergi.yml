@@ -1,0 +1,27 @@
+uuid: 48c34cd6-463a-4ea0-889b-11e2d3be4011
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_e_dergi
+    - node.type.e_dergi
+  module:
+    - file
+id: node.e_dergi.field_e_dergi
+field_name: field_e_dergi
+entity_type: node
+bundle: e_dergi
+label: 'E-Gazete (PDF)'
+description: 'Lütfen pdf formatında hazırlanmış e-dergi dosyasını yükleyiniz.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'gazeteler/[current-date:custom:Y]/[current-date:custom:m]/[current-date:custom:d]'
+  file_extensions: pdf
+  max_filesize: '64 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

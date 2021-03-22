@@ -1,0 +1,13 @@
+uuid: 1e440e30-9b42-4417-b64c-5214455bfe41
+langcode: tr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 2B9uF8NL5gutNKSdPRAhhAsDWFZZG1PJOBmx0aBGd_0
+id: node_publish_action
+label: 'İçeriği yayınla'
+type: node
+plugin: 'entity:publish_action:node'
+configuration: {  }

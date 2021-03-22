@@ -1,0 +1,25 @@
+uuid: bd9b9c84-1ae0-42ba-b393-bc1049f3b689
+langcode: tr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: tVPcqtovSfGD1forTvzUxsWcCUnVYYpq4eRls2RbRIA
+id: conference_lite_branding
+theme: conference_lite
+region: header_first
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: false
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

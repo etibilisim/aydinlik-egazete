@@ -1,0 +1,50 @@
+uuid: 1adbe1ae-33e5-4be2-bcac-b4d96468a957
+langcode: tr
+status: true
+dependencies:
+  module:
+    - commerce_payment
+    - commerce_promotion
+id: default
+label: Default
+plugin: multistep_default
+configuration:
+  display_checkout_progress: true
+  display_checkout_progress_breadcrumb_links: false
+  panes:
+    login:
+      allow_guest_checkout: false
+      allow_registration: true
+      step: login
+      weight: 0
+    contact_information:
+      double_entry: true
+      step: order_information
+      weight: 1
+    payment_information:
+      step: order_information
+      weight: 2
+    review:
+      step: review
+      weight: 3
+    payment_process:
+      capture: true
+      step: payment
+      weight: 4
+    completion_message:
+      message:
+        value: "Sipariş numaranız [commerce_order:order_number].\r\nÇıkış yapıpı tekrar giriş yaptığınızda profilinizdeki \"Siparişler\" bölümünden sipairşlerinizi ve ayrıntıları görüntüleyebilirsiniz."
+        format: plain_text
+      step: complete
+      weight: 5
+    order_summary:
+      view: commerce_checkout_order_summary
+      step: _sidebar
+      weight: 6
+    coupon_redemption:
+      allow_multiple: false
+      step: _disabled
+      weight: 7
+    completion_register:
+      step: _disabled
+      weight: 8

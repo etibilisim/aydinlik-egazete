@@ -1,0 +1,19 @@
+uuid: c1584785-71e9-4735-b46b-44b8d9697464
+langcode: tr
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.attribute_e_gazete_aboneligi
+field_name: attribute_e_gazete_aboneligi
+entity_type: commerce_product_variation
+type: entity_reference
+settings:
+  target_type: commerce_product_attribute_value
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

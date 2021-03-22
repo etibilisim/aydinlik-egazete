@@ -1,0 +1,13 @@
+uuid: f9f5901c-9071-4e6e-ad07-d204b99a23a1
+langcode: tr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: JBptjnfuOMtsdKygklXxoOgeOCTMtQxlkymjnnj-cC0
+id: node_unpromote_action
+label: 'İçeriği ana sayfadan kaldır'
+type: node
+plugin: node_unpromote_action
+configuration: {  }

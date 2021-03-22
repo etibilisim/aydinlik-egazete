@@ -1,0 +1,21 @@
+uuid: bb0b9e43-c95c-4a0e-8084-267543f55c8f
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_abonelik_baslangic_tarihi
+  module:
+    - datetime
+    - user
+id: user.user.field_abonelik_baslangic_tarihi
+field_name: field_abonelik_baslangic_tarihi
+entity_type: user
+bundle: user
+label: 'E-Gazete Abonelik Başlangıç Tarihi'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

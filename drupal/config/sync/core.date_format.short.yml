@@ -1,0 +1,10 @@
+uuid: 00619e4b-ff63-416d-a1b1-4b4b9bbdb1d0
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: AlzeyytA8InBgxIG9H2UDJYs3CG98Zj6yRsDKmlbZwA
+id: short
+label: 'Varsayılan kısa tarih'
+locked: false
+pattern: 'd/m/Y - H:i'

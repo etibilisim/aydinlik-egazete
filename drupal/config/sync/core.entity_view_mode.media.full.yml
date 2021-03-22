@@ -1,0 +1,12 @@
+uuid: 3c5d3720-dc48-4858-bc4e-d8a838819afa
+langcode: tr
+status: false
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: 6NBUEuGmlkClK8Fb76tSMMpO2eZ4LWCBdbUk4z7CuP0
+id: media.full
+label: 'Tüm içerik'
+targetEntityType: media
+cache: true

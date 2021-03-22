@@ -1,0 +1,75 @@
+uuid: a0539087-d829-496e-8d61-004977bfe129
+langcode: tr
+status: true
+dependencies:
+  module:
+    - locale
+_core:
+  default_config_hash: IGyq02Zgyl_6WJczNqeYnXXQR_B_iM-yyOFXOUmVpLk
+id: locale
+label: Çeviri
+module: locale
+routes:
+  -
+    route_name: locale.translate_page
+tips:
+  locale-overview:
+    id: locale-overview
+    plugin: text
+    label: 'User interface translation'
+    body: 'Bu sayfa sizin kullanıcı arayüzü çevirme ve varolan çevirileri düzenlemenizi sağlar. Sitenizi İngilizce olarak kurduysanız, bu sayfayı kullanabilmek için önce <a href="[site:url]/admin/config/regional/language">Diller</a> bölümünden başka bir dil eklemelisiniz.'
+    weight: 1
+  locale-language:
+    id: locale-language
+    plugin: text
+    label: 'Çeviri dili'
+    body: 'Çevirmek istediğiniz dili seçin.'
+    weight: 2
+    attributes:
+      data-id: edit-langcode
+  locale-search:
+    id: locale-search
+    plugin: text
+    label: Arama
+    body: 'Çevirmek istediğiniz sözcük ya da cümlenin tamamını ya da bir bölümünü yazın.'
+    weight: 3
+    attributes:
+      data-id: edit-string
+  locale-filter:
+    id: locale-filter
+    plugin: text
+    label: 'Aramayı süzün'
+    body: 'Henüz çevrilmemiş dizgeleri çevirmek istiyorsanız, arama sonuçlarında çevrilmemiş dizgeleri, varolan bir çeviriyi düzenlemek için çevrilmiş dizgeleri süzebilirsiniz.'
+    weight: 4
+    attributes:
+      data-id: edit-translation
+  locale-submit:
+    id: locale-submit
+    plugin: text
+    label: 'Arama ölçütünü uygulayın'
+    body: 'Arama ölçütünü uygulamak için <em>Süz</em> düğmesine tıklayın.'
+    weight: 5
+    attributes:
+      data-id: edit-submit
+  locale-translate:
+    id: locale-translate
+    plugin: text
+    label: Çevir
+    body: 'Çeviriyi sağ sütundaki metin alanına yazabilirsiniz. Çeviriyi metnin kullanıcılacağı bağlama uygun yapmaya çalışın.'
+    weight: 6
+    attributes:
+      data-class: js-form-type-textarea
+  locale-validate:
+    id: locale-validate
+    plugin: text
+    label: 'Çeviriyi doğrulayın'
+    body: 'Çevirileri tamamladığınızda <em>Çevirileri Kaydet</em> düğmesine tıklayın Bu bölümde yeni bir çeviri ya da arama yaptıktan sonra çevirilerinizi kaydetmelisiniz.'
+    weight: 7
+    attributes:
+      data-id: edit-submit--2
+  locale-continue:
+    id: locale-continue
+    plugin: text
+    label: 'Devam ediliyor'
+    body: 'Burada yaptığınız çeviriler sitenizin kullanıcı arayüzünde kullanılacaktır. Bu çevirileri başka bir sitede kullanmak veya dış bir çeviri düzenleyicide düzenlemek istiyorsanız bir .po dosyasına <a href="[site:url]admin/config/regional/translate/export"> aktarabilir</a> ve daha sonra <a href="[site:url]admin/config/regional/translate/import">içeri alabilirsiniz</a>.'
+    weight: 8

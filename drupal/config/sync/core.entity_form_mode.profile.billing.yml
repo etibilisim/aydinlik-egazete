@@ -1,0 +1,15 @@
+uuid: bfe7c38a-1325-452b-8e31-e558aaef2de5
+langcode: tr
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_order
+  module:
+    - profile
+_core:
+  default_config_hash: yeGwCxbA5dBAS_3eBkfaVrbxkASEM357dkjPZShKiR4
+id: profile.billing
+label: Faturalandırma
+targetEntityType: profile
+cache: true

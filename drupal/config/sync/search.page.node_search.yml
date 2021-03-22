@@ -1,0 +1,15 @@
+uuid: ac16c999-f4c7-47e3-ae55-7e8574e9474e
+langcode: tr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 97tvtzGOa8_flb22CzSjgtm_YkiGMHvEBO-6q2K9V_U
+id: node_search
+label: İçerik
+path: node
+weight: -10
+plugin: node_search
+configuration:
+  rankings: {  }

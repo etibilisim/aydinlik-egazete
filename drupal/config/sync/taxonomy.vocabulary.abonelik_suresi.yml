@@ -1,0 +1,8 @@
+uuid: 9495b664-cf04-4dc2-a769-82b7683ac2d0
+langcode: tr
+status: true
+dependencies: {  }
+name: 'Abonelik Süresi'
+vid: abonelik_suresi
+description: ''
+weight: 0

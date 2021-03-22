@@ -1,0 +1,35 @@
+uuid: 79a6470d-274f-451e-9552-3142a56f2e48
+langcode: tr
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+    - user
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: YtmuKvKCZrCx1HI-XCG32h0gdGGxZmovCNdEFxs3TdM
+id: conference_lite_account_menu
+theme: conference_lite
+region: header_top_highlighted_first
+weight: -6
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

@@ -1,0 +1,29 @@
+uuid: bdf55819-4d50-46f6-8a4d-c539fd701bb8
+langcode: tr
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: QBpTO7d_Rjt7kPMGKCaQydvxNwTtlr_m37MOlqawUkI
+id: conference_lite_search
+theme: conference_lite
+region: hidden_blocks_collection
+weight: -12
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Arama
+  provider: search
+  label_display: visible
+  page_id: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /ayrintili-kullanici-tablosu
+    negate: true
+    context_mapping: {  }

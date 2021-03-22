@@ -1,0 +1,31 @@
+uuid: d091a9c1-10f9-4286-ad2e-664efff94e0a
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:372ecfed-9ce0-4b06-9ae2-bf339bd36393'
+  module:
+    - block_content
+    - system
+  theme:
+    - conference_lite
+id: destekiletisimnumaralari
+theme: conference_lite
+region: header_third
+weight: -8
+provider: null
+plugin: 'block_content:372ecfed-9ce0-4b06-9ae2-bf339bd36393'
+settings:
+  id: 'block_content:372ecfed-9ce0-4b06-9ae2-bf339bd36393'
+  label: 'Destek İletişim Numaraları'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /ayrintili-kullanici-tablosu
+    negate: true
+    context_mapping: {  }

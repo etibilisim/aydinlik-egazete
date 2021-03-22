@@ -1,0 +1,15 @@
+uuid: d68c6ec6-32a9-4bb0-b81a-ec5ed75c2b1c
+langcode: tr
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_order
+  module:
+    - profile
+_core:
+  default_config_hash: rNBHCP7hJFMjP_iDe9-0AsSfkGC98V6Lh_oeOwmLos8
+id: profile.admin
+label: Yönetim
+targetEntityType: profile
+cache: true

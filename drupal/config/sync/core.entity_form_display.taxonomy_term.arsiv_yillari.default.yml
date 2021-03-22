@@ -1,0 +1,62 @@
+uuid: 73df626e-373d-4414-819d-066c852917a9
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.arsiv_yillari.field_terim_gorseli
+    - image.style.thumbnail
+    - taxonomy.vocabulary.arsiv_yillari
+  module:
+    - image
+    - path
+    - text
+id: taxonomy_term.arsiv_yillari.default
+targetEntityType: taxonomy_term
+bundle: arsiv_yillari
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_terim_gorseli:
+    weight: 1
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+hidden: {  }

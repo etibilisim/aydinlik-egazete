@@ -1,0 +1,15 @@
+uuid: 40175e44-f80e-4c8c-981d-187c5399f1c1
+langcode: tr
+status: true
+dependencies: {  }
+name: dergi_anasayfa
+label: 'Dergi Anasayfa'
+effects:
+  9f31192a-5133-4673-a42c-84ebfba91f5f:
+    uuid: 9f31192a-5133-4673-a42c-84ebfba91f5f
+    id: image_scale
+    weight: 1
+    data:
+      width: 300
+      height: 300
+      upscale: false

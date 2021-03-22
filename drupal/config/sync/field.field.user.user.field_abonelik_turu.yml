@@ -1,0 +1,29 @@
+uuid: f88377b2-5253-4620-9a28-92ed4eca2b6f
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_abonelik_turu
+    - taxonomy.vocabulary.abonelik_turu
+  module:
+    - user
+id: user.user.field_abonelik_turu
+field_name: field_abonelik_turu
+entity_type: user
+bundle: user
+label: 'Abonelik Türü'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      abonelik_turu: abonelik_turu
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,10 @@
+uuid: fd5b337c-095b-4b92-b67f-e88eddb00d57
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: M7yqicYkU36hRy5p9drAaGBBihhUD1OyujFrAaQ93ZE
+id: html_time
+label: 'HTML Zaman'
+locked: true
+pattern: 'H:i:s'

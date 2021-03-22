@@ -1,0 +1,10 @@
+uuid: c0900f09-40b3-44ef-ad13-984bfc508ab6
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sapEi2YDGoI9yQIT_WgIV2vUdQ6DScH0V3fAyTadAL0
+id: admin
+label: Yönetim
+description: 'Yönetim görevleri bağlantıları'
+locked: true

@@ -1,0 +1,27 @@
+uuid: a166bfd3-5e00-4917-b33e-d4339723f154
+langcode: tr
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: CN8cix8XUDIeh3zV-xi2hT3WMcKj5dY88CoJpAUAa5Y
+id: conference_lite_tools
+theme: conference_lite
+region: hidden_blocks_collection
+weight: -10
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

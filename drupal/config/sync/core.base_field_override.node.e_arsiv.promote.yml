@@ -1,0 +1,22 @@
+uuid: 6af22049-f32c-45cf-97e2-53c5870bac31
+langcode: tr
+status: true
+dependencies:
+  config:
+    - node.type.e_arsiv
+id: node.e_arsiv.promote
+field_name: promote
+entity_type: node
+bundle: e_arsiv
+label: 'Ana sayfaya yükseltilmiş'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Açık
+  off_label: Kapalı
+field_type: boolean

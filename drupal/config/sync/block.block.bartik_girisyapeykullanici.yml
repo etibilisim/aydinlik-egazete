@@ -1,0 +1,31 @@
+uuid: eb19e6fd-1e60-4d83-a0fd-6b47eb90b298
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:09999c5b-e9a8-48ab-842d-7a1efc5e3979'
+  module:
+    - block_content
+    - system
+  theme:
+    - bartik
+id: bartik_girisyapeykullanici
+theme: bartik
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:09999c5b-e9a8-48ab-842d-7a1efc5e3979'
+settings:
+  id: 'block_content:09999c5b-e9a8-48ab-842d-7a1efc5e3979'
+  label: 'Giriş yap ey kullanıcı'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /user/login
+    negate: false
+    context_mapping: {  }

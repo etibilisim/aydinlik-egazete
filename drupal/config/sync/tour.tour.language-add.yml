@@ -1,0 +1,35 @@
+uuid: a712fd6c-9a45-4d69-96e1-a605b94a20d6
+langcode: tr
+status: true
+dependencies:
+  module:
+    - language
+_core:
+  default_config_hash: xVFzaZr6iMWsqxy9-QqAX3lyUKCyJr16dAXXjhgb3Kk
+id: language-add
+label: 'Diller ekleniyor'
+module: language
+routes:
+  -
+    route_name: language.add
+tips:
+  language-add-overview:
+    id: language-add-overview
+    plugin: text
+    label: 'Diller ekleniyor'
+    body: '<p>Site için ortak diller bu bölümden eklenebilir.</p><p>Aradığınız dil yoksa özel bir dil ekleyebilirsiniz.</p>'
+    weight: 1
+  language-add-choose:
+    id: language-add-choose
+    plugin: text
+    label: 'Dil seçiniz'
+    body: '<p>Listeden bir dil ya da listenin sonundan "Özel dil..." seçeneğini seçin.</p><p>Dil seçiminizi tamamlamak için "Dil Ekle" düğmesine tıklayın.</p><p>Özel bir dil eklerken, dil adı, dil kodu ve dil yazım yönünü belirtebileceğiniz bir form açılır.</p>'
+    weight: 2
+    attributes:
+      data-id: edit-predefined-langcode
+  language-add-continue:
+    id: language-add-continue
+    plugin: text
+    label: 'Devam ediliyor'
+    body: '<p>"Dil ekleme" özelliği hakkında özet bilgileri aldığınıza göre şimdi şu işlemleri yapabilirsiniz:<ul><li>Dil ekleme</li><li>Özel dil ekleme</li><li><a href="[site:url]/admin/config/regional/language">Ayarlanmış dilleri görüntüleme</a></li></ul></p>'
+    weight: 3

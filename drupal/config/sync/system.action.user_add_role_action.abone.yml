@@ -1,0 +1,14 @@
+uuid: 9b8c2967-378b-4a7d-9ab4-7e75ca08b415
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.abone
+  module:
+    - user
+id: user_add_role_action.abone
+label: 'Abone rolünü seçili kullanıcı(lar)a ekleyin.'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: abone

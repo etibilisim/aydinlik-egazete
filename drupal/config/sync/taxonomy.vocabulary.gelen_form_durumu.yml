@@ -1,0 +1,8 @@
+uuid: 1f5325e0-9709-4bfb-8ba4-9565fce9d6ac
+langcode: tr
+status: true
+dependencies: {  }
+name: 'Gelen Form Durumu'
+vid: gelen_form_durumu
+description: ''
+weight: 0

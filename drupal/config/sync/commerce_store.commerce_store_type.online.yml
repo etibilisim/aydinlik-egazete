@@ -1,0 +1,11 @@
+uuid: dcf810e5-ec91-4824-a219-7b2d75ffc7d0
+langcode: tr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: FGYrs0ZrjxSzRQMODyYqquV1UW5MN7S5wUG0Dp_OxWU
+id: online
+label: 'Çevrim içi / Yayında'
+description: ''
+traits: {  }
+locked: false

@@ -1,0 +1,24 @@
+uuid: 5403609d-c9eb-4320-95a2-64bd738f85c5
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_onay
+  module:
+    - user
+id: user.user.field_onay
+field_name: field_onay
+entity_type: user
+bundle: user
+label: 'Kullanım koşullarını, gizlilik ilkelerini ve mesefali satış sözleşmesini okudum, onaylıyorum.'
+description: '<a href="/kullanim-kosullari" target="_blank">Kullanım Koşulları</a>, <a href="/gizlilik-ilkesi" target="_blank">Gizlilik İlkesi</a>  ve <a href="/mesafeli-satis-sozlesmesi" target="_blank">Mesafeli Satış Sözleşmesi</a> sayfalarına buradaki bağlantılardan ulaşabilirsiniz.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Açık
+  off_label: Kapalı
+field_type: boolean

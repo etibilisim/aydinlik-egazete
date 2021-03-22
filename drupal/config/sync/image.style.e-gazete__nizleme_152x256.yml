@@ -1,0 +1,15 @@
+uuid: 46516e56-c05a-4f8a-b7e4-a5252592d697
+langcode: tr
+status: true
+dependencies: {  }
+name: e-gazete__nizleme_152x256
+label: 'E-Gazete Önizleme 152x256'
+effects:
+  d03e1df9-b8b7-456a-83f2-e1f5b1ecdd3e:
+    uuid: d03e1df9-b8b7-456a-83f2-e1f5b1ecdd3e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 152
+      height: 256
+      anchor: center-center

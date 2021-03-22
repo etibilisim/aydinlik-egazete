@@ -1,0 +1,21 @@
+uuid: c41798f7-063d-404b-8ec3-98ad889a27b5
+langcode: tr
+status: true
+dependencies:
+  module:
+    - iyzipay
+id: iyzipay
+label: İyzipay
+weight: null
+plugin: iyzipay_onsite
+configuration:
+  api_key: cNydzxv8cievgqaLw8aOrziTE6u7GyE6
+  secret_key: 3M6hla28BbwTNEwSNajlSgtFHnfpwxjk
+  api_url: 'https://api.iyzipay.com'
+  display_label: Iyzipay
+  mode: live
+  payment_method_types:
+    - full_credit_card
+  collect_billing_information: true
+conditions: {  }
+conditionOperator: AND

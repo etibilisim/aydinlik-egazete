@@ -1,0 +1,22 @@
+uuid: 3e46252f-dcb5-4e42-92ad-0f39b992c92f
+langcode: tr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - conference_lite
+_core:
+  default_config_hash: bzk5UBBQt1rvuXnDrmcfi4lwTFM7md8-E1u0swI7dgA
+id: conference_lite_messages
+theme: conference_lite
+region: system_messages
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

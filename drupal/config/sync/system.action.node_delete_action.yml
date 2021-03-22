@@ -1,0 +1,13 @@
+uuid: 65639c9c-f4d6-4cee-aaa8-b4d42cbfd649
+langcode: tr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: t43OqwzP3CTbcAagSsWKNy6KwMm_zShXo3c4-So6rQg
+id: node_delete_action
+label: 'İçeriği sil'
+type: node
+plugin: 'entity:delete_action:node'
+configuration: {  }

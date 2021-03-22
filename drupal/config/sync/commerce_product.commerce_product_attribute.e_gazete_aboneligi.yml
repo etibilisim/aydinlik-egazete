@@ -1,0 +1,7 @@
+uuid: d3e0fcec-4a0b-4608-8148-5e1ceb6220a4
+langcode: tr
+status: true
+dependencies: {  }
+id: e_gazete_aboneligi
+label: 'E-Gazete Aboneliği'
+elementType: radios

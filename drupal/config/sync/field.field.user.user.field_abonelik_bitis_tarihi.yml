@@ -1,0 +1,21 @@
+uuid: d0f92252-9219-409a-b4b0-02f552041a4b
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_abonelik_bitis_tarihi
+  module:
+    - datetime
+    - user
+id: user.user.field_abonelik_bitis_tarihi
+field_name: field_abonelik_bitis_tarihi
+entity_type: user
+bundle: user
+label: 'E-Gazete Abonelik Bitiş Tarihi'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

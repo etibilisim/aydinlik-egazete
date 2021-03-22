@@ -1,0 +1,14 @@
+uuid: 98ec6a40-e2a6-40c5-b2a5-8ad3bed57e2c
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.abone
+  module:
+    - user
+id: user_remove_role_action.abone
+label: 'Abone rolünü seçili kullanıcı(lar)dan alın.'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: abone

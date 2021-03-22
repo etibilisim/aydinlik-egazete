@@ -1,0 +1,21 @@
+uuid: 9fb716f4-3fe6-464e-8568-f5d010250007
+langcode: tr
+status: true
+dependencies:
+  module:
+    - commerce_cart
+  theme:
+    - conference_lite
+id: sepet
+theme: conference_lite
+region: header_top_highlighted_second
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: 'Alışveriş Sepeti'
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: false
+visibility: {  }

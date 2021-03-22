@@ -1,0 +1,59 @@
+uuid: 76e4b621-8cd9-4fca-97fd-1659d176259b
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.field.node.e_arsiv.field_e_arsiv_dosyasi
+    - field.field.node.e_arsiv.field_yayimlandigi_ay
+    - field.field.node.e_arsiv.field_yayimlandigi_tarih
+    - field.field.node.e_arsiv.field_yayimlandigi_yil
+    - node.type.e_arsiv
+  module:
+    - datetime
+    - file
+    - user
+id: node.e_arsiv.default
+targetEntityType: node
+bundle: e_arsiv
+mode: default
+content:
+  field_e_arsiv_dosyasi:
+    type: file_default
+    weight: 2
+    region: content
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+  field_yayimlandigi_ay:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_yayimlandigi_tarih:
+    type: datetime_default
+    weight: 1
+    region: content
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_yayimlandigi_yil:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

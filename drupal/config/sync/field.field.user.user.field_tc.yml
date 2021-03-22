@@ -1,0 +1,20 @@
+uuid: 0f1ead13-142c-4905-a287-fe7fd2c540d2
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_tc
+  module:
+    - user
+id: user.user.field_tc
+field_name: field_tc
+entity_type: user
+bundle: user
+label: 'TC Kimlik No'
+description: 'Faturalandırma işlemlerinde kullanılması için TC kimlik numaranızı yazınız.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
