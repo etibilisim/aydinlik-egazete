@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
+    - field.field.commerce_product_variation.default.field_sku
   module:
     - commerce_price
 id: commerce_product_variation.default.default
@@ -12,6 +13,14 @@ targetEntityType: commerce_product_variation
 bundle: default
 mode: default
 content:
+  field_sku:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   list_price:
     label: above
     type: commerce_price_default

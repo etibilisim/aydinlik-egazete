@@ -1,7 +1,0 @@
-uuid: f5c10ef1-2084-49c0-9b7e-86eeb8855aa2
-langcode: tr
-status: true
-dependencies: {  }
-formId: node_webform_form
-captchaType: default
-label: null

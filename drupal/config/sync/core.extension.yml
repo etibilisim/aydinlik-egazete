@@ -13,7 +13,6 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
-  captcha: 0
   ckeditor: 0
   color: 0
   colorbox: 0
@@ -68,6 +67,7 @@ module:
   jquery_ui_datepicker: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
+  jsonapi: 0
   language: 0
   link: 0
   locale: 0
@@ -91,7 +91,6 @@ module:
   profile: 0
   quickedit: 0
   rdf: 0
-  recaptcha: 0
   rest: 0
   restui: 0
   scheduler: 0
@@ -101,6 +100,7 @@ module:
   sitemap: 0
   state_machine: 0
   statistics: 0
+  structure_sync: 0
   superfish: 0
   syslog: 0
   system: 0
@@ -116,7 +116,6 @@ module:
   views_data_export: 0
   views_ui: 0
   webform: 0
-  webform_access: 0
   webform_node: 0
   webform_options_custom: 0
   webform_options_limit: 0

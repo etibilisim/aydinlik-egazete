@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
     - field.field.user.user.field_onay
+    - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
     - field.field.user.user.field_telefon
     - field.field.user.user.user_picture
@@ -83,6 +84,12 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_taahhut_tarihi:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_tc:
     weight: 12

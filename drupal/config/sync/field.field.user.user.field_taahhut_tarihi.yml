@@ -1,0 +1,21 @@
+uuid: 3fbc290d-9be7-4fec-8b7f-3b7aa9da512c
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_taahhut_tarihi
+  module:
+    - datetime
+    - user
+id: user.user.field_taahhut_tarihi
+field_name: field_taahhut_tarihi
+entity_type: user
+bundle: user
+label: 'Taahhüt Tarihi'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,31 @@
+uuid: dd0887f5-786e-4b46-8a8d-b830e25d36db
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.abonelik_suresi.field_sku
+    - taxonomy.vocabulary.abonelik_suresi
+  module:
+    - text
+id: taxonomy_term.abonelik_suresi.default
+targetEntityType: taxonomy_term
+bundle: abonelik_suresi
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sku:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

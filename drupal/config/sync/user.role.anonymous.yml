@@ -20,3 +20,4 @@ permissions:
   - 'view commerce_product'
   - 'view files'
   - 'view media'
+  - 'view webform revisions'
