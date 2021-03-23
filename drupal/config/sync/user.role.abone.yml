@@ -6,4 +6,6 @@ id: abone
 label: Abone
 weight: 5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'view own webform submission'
+  - 'view webform submissions own node'
