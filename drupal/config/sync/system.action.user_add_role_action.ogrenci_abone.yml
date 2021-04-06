@@ -1,0 +1,14 @@
+uuid: 2a83a3a1-d60b-4887-84e2-7e894fe6ee26
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.ogrenci_abone
+  module:
+    - user
+id: user_add_role_action.ogrenci_abone
+label: 'Öğrenci abone rolünü seçili kullanıcı(lar)a ekleyin.'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: ogrenci_abone

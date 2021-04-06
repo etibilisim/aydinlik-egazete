@@ -40,3 +40,4 @@ permissions:
   - 'view own field_onay'
   - 'view own field_satin_alinan_icerik'
   - 'view own field_satin_alinan_yil'
+  - 'view webform revisions'

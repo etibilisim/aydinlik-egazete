@@ -1,0 +1,9 @@
+uuid: 8c35ede4-2df0-46d9-ba61-85657f0c415c
+langcode: tr
+status: true
+dependencies: {  }
+id: indirimli_abone
+label: 'İndirimli abone'
+weight: 7
+is_admin: null
+permissions: {  }
