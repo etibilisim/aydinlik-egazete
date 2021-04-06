@@ -12,6 +12,7 @@ dependencies:
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
     - field.field.user.user.field_onay
+    - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
     - field.field.user.user.field_telefon
     - field.field.user.user.user_picture
@@ -45,6 +46,7 @@ hidden:
   field_adiniz_soyadiniz: true
   field_adres: true
   field_onay: true
+  field_taahhut_tarihi: true
   field_tc: true
   field_telefon: true
   langcode: true

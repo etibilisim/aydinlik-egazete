@@ -130,6 +130,7 @@ permissions:
   - 'edit own page content'
   - 'edit own video files'
   - 'edit own webform content'
+  - 'execute php code'
   - 'flush caches'
   - 'revert revisions'
   - 'schedule publishing of nodes'

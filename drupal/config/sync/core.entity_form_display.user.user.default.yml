@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
     - field.field.user.user.field_onay
+    - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
     - field.field.user.user.field_telefon
     - field.field.user.user.user_picture
@@ -19,6 +20,7 @@ dependencies:
     - address
     - datetime
     - image
+    - mask
     - path
     - telephone
     - user
@@ -84,6 +86,12 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_taahhut_tarihi:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_tc:
     weight: 12
     settings:
@@ -95,8 +103,15 @@ content:
   field_telefon:
     weight: 1
     settings:
-      placeholder: 5xxxxxxxxx
-    third_party_settings: {  }
+      placeholder: +905xxxxxxxxx
+    third_party_settings:
+      mask:
+        value: '+000000000000'
+        selectonfocus: '1'
+        translation_help:
+          table: ''
+        reverse: 0
+        clearifnotmatch: 0
     type: telephone_default
     region: content
   language:

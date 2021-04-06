@@ -8,7 +8,6 @@ module:
   automated_cron: 0
   aydinlik: 0
   basic_auth: 0
-  better_exposed_filters: 0
   big_pipe: 0
   block: 0
   block_content: 0
@@ -66,12 +65,11 @@ module:
   iyzipay: 0
   jquery_ui: 0
   jquery_ui_datepicker: 0
-  jquery_ui_slider: 0
-  jquery_ui_touch_punch: 0
   language: 0
   link: 0
   locale: 0
   mail_login: 0
+  mask: 0
   media: 0
   media_library: 0
   menu_link_content: 0

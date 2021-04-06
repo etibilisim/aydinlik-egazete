@@ -40,6 +40,7 @@
         "drupal/iyzipay": "^1.0@alpha",
         "drupal/login_emailusername": "^1.2",
         "drupal/mail_login": "^2.4",
+        "drupal/mask": "^1.0@alpha",
         "drupal/metatag": "^1.15",
         "drupal/migrate_tools": "^5.0",
         "drupal/pathauto": "^1.8",

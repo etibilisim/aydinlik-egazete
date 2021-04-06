@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
+    - field.field.commerce_product_variation.default.field_sku
   module:
     - commerce_price
 id: commerce_product_variation.default.default
@@ -17,6 +18,14 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_sku:
+    weight: 91
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   langcode:
     type: language_select

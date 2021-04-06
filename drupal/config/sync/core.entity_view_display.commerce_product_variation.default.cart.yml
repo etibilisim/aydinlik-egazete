@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.cart
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
+    - field.field.commerce_product_variation.default.field_sku
   module:
     - commerce_price
 id: commerce_product_variation.default.cart
@@ -33,6 +34,7 @@ content:
     third_party_settings: {  }
 hidden:
   attribute_e_gazete_aboneligi: true
+  field_sku: true
   langcode: true
   product_id: true
   sku: true
