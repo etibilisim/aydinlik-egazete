@@ -71,7 +71,7 @@
     "extra": {
         "patches": {
             "drupal/iyzipay": {
-                "Rawgit Not Found Error": "https://www.drupal.org/files/issues/2021-01-20/3193758-1.patch"
+                "One Patch to Rule Them All": "https://www.html.webcinizim.com/iyzipay-one-patch-to-rule-them-all.patch"
             }
         },
         "drupal-scaffold": {
