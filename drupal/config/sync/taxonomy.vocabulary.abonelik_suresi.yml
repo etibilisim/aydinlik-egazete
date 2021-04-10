@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Abonelik Süresi'
 vid: abonelik_suresi
-description: 'Abone olan kullanıcıların abonelik sürelerini barındırır.'
+description: ''
 weight: 0

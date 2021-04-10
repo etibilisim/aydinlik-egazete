@@ -1,0 +1,29 @@
+uuid: 976159ce-1e3f-41c4-953f-b0dd1895dde0
+langcode: tr
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_urun_turu
+    - taxonomy.vocabulary.urun_turleri
+id: commerce_product.default.field_urun_turu
+field_name: field_urun_turu
+entity_type: commerce_product
+bundle: default
+label: 'Ürün Türü'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      urun_turleri: urun_turleri
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

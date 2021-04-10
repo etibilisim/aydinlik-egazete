@@ -1,0 +1,19 @@
+uuid: 21e4d447-8088-4f9d-b236-a7fed874b158
+langcode: tr
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - field.storage.commerce_order.field_kart_turu
+id: commerce_order.default.field_kart_turu
+field_name: field_kart_turu
+entity_type: commerce_order
+bundle: default
+label: 'Kart Türü'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

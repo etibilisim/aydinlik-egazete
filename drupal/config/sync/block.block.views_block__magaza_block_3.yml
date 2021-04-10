@@ -1,0 +1,30 @@
+uuid: 434d6342-e60d-4334-a192-e75ed564cda4
+langcode: tr
+status: true
+dependencies:
+  config:
+    - views.view.magaza
+  module:
+    - system
+    - views
+  theme:
+    - conference_lite
+id: views_block__magaza_block_3
+theme: conference_lite
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:magaza-block_3'
+settings:
+  id: 'views_block:magaza-block_3'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /satin-al
+    negate: false
+    context_mapping: {  }

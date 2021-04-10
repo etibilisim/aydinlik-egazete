@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: yonetici
 label: yonetici
-weight: 3
+weight: -8
 is_admin: null
 permissions:
   - 'access administration menu'

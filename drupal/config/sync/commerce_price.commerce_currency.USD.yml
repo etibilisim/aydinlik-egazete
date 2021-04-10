@@ -1,0 +1,9 @@
+uuid: 1219796a-92cf-4021-a8a3-1ce4b6e28ab0
+langcode: tr
+status: true
+dependencies: {  }
+currencyCode: USD
+name: 'ABD Doları'
+numericCode: '840'
+symbol: $
+fractionDigits: 2

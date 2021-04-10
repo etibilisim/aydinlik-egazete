@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 uuid: 0bdc56d7-cdcd-464a-bd5f-8ad578bd73df
-=======
-uuid: b14ed1e1-a3f9-499c-b53e-006ea755a8b1
->>>>>>> 28332ee51fbc1b64791f51e18703d92d014a19aa
 langcode: tr
 status: true
 dependencies:
@@ -18,11 +14,7 @@ field_name: field_taahhut_tarihi
 entity_type: user
 type: datetime
 settings:
-<<<<<<< HEAD
   datetime_type: date
-=======
-  datetime_type: datetime
->>>>>>> 28332ee51fbc1b64791f51e18703d92d014a19aa
 module: datetime
 locked: false
 cardinality: 1

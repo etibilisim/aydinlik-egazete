@@ -1,0 +1,14 @@
+uuid: b858ce5d-b1a4-4b89-aa6d-cdbc02f11d24
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.yurtdisi_abone
+  module:
+    - user
+id: user_add_role_action.yurtdisi_abone
+label: 'Yurtdışı Abone rolünü seçili kullanıcı(lar)a ekleyin.'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: yurtdisi_abone

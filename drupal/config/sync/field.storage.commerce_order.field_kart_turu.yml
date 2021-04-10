@@ -1,0 +1,25 @@
+uuid: e69453b9-ce4c-49f9-94a1-9c8f3c2d653f
+langcode: tr
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: commerce_order.field_kart_turu
+field_name: field_kart_turu
+entity_type: commerce_order
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

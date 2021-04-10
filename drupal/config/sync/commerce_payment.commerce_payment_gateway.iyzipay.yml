@@ -11,11 +11,7 @@ plugin: iyzipay_onsite
 configuration:
   api_key: sandbox-alVh774XfpyJhevEZcJKQIljWVNiWOdy
   secret_key: sandbox-7ivc8P7x9rk1f24ftNeBeK3FMgsGhIi3
-<<<<<<< HEAD
   api_url: 'https://sandbox-api.iyzipay.com'
-=======
-  api_url: 'https://sandbox-api.iyzipay.com/'
->>>>>>> 28332ee51fbc1b64791f51e18703d92d014a19aa
   display_label: Iyzipay
   mode: test
   payment_method_types:

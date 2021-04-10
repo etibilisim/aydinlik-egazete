@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 uuid: 8550b64f-1fe4-4454-ac03-404033f86eba
-=======
-uuid: c32d2539-25e8-422b-b079-fcad34f37155
->>>>>>> 28332ee51fbc1b64791f51e18703d92d014a19aa
 langcode: tr
 status: true
 dependencies:
@@ -15,11 +11,7 @@ entity_type: taxonomy_term
 bundle: abonelik_suresi
 label: SKU
 description: ''
-<<<<<<< HEAD
 required: false
-=======
-required: true
->>>>>>> 28332ee51fbc1b64791f51e18703d92d014a19aa
 translatable: false
 default_value: {  }
 default_value_callback: ''

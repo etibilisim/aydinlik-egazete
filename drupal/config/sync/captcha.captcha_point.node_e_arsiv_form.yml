@@ -1,0 +1,7 @@
+uuid: cb8bca57-542a-4ebd-a422-1d219413b4c9
+langcode: tr
+status: false
+dependencies: {  }
+formId: node_e_arsiv_form
+captchaType: default
+label: null
