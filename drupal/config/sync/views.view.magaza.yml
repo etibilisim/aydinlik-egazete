@@ -3,15 +3,22 @@ langcode: tr
 status: true
 dependencies:
   config:
-    - system.menu.main
+    - taxonomy.vocabulary.urun_turleri
     - user.role.abone
     - user.role.administrator
     - user.role.anonymous
     - user.role.authenticated
+    - user.role.ogrenci_abone
     - user.role.yonetici
+    - user.role.yurtdisi_abone
+  content:
+    - 'taxonomy_term:urun_turleri:21bfda90-ab68-4b79-a4f4-607671c2d230'
+    - 'taxonomy_term:urun_turleri:483f3bf5-70c9-4bb1-a572-035e59f70897'
+    - 'taxonomy_term:urun_turleri:afee1f3d-6a59-494a-a395-f8aee0887155'
   module:
-    - commerce_order
     - commerce_product
+    - commerce_variation_add_to_cart
+    - taxonomy
     - user
 id: magaza
 label: Mağaza
@@ -35,7 +42,7 @@ display:
             authenticated: authenticated
             yonetici: yonetici
             administrator: administrator
-            abone: abone
+            yurtdisi_abone: yurtdisi_abone
       cache:
         type: tag
         options: {  }
@@ -58,30 +65,28 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: some
         options:
           items_per_page: 1
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
-        type: default
-      row:
-        type: 'entity:commerce_product'
+        type: grid
         options:
-          relationship: none
-          view_mode: default
+          grouping: {  }
+          columns: 2
+          automatic_width: true
+          alignment: horizontal
+          col_class_default: true
+          col_class_custom: ''
+          row_class_default: true
+          row_class_custom: ''
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
       fields:
         variations_target_id:
           id: variations_target_id
@@ -132,9 +137,15 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: commerce_order_item_table
+          type: variation_add_to_cart
           settings:
-            link: 1
+            show_title: 1
+            show_quantity: false
+            show_price: true
+            show_currency: true
+            price_format: 2
+            attributes:
+              e_gazete_aboneligi: '0'
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -162,12 +173,69 @@ display:
             operator_limit_selection: false
             operator_list: {  }
           group: 1
+        field_urun_turu_target_id:
+          id: field_urun_turu_target_id
+          table: commerce_product__field_urun_turu
+          field: field_urun_turu_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            1361: 1361
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: urun_turleri
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts: {  }
       title: 'Satın Al'
       header: {  }
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        variations_target_id:
+          id: variations_target_id
+          table: commerce_product__variations
+          field: variations_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Product variation'
+          required: false
+          entity_type: commerce_product
+          entity_field: variations
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
@@ -175,13 +243,13 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
+        - user
         - user.roles
       tags: {  }
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: 'Satın Al - Öğrenci'
     position: 2
     display_options:
       display_extenders: {  }
@@ -189,41 +257,287 @@ display:
       defaults:
         title: false
         pager: false
+        filters: false
+        filter_groups: false
+        access: false
       pager:
         type: some
         options:
           items_per_page: 1
           offset: 0
+      filters:
+        status:
+          value: '1'
+          table: commerce_product_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: commerce_product
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        field_urun_turu_target_id:
+          id: field_urun_turu_target_id
+          table: commerce_product__field_urun_turu
+          field: field_urun_turu_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            1362: 1362
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: urun_turleri
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      display_description: ''
+      access:
+        type: role
+        options:
+          role:
+            yonetici: yonetici
+            administrator: administrator
+            ogrenci_abone: ogrenci_abone
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user
         - user.roles
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: 'Satın Al Sayfa'
-    position: 1
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'Satın Al - Yurtdışı'
+    position: 3
     display_options:
       display_extenders: {  }
-      path: satin-al
-      menu:
-        type: normal
-        title: 'Satın Al'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: -49
-        context: '0'
-        menu_name: main
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+        fields: false
+        filters: false
+        filter_groups: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      fields:
+        variations_target_id:
+          id: variations_target_id
+          table: commerce_product__variations
+          field: variations_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: variation_add_to_cart
+          settings:
+            show_title: 1
+            show_quantity: false
+            show_price: true
+            show_currency: true
+            price_format: 2
+            attributes:
+              e_gazete_aboneligi: '0'
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: commerce_product
+          entity_field: variations
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: commerce_product_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: commerce_product
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        field_urun_turu_target_id:
+          id: field_urun_turu_target_id
+          table: commerce_product__field_urun_turu
+          field: field_urun_turu_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            1363: 1363
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: urun_turleri
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
+        - user
+        - user.roles
+      tags: {  }
+  block_3:
+    display_plugin: block
+    id: block_3
+    display_title: 'Satın Al - Normal'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      enabled: true
+      access:
+        type: role
+        options:
+          role:
+            anonymous: anonymous
+            authenticated: authenticated
+            yonetici: yonetici
+            administrator: administrator
+            abone: abone
+      defaults:
+        access: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
         - user.roles
       tags: {  }

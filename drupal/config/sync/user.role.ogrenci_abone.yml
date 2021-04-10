@@ -1,9 +1,9 @@
-uuid: 3116b60f-21ff-4fcf-91c5-e0648a2508d2
+uuid: 4390b91c-f31c-4cad-8b68-21151db9bb50
 langcode: tr
 status: true
 dependencies: {  }
 id: ogrenci_abone
-label: 'Öğrenci abone'
-weight: 6
+label: 'Öğrenci Abone'
+weight: -5
 is_admin: null
 permissions: {  }

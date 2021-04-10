@@ -1,0 +1,9 @@
+uuid: 892e8a4f-1777-4da6-bf80-d4a40eee76fa
+langcode: tr
+status: true
+dependencies: {  }
+id: yurtdisi_abone
+label: 'Yurtdışı Abone'
+weight: -4
+is_admin: null
+permissions: {  }

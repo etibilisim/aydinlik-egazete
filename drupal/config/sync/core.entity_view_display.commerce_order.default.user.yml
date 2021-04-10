@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_order.commerce_order_type.default
     - core.entity_view_mode.commerce_order.user
+    - field.field.commerce_order.default.field_kart_turu
     - field.field.commerce_order.default.field_number_of_installments
   module:
     - commerce_order
@@ -85,6 +86,7 @@ content:
 hidden:
   balance: true
   changed: true
+  field_kart_turu: true
   field_number_of_installments: true
   ip_address: true
   store_id: true

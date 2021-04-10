@@ -1,0 +1,8 @@
+uuid: 66adadaa-a9e3-478a-905e-047f3b658b8f
+langcode: tr
+status: true
+dependencies: {  }
+name: 'Ürün Türleri'
+vid: urun_turleri
+description: ''
+weight: 0

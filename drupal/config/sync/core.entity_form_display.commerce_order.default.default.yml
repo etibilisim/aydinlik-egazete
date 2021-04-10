@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - commerce_order.commerce_order_type.default
+    - field.field.commerce_order.default.field_kart_turu
     - field.field.commerce_order.default.field_number_of_installments
   module:
     - commerce_order
@@ -34,6 +35,14 @@ content:
     weight: 20
     region: content
     third_party_settings: {  }
+  field_kart_turu:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_number_of_installments:
     weight: 21
     settings:

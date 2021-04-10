@@ -1,0 +1,11 @@
+uuid: d05f1208-cd3d-4f31-9695-f5fa4062d6ba
+langcode: tr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.urun_turleri
+id: taxonomy_term.urun_turleri
+target_entity_type_id: taxonomy_term
+target_bundle: urun_turleri
+default_langcode: site_default
+language_alterable: false

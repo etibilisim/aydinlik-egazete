@@ -1,12 +1,16 @@
-uuid: 87892d82-b5e9-49f7-a074-0aaab859ca0c
+uuid: e69453b9-ce4c-49f9-94a1-9c8f3c2d653f
 langcode: tr
 status: true
 dependencies:
   module:
-    - commerce_product
-id: commerce_product_variation.field_sku
-field_name: field_sku
-entity_type: commerce_product_variation
+    - commerce_order
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: commerce_order.field_kart_turu
+field_name: field_kart_turu
+entity_type: commerce_order
 type: string
 settings:
   max_length: 255

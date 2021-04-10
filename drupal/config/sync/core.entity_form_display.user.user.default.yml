@@ -20,6 +20,7 @@ dependencies:
     - address
     - datetime
     - image
+    - mask
     - path
     - telephone
     - user
@@ -102,8 +103,15 @@ content:
   field_telefon:
     weight: 1
     settings:
-      placeholder: 5xxxxxxxxx
-    third_party_settings: {  }
+      placeholder: +905xxxxxxxxx
+    third_party_settings:
+      mask:
+        value: '+000000000000'
+        selectonfocus: '1'
+        translation_help:
+          table: ''
+        reverse: 0
+        clearifnotmatch: 0
     type: telephone_default
     region: content
   language:

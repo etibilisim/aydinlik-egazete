@@ -4,6 +4,8 @@ status: true
 dependencies: {  }
 id: abone
 label: Abone
-weight: 5
+weight: -6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'view own webform submission'
+  - 'view webform submissions own node'

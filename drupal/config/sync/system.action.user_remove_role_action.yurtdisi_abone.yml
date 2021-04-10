@@ -1,0 +1,14 @@
+uuid: 856d4bcd-1d6f-4fea-871f-f81e301960ae
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.yurtdisi_abone
+  module:
+    - user
+id: user_remove_role_action.yurtdisi_abone
+label: 'Yurtdışı Abone rolünü seçili kullanıcı(lar)dan alın.'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: yurtdisi_abone
