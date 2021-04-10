@@ -71,7 +71,7 @@
     "extra": {
         "patches": {
             "drupal/iyzipay": {
-                "One Patch to Rule Them All": "https://www.html.webcinizim.com/iyzipay-one-patch-to-rule-them-all.patch"
+                "One Patch to Rule Them All": "https://html.webcinizim.com/iyzipay-one-patch-to-rule-them-all.patch"
             }
         },
         "drupal-scaffold": {
