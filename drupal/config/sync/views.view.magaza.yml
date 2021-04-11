@@ -352,6 +352,7 @@ display:
         fields: true
         filters: false
         filter_groups: false
+        header: false
       row:
         type: fields
         options:
@@ -424,6 +425,20 @@ display:
         groups:
           1: AND
       display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<p><b>DİKKAT!</b> Döviz ile satın alma işlemlerine Türk kredi kartları ve banka kartlarında izin verilmemektedir.</p>\r\n<p>Bu nedenle yurtdışından abonelik satın almak isteyen değerli abonelerimizin yurtdışı kredi kartı ya da banka kartı kullanmaları gerekmektedir.</p>"
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
