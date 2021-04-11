@@ -106,7 +106,7 @@ content:
       placeholder: +905xxxxxxxxx
     third_party_settings:
       mask:
-        value: '+000000000000'
+        value: '\+\90 (000) 000-0000'
         selectonfocus: '1'
         translation_help:
           table: ''
