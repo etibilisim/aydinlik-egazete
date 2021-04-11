@@ -13,9 +13,11 @@ entity_type: user
 bundle: user
 label: Telefon
 description: 'Size ulaşabileceğimiz geçerli bir telefon numarası yazınız.'
-required: false
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: \+\90
 default_value_callback: ''
 settings: {  }
 field_type: telephone

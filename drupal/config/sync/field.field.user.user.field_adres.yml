@@ -44,7 +44,7 @@ settings:
     organization:
       override: hidden
     addressLine1:
-      override: optional
+      override: required
     addressLine2:
       override: optional
     postalCode:
@@ -52,8 +52,8 @@ settings:
     sortingCode:
       override: hidden
     locality:
-      override: optional
+      override: required
     administrativeArea:
-      override: optional
+      override: required
   fields: {  }
 field_type: address
