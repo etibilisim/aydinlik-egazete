@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\user\UserInterface;
 
 /**
@@ -10,6 +11,13 @@ function aydinlik_user_login(UserInterface $account) {
   $today = $dateTime->format('Y-m-d');
   if ($account->field_abonelik_bitis_tarihi->value < $today) {
     $account->removeRole('abone');
+    $account->save();
+  }
+  if ($account->field_adres->country_code == 'TR') {
+    $account->addRole('yurtici_abone');
+    $account->save();
+  } else {
+    $account->addRole('yurtdisi_abone');
     $account->save();
   }
 }
