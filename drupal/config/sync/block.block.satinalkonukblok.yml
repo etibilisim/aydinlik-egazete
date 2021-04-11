@@ -1,0 +1,39 @@
+uuid: 7d39b1ec-d294-416d-bd30-b6be3e62e998
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:56a61f01-7062-41fa-9cb7-90318c3c523f'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - conference_lite
+id: satinalkonukblok
+theme: conference_lite
+region: content
+weight: -12
+provider: null
+plugin: 'block_content:56a61f01-7062-41fa-9cb7-90318c3c523f'
+settings:
+  id: 'block_content:56a61f01-7062-41fa-9cb7-90318c3c523f'
+  label: 'Satın Al Konuk Blok'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /satin-al
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
