@@ -23,7 +23,7 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
    *   Current user account.
    */
   public function __construct(AccountInterface $current_user) {
-    $user = $current_user;
+    $this->current_user = $current_user;
   }
 
 
@@ -42,15 +42,19 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
    *   The event.
    */
   public function onPaid(OrderEvent $event) {
-    $user = User::load($order->uid[0]->target_id);
+    $order = $event->getOrder();
+    $this->current_user = User::load($order->uid[0]->target_id);
     if ($order->getState()->value === 'completed') {
-      $user->addRole('abone');
-      $user->save();
+      $this->current_user->addRole('abone');
+      $dateTime = \DateTime::createFromFormat('Y-m-d',date('m-d-Y'));
+      $today = $dateTime->format('m-d-Y');
+      $this->current_user->field_taahhut_tarihi->value = $today;
+      $this->current_user->save();
     }
     else {
-      if ($user->hasRole('abone')) {
-        $user->removeRole('abone');
-        $user->save();
+      if ($this->current_user-hasRole('abone')) {
+        $this->current_user->removeRole('abone');
+        $this->current_user->save();
       }
     }
   }
