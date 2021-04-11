@@ -1,0 +1,7 @@
+aydinlik.settings:
+  path: '/admin/config/system/aydinlik-settings'
+  defaults:
+    _form: 'Drupal\aydinlik\Form\AydinlikMessagesForm'
+    _title: 'Aydınlık Kullanıcı Mesajları Yönetimi'
+  requirements:
+    _role: administrator+yonetici
