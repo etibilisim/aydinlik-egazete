@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: ogrenci_abone
 label: 'Öğrenci Abone'
-weight: -5
+weight: -3
 is_admin: null
 permissions: {  }

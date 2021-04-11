@@ -1,0 +1,14 @@
+uuid: 2579644d-a134-47d4-9852-1c80f2064785
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.yurtici_abone
+  module:
+    - user
+id: user_add_role_action.yurtici_abone
+label: 'Yurtiçi Abone rolünü seçili kullanıcı(lar)a ekleyin.'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: yurtici_abone

@@ -1,0 +1,14 @@
+uuid: 03f48241-175e-4b82-bde0-99e2b446bfce
+langcode: tr
+status: true
+dependencies:
+  config:
+    - user.role.yurtici_abone
+  module:
+    - user
+id: user_remove_role_action.yurtici_abone
+label: 'Yurtiçi Abone rolünü seçili kullanıcı(lar)dan alın.'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: yurtici_abone

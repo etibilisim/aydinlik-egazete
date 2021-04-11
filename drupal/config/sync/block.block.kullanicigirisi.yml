@@ -28,6 +28,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/checkout/*/login\r\n/satin-al\r\n/cart\r\n/user/*\r\n/users/\r\n/users/*\r\n/user"
+    pages: "/checkout/*/login\r\n/cart\r\n/user/*\r\n/users/\r\n/users/*\r\n/user"
     negate: true
     context_mapping: {  }

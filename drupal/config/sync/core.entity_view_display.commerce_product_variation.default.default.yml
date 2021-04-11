@@ -13,14 +13,6 @@ targetEntityType: commerce_product_variation
 bundle: default
 mode: default
 content:
-  field_sku:
-    weight: 2
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   list_price:
     label: above
     type: commerce_price_default
@@ -36,11 +28,12 @@ content:
     weight: 1
     region: content
     settings:
-      strip_trailing_zeroes: false
       currency_display: symbol
+      strip_trailing_zeroes: false
     third_party_settings: {  }
 hidden:
   attribute_e_gazete_aboneligi: true
+  field_sku: true
   langcode: true
   product_id: true
   sku: true

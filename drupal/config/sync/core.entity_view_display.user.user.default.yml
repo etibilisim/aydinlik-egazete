@@ -82,8 +82,8 @@ content:
     weight: 9
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: sadece_tarih
     third_party_settings: {  }
     type: datetime_default
     region: content
