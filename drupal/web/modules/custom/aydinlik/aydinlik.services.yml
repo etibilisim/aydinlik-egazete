@@ -1,0 +1,11 @@
+services:
+  aydinlik.node_access_subscriber:
+    class: Drupal\aydinlik\EventSubscriber\NodeAccessSubscriber
+    arguments: ['@current_user']
+    tags:
+      - { name: event_subscriber }
+  aydinlik.order_paid_subscriber:
+    class: Drupal\aydinlik\EventSubscriber\OrderPaidSubscriber
+    arguments: ['@current_user']
+    tags:
+      - { name: event_subscriber }
