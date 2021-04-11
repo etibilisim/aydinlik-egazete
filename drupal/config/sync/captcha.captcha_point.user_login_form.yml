@@ -1,9 +1,0 @@
-uuid: 6a012a00-a23e-4431-ad2d-dfa029d20880
-langcode: tr
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: crLwyc9uwZ8Bv8lpMLIOEQYHOxW_mS49jaDf_95-o4I
-formId: user_login_form
-captchaType: default
-label: null
