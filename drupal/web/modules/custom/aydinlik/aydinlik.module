@@ -1,12 +1,17 @@
 <?php
 
-use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Messenger;
+use Drupal\Core\Url;
 use Drupal\user\UserInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_user_login().
  */
 function aydinlik_user_login(UserInterface $account) {
+  global $base_url;
+  $user_edit_form = Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()])->toString();
+  $messenger = \Drupal::messenger();
   $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
   $today = $dateTime->format('Y-m-d');
   if ($account->field_abonelik_bitis_tarihi->value < $today) {
@@ -19,5 +24,10 @@ function aydinlik_user_login(UserInterface $account) {
   } else {
     $account->addRole('yurtdisi_abone');
     $account->save();
+  }
+  if ($account->field_tc->value == '' || $account->field_adiniz_soyadiniz->value == '' || $account->field_adres->address_line1 == '' || $account->field_adres->administrative_area == '' || $account->field_adres->locality == '' || $account->field_telefon->value == '' || $account->field_onay->value != 1) {
+    $messenger->addError('Yanında yıldız olan alanları doldurunuz.');
+    $response = new RedirectResponse($base_url.$user_edit_form);
+    $response->send();
   }
 }
