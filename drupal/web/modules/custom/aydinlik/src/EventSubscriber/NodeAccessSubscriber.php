@@ -20,8 +20,8 @@ use Symfony\Component\HttpKernel\KernelEvents;
  * Provides a request subscriber to deny access to protected nodes.
  */
 class NodeAccessSubscriber implements EventSubscriberInterface {
-    use StringTranslationTrait;
-    use MessengerTrait;
+  use StringTranslationTrait;
+  use MessengerTrait;
 
   /**
    * Current user account.
@@ -64,65 +64,65 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
     $this->messenger = \Drupal::messenger();
     $route_match = RouteMatch::createFromRequest($event->getRequest());
     if (($node = $route_match->getParameter('node')) && $node instanceof NodeInterface) {
-        if (!\Drupal::service('path.matcher')->isFrontPage() && ($node->bundle() != 'page' && $node->bundle() != 'webform')) { 
-            if ($this->current_user->isAnonymous()) {
-                $this->messenger->addMessage($config->get('girisyapmesaji'));
-                $redirect = new RedirectResponse($login->toString());
-                $event->setResponse($redirect);
-            } 
-            elseif (!$this->current_user->hasPermission('bypass permission checks')) {
-                if ($this->current_user->hasRole('abone')) {
-                    if ($node->bundle() == 'e_dergi') {
-                        $publication_date = $node->field_derginin_ciktigi_ay_yil->value;
-                        $subscription_start_date = $this->current_user->field_abonelik_baslangic_tarihi->value;
-                        $subscription_end_date = $this->current_user->field_abonelik_bitis_tarihi->value;
-                        $subscription_duration = Term::load($this->current_user->field_abonelik_suresi->referencedEntities()[0]->tid->value);
-                        $subscription_type = $this->current_user->get('field_abonelik_turu');
-                        $subscription_type_count = $subscription_type->count();
-                        if ($subscription_type_count < 2){
-                            $epaper_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
-                                if (!str_contains($epaper_subscription->getName(), 'E-Gazete')) {
-                                    $this->messenger->addWarning($config->get('satinalmesaji'));
-                                    $redirect = new RedirectResponse($login->toString());
-                                    $redirect->send();
-                                }
-                            }                       
-                        if (str_contains($subscription_duration->getName(), 'Yıllık')) {
-                            if ($publication_date>$subscription_end_date) {
-                                $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
-                                $redirect = new RedirectResponse($login->toString());
-                            $redirect->send();
-                            }
-                        }
-                        if (!str_contains($subscription_duration->getName(), 'Yıllık')) {
-                            if (!($subscription_start_date<$publication_date && $publication_date<$subscription_end_date) || !($subscription_end_date>$publication_date)) {
-                                $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
-                                $redirect = new RedirectResponse($login->toString());
-                                $redirect->send();
-                            }
-                        }
-                    }
-                }
-                else {
-                    $this->messenger->addWarning($config->get('abonelikaktifdegilmesaji'));
-                    $redirect = new RedirectResponse($login->toString());
-                    $redirect->send();
-                }
-                    if ($node->bundle() == 'e_arsiv') {
-                        $subscription_type = $this->current_user->get('field_abonelik_turu');
-                        $subscription_type_count = $subscription_type->count();
-                        if ($subscription_type_count < 2){
-                            $earchives_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
-                            if (!str_contains($earchives_subscription->getName(), 'E-Arşiv')) {
-                                $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
-                                $redirect = new RedirectResponse('/satin-al');
-                                $redirect->send();
-                            }
-                        }
-                    }
-                }
-            }
+      if (!\Drupal::service('path.matcher')->isFrontPage() && ($node->bundle() != 'page' && $node->bundle() != 'webform')) {
+        if ($this->current_user->isAnonymous()) {
+          $this->messenger->addMessage($config->get('girisyapmesaji'));
+          $redirect = new RedirectResponse($login->toString());
+          $event->setResponse($redirect);
         }
+        elseif (!$this->current_user->hasPermission('bypass permission checks')) {
+          if ($this->current_user->hasRole('abone')) {
+            if ($node->bundle() == 'e_dergi') {
+              $publication_date = $node->field_derginin_ciktigi_ay_yil->value;
+              $subscription_start_date = $this->current_user->field_abonelik_baslangic_tarihi->value;
+              $subscription_end_date = $this->current_user->field_abonelik_bitis_tarihi->value;
+              $subscription_duration = Term::load($this->current_user->field_abonelik_suresi->referencedEntities()[0]->tid->value);
+              $subscription_type = $this->current_user->get('field_abonelik_turu');
+              $subscription_type_count = $subscription_type->count();
+              if ($subscription_type_count < 2){
+                $epaper_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
+                if (!str_contains($epaper_subscription->getName(), 'E-Gazete')) {
+                  $this->messenger->addWarning($config->get('satinalmesaji'));
+                  $redirect = new RedirectResponse($login->toString());
+                  $redirect->send();
+                }
+              }
+              if (str_contains($subscription_duration->getName(), 'Yıllık')) {
+                if ($publication_date>$subscription_end_date) {
+                  $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
+                  $redirect = new RedirectResponse($login->toString());
+                  $redirect->send();
+                }
+              }
+              if (!str_contains($subscription_duration->getName(), 'Yıllık')) {
+                if (!($subscription_start_date<$publication_date && $publication_date<$subscription_end_date) || !($subscription_end_date>$publication_date)) {
+                  $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
+                  $redirect = new RedirectResponse($login->toString());
+                  $redirect->send();
+                }
+              }
+            }
+          }
+          else {
+            $this->messenger->addWarning($config->get('abonelikaktifdegilmesaji'));
+            $redirect = new RedirectResponse($login->toString());
+            $redirect->send();
+          }
+          if ($node->bundle() == 'e_arsiv') {
+            $subscription_type = $this->current_user->get('field_abonelik_turu');
+            $subscription_type_count = $subscription_type->count();
+            if ($subscription_type_count < 2){
+              $earchives_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
+              if (!str_contains($earchives_subscription->getName(), 'E-Arşiv')) {
+                $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
+                $redirect = new RedirectResponse('/satin-al');
+                $redirect->send();
+              }
+            }
+          }
+        }
+      }
     }
-    
+  }
+
 }
