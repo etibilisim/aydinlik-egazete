@@ -1,0 +1,15 @@
+<?php
+
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_user_login().
+ */
+function aydinlik_user_login(UserInterface $account) {
+  $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
+  $today = $dateTime->format('Y-m-d');
+  if ($account->field_abonelik_bitis_tarihi->value < $today) {
+    $account->removeRole('abone');
+    $account->save();
+  }
+}
