@@ -1,0 +1,9 @@
+uuid: be34747a-3ba3-46d8-a609-6488fd95b2d1
+langcode: tr
+status: true
+dependencies: {  }
+id: yurtici_abone
+label: 'Yurtiçi Abone'
+weight: -5
+is_admin: null
+permissions: {  }
