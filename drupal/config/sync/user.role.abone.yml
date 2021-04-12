@@ -7,5 +7,6 @@ label: Abone
 weight: -6
 is_admin: null
 permissions:
+  - 'view own field_abonelik_referans_kodu'
   - 'view own webform submission'
   - 'view webform submissions own node'

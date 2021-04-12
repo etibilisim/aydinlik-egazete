@@ -7,6 +7,8 @@ dependencies:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_abonelik_baslangic_tarihi
     - field.field.user.user.field_abonelik_bitis_tarihi
+    - field.field.user.user.field_abonelik_durumu
+    - field.field.user.user.field_abonelik_referans_kodu
     - field.field.user.user.field_abonelik_suresi
     - field.field.user.user.field_abonelik_turu
     - field.field.user.user.field_adiniz_soyadiniz
@@ -41,6 +43,8 @@ hidden:
   customer_profiles: true
   field_abonelik_baslangic_tarihi: true
   field_abonelik_bitis_tarihi: true
+  field_abonelik_durumu: true
+  field_abonelik_referans_kodu: true
   field_abonelik_suresi: true
   field_abonelik_turu: true
   field_adiniz_soyadiniz: true

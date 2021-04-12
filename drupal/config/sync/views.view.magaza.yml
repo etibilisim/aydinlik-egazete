@@ -14,8 +14,8 @@ dependencies:
     - 'taxonomy_term:urun_turleri:483f3bf5-70c9-4bb1-a572-035e59f70897'
     - 'taxonomy_term:urun_turleri:afee1f3d-6a59-494a-a395-f8aee0887155'
   module:
+    - commerce_order
     - commerce_product
-    - commerce_variation_add_to_cart
     - taxonomy
     - user
 id: magaza
@@ -72,12 +72,10 @@ display:
           row_class: ''
           default_row_class: true
       row:
-        type: fields
+        type: 'entity:commerce_product'
         options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
-          default_field_elements: true
+          relationship: none
+          view_mode: default
       fields:
         variations_target_id:
           id: variations_target_id
@@ -128,15 +126,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: variation_add_to_cart
+          type: commerce_order_item_table
           settings:
-            show_title: 1
-            show_quantity: false
-            show_price: true
-            show_currency: true
-            price_format: 2
-            attributes:
-              e_gazete_aboneligi: '0'
+            link: 0
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -215,18 +207,7 @@ display:
       header: {  }
       footer: {  }
       empty: {  }
-      relationships:
-        variations_target_id:
-          id: variations_target_id
-          table: commerce_product__variations
-          field: variations_target_id
-          relationship: none
-          group_type: group
-          admin_label: 'Product variation'
-          required: false
-          entity_type: commerce_product
-          entity_field: variations
-          plugin_id: standard
+      relationships: {  }
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
@@ -343,23 +324,13 @@ display:
     position: 3
     display_options:
       display_extenders: {  }
-      style:
-        type: default
-        options: {  }
       defaults:
-        style: false
-        row: false
+        style: true
+        row: true
         fields: true
         filters: false
         filter_groups: false
         header: false
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
       filters:
         status:
           value: '1'

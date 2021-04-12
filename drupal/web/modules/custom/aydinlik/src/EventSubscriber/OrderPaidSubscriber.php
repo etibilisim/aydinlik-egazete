@@ -46,9 +46,6 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
     $this->current_user = User::load($order->uid[0]->target_id);
     if ($order->getState()->value === 'completed') {
       $this->current_user->addRole('abone');
-      $dateTime = \DateTime::createFromFormat('Y-m-d',date('m-d-Y'));
-      $today = $dateTime->format('m-d-Y');
-      $this->current_user->field_taahhut_tarihi->value = $today;
       $this->current_user->save();
     }
     else {

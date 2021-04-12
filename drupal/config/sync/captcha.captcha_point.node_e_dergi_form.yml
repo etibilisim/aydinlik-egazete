@@ -1,0 +1,7 @@
+uuid: 81f9d62a-f81f-4ed1-ad68-1f7e66422d02
+langcode: tr
+status: false
+dependencies: {  }
+formId: node_e_dergi_form
+captchaType: default
+label: null

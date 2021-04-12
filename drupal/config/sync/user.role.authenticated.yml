@@ -39,6 +39,8 @@ permissions:
   - 'view own commerce_order'
   - 'view own field_abonelik_baslangic_tarihi'
   - 'view own field_abonelik_bitis_tarihi'
+  - 'view own field_abonelik_durumu'
+  - 'view own field_abonelik_referans_kodu'
   - 'view own field_abonelik_suresi'
   - 'view own field_abonelik_turu'
   - 'view own field_onay'

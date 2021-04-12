@@ -12,6 +12,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  captcha: 0
   ckeditor: 0
   color: 0
   colorbox: 0
@@ -96,6 +97,7 @@ module:
   serialization: 0
   shortcut: 0
   sitemap: 0
+  smtp: 0
   state_machine: 0
   statistics: 0
   superfish: 0

@@ -6,6 +6,8 @@ dependencies:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_abonelik_baslangic_tarihi
     - field.field.user.user.field_abonelik_bitis_tarihi
+    - field.field.user.user.field_abonelik_durumu
+    - field.field.user.user.field_abonelik_referans_kodu
     - field.field.user.user.field_abonelik_suresi
     - field.field.user.user.field_abonelik_turu
     - field.field.user.user.field_adiniz_soyadiniz
@@ -52,6 +54,22 @@ content:
     type: datetime_default
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_abonelik_durumu:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_abonelik_referans_kodu:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_abonelik_suresi:
     weight: 7
@@ -103,15 +121,15 @@ content:
   field_telefon:
     weight: 1
     settings:
-      placeholder: +905xxxxxxxxx
+      placeholder: '+90 (000) 000 0000'
     third_party_settings:
       mask:
-        value: '\+\90 (000) 000-0000'
+        value: '+90 (000) 000 0000'
+        clearifnotmatch: '1'
         selectonfocus: '1'
         translation_help:
           table: ''
         reverse: 0
-        clearifnotmatch: 0
     type: telephone_default
     region: content
   language:

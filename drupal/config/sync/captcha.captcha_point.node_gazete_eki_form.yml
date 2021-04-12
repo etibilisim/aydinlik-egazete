@@ -1,0 +1,7 @@
+uuid: d6914159-7b2c-4c20-8f1e-471472febd80
+langcode: tr
+status: false
+dependencies: {  }
+formId: node_gazete_eki_form
+captchaType: default
+label: null

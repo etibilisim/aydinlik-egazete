@@ -12,12 +12,10 @@ field_name: field_telefon
 entity_type: user
 bundle: user
 label: Telefon
-description: 'Size ulaşabileceğimiz geçerli bir telefon numarası yazınız.'
+description: "Size ulaşabileceğimiz geçerli bir telefon numarası yazınız. Telefonu doğru şekilde yazmanız için \"+\" işaretinin devamında ülke kodunuzu da yazmayı unutmayınız.\r\nÖrnek: Türkiye için +905555555555 şeklinde yazarsanız sistem onu +90 (555) 555 5555 düzeltecektir."
 required: true
 translatable: false
-default_value:
-  -
-    value: \+\90
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: telephone

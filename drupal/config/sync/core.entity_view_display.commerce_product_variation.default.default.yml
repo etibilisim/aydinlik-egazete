@@ -6,35 +6,30 @@ dependencies:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
     - field.field.commerce_product_variation.default.field_sku
+    - field.field.commerce_product_variation.default.field_urun_gorseli
+    - image.style.large
   module:
-    - commerce_price
+    - image
 id: commerce_product_variation.default.default
 targetEntityType: commerce_product_variation
 bundle: default
 mode: default
 content:
-  list_price:
-    label: above
-    type: commerce_price_default
+  field_urun_gorseli:
     weight: 0
-    region: content
+    label: hidden
     settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
+      image_style: large
+      image_link: ''
     third_party_settings: {  }
-  price:
-    label: above
-    type: commerce_price_default
-    weight: 1
+    type: image
     region: content
-    settings:
-      currency_display: symbol
-      strip_trailing_zeroes: false
-    third_party_settings: {  }
 hidden:
   attribute_e_gazete_aboneligi: true
   field_sku: true
   langcode: true
+  list_price: true
+  price: true
   product_id: true
   sku: true
   title: true

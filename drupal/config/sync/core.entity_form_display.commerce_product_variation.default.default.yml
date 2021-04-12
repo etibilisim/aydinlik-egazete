@@ -6,8 +6,11 @@ dependencies:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
     - field.field.commerce_product_variation.default.field_sku
+    - field.field.commerce_product_variation.default.field_urun_gorseli
+    - image.style.thumbnail
   module:
     - commerce_price
+    - image
 id: commerce_product_variation.default.default
 targetEntityType: commerce_product_variation
 bundle: default
@@ -26,6 +29,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_urun_gorseli:
+    weight: 92
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   langcode:
     type: language_select

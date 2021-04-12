@@ -137,11 +137,11 @@ class OrderPaySubscriber implements EventSubscriberInterface {
    *   The event we subscribed to.
    */
   public function removeSubscription(WorkflowTransitionEvent $event) {
-    $this->current_user = User::load(\Drupal::currentUser()->id());
+    /*$this->current_user = User::load(\Drupal::currentUser()->id());
     if ($this->current_user->hasRole('abone')) {
       $this->current_user->removeRole('abone');
       $this->current_user->save();
-    }
+    }*/
   }
 
 }

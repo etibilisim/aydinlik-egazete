@@ -6,6 +6,7 @@ dependencies:
     - system.menu.tools
   module:
     - system
+    - user
   theme:
     - conference_lite
 id: tools
@@ -28,3 +29,11 @@ visibility:
     pages: "/ayrintili-kullanici-tablosu\r\n/satin-al\r\n/checkout/*"
     negate: true
     context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      yonetici: yonetici
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

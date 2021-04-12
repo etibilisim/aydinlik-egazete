@@ -4,19 +4,44 @@ use Drupal\Core\Messenger;
 use Drupal\Core\Url;
 use Drupal\user\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_user_login().
  */
+
 function aydinlik_user_login(UserInterface $account) {
   global $base_url;
+  $current_user = User::load(\Drupal::currentUser()->id());
   $user_edit_form = Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()])->toString();
   $messenger = \Drupal::messenger();
   $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
   $today = $dateTime->format('Y-m-d');
-  if ($account->field_abonelik_bitis_tarihi->value < $today) {
-    $account->removeRole('abone');
-    $account->save();
+  $uid = \Drupal::currentUser()->id();
+  $current_user = User::load($uid);
+  if ($current_user->field_abonelik_durumu == 'Aktif'){
+    $src = $current_user->field_abonelik_referans_kodu->value;
+    if ($current_user->field_abonelik_bitis_tarihi->value < $today) {
+      $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
+      $request->setSubscriptionReferenceCode($src);
+      $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,\Drupal\iyzipay\Config::options());
+      $ss = $result->getSubscriptionStatus(); //$ss is subscription status.
+      $ppn = $result->getPricingPlanName(); //$ppn is pricing plan name
+      if ($ss == 'ACTIVE') {
+        if (str_contains ($ppn, 'aylik')) {
+          $current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 month'));
+          $current_user->save();
+        }
+        if (str_contains ($ppn, 'yillik')) {
+          $current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 year'));
+          $current_user->save();
+        }
+      }
+      else{
+        $current_user->field_abonelik_durumu->value = 'Yenileme bekliyor';
+        $current_user->save();
+      }
+    }
   }
   if ($account->field_adres->country_code == 'TR') {
     $account->addRole('yurtici_abone');
@@ -29,5 +54,9 @@ function aydinlik_user_login(UserInterface $account) {
     $messenger->addError('Yanında yıldız olan alanları doldurunuz.');
     $response = new RedirectResponse($base_url.$user_edit_form);
     $response->send();
+  }
+  if ($account->field_abonelik_bitis_tarihi->value < $today && $account->field_abonelik_durumu->value == 'Yenileme bekliyor') {
+    $account->removeRole('abone');
+    $account->save();
   }
 }
