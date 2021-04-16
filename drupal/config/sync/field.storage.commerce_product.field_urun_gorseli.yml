@@ -1,4 +1,4 @@
-uuid: 7eb987d0-a468-4d59-b64c-b1dd4ea3736a
+uuid: 9790791c-96bc-431a-bb17-70dc8c15bb7c
 langcode: tr
 status: true
 dependencies:
@@ -10,9 +10,9 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: commerce_product_variation.field_urun_gorseli
+id: commerce_product.field_urun_gorseli
 field_name: field_urun_gorseli
-entity_type: commerce_product_variation
+entity_type: commerce_product
 type: image
 settings:
   uri_scheme: public

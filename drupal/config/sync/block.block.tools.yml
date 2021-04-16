@@ -26,7 +26,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/ayrintili-kullanici-tablosu\r\n/satin-al\r\n/checkout/*"
+    pages: "/ayrintili-kullanici-tablosu\r\n/e-gazete-aboneligi\r\n/checkout/*"
     negate: true
     context_mapping: {  }
   user_role:

@@ -1,0 +1,23 @@
+uuid: 064ff5b7-815e-452c-848e-9297a475c3cc
+langcode: tr
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.storage.commerce_product_variation.field_aciklama
+  module:
+    - text
+id: commerce_product_variation.default.field_aciklama
+field_name: field_aciklama
+entity_type: commerce_product_variation
+bundle: default
+label: Açıklama
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

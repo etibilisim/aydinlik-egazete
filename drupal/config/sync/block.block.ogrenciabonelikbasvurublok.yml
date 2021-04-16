@@ -1,24 +1,24 @@
-uuid: 7d39b1ec-d294-416d-bd30-b6be3e62e998
+uuid: 3c90655b-4490-4537-8188-54d70427298f
 langcode: tr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:56a61f01-7062-41fa-9cb7-90318c3c523f'
+    - 'block_content:basic:9e2a4ee7-b0f0-46fa-a308-5a5f0f8bc0e9'
   module:
     - block_content
     - system
     - user
   theme:
     - conference_lite
-id: satinalkonukblok
+id: ogrenciabonelikbasvurublok
 theme: conference_lite
 region: content
-weight: -12
+weight: -4
 provider: null
-plugin: 'block_content:56a61f01-7062-41fa-9cb7-90318c3c523f'
+plugin: 'block_content:9e2a4ee7-b0f0-46fa-a308-5a5f0f8bc0e9'
 settings:
-  id: 'block_content:56a61f01-7062-41fa-9cb7-90318c3c523f'
-  label: 'Satın Al Konuk Blok'
+  id: 'block_content:9e2a4ee7-b0f0-46fa-a308-5a5f0f8bc0e9'
+  label: 'Öğrenci Abonelik Başvuru Blok'
   provider: block_content
   label_display: '0'
   status: true
@@ -34,6 +34,10 @@ visibility:
     id: user_role
     roles:
       anonymous: anonymous
+      yonetici: yonetici
+      administrator: administrator
+      abone: abone
+      yurtici_abone: yurtici_abone
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

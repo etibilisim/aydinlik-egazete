@@ -5,12 +5,11 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
+    - field.field.commerce_product_variation.default.field_aciklama
     - field.field.commerce_product_variation.default.field_sku
-    - field.field.commerce_product_variation.default.field_urun_gorseli
-    - image.style.thumbnail
   module:
     - commerce_price
-    - image
+    - text
 id: commerce_product_variation.default.default
 targetEntityType: commerce_product_variation
 bundle: default
@@ -22,6 +21,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_aciklama:
+    weight: 92
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
   field_sku:
     weight: 91
     settings:
@@ -29,14 +38,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_urun_gorseli:
-    weight: 92
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
     region: content
   langcode:
     type: language_select

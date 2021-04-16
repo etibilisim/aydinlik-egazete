@@ -1,4 +1,4 @@
-uuid: 60f93953-163f-492d-b4af-8bd5c7d2d1e6
+uuid: e1970533-1662-4281-bb2c-b065f732cc8e
 langcode: tr
 status: true
 dependencies:
@@ -9,9 +9,9 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: commerce_product.body
-field_name: body
-entity_type: commerce_product
+id: commerce_product_variation.field_aciklama
+field_name: field_aciklama
+entity_type: commerce_product_variation
 type: text_with_summary
 settings: {  }
 module: text

@@ -5,9 +5,12 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_urun_gorseli
     - field.field.commerce_product.default.field_urun_turu
+    - image.style.thumbnail
   module:
     - commerce
+    - image
     - path
     - text
 id: commerce_product.default.default
@@ -31,6 +34,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_urun_gorseli:
+    weight: 9
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_urun_turu:
     weight: 8
     settings:

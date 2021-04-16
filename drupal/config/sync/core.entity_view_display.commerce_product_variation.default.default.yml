@@ -5,24 +5,21 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
+    - field.field.commerce_product_variation.default.field_aciklama
     - field.field.commerce_product_variation.default.field_sku
-    - field.field.commerce_product_variation.default.field_urun_gorseli
-    - image.style.large
   module:
-    - image
+    - text
 id: commerce_product_variation.default.default
 targetEntityType: commerce_product_variation
 bundle: default
 mode: default
 content:
-  field_urun_gorseli:
+  field_aciklama:
     weight: 0
     label: hidden
-    settings:
-      image_style: large
-      image_link: ''
+    settings: {  }
     third_party_settings: {  }
-    type: image
+    type: text_default
     region: content
 hidden:
   attribute_e_gazete_aboneligi: true

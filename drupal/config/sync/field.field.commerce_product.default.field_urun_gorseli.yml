@@ -1,15 +1,15 @@
-uuid: 74413f71-93d5-4ca5-8fb3-65973fe1c850
+uuid: f7c9b385-9ceb-40fa-b9c5-5b7c6b10c649
 langcode: tr
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_variation_type.default
-    - field.storage.commerce_product_variation.field_urun_gorseli
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_urun_gorseli
   module:
     - image
-id: commerce_product_variation.default.field_urun_gorseli
+id: commerce_product.default.field_urun_gorseli
 field_name: field_urun_gorseli
-entity_type: commerce_product_variation
+entity_type: commerce_product
 bundle: default
 label: 'Ürün Görseli'
 description: ''
