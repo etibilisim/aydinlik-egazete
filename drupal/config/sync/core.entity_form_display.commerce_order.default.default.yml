@@ -32,25 +32,25 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 20
+    weight: 3
     region: content
     third_party_settings: {  }
   field_kart_turu:
-    weight: 22
+    weight: 4
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_number_of_installments:
-    weight: 21
+  mail:
+    type: email_default
+    weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   order_items:
     type: inline_entity_form_complex
     weight: 1
@@ -62,12 +62,16 @@ content:
       match_operator: CONTAINS
       allow_existing: false
       form_mode: default
+      revision: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
     third_party_settings: {  }
     region: content
 hidden:
   created: true
+  field_number_of_installments: true
   ip_address: true
-  mail: true
   order_number: true
   state: true
   store_id: true

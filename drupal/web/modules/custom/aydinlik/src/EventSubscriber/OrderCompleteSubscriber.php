@@ -2,10 +2,16 @@
 
 namespace Drupal\aydinlik\EventSubscriber;
 
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Drupal\state_machine\Event\WorkflowTransitionEvent;
+use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\commerce_order\Entity\OrderInterface;
+use Drupal\commerce_order\Entity\Order;
+use Drupal\Core\Messenger\MessengerInterface;
+
 use Drupal\Core\Session\AccountInterface;
 use Drupal\user\Entity\User;
 use Drupal\commerce_order\Event\OrderEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Iyzipay\Model\ThreedsPayment;
 use Iyzipay\Options;
 use Iyzipay\Model\Locale;
@@ -16,72 +22,66 @@ use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\commerce_payment\Entity\Payment;
-use Drupal\commerce_order\Entity\Order;
 use Iyzipay\Request\RetrieveInstallmentInfoRequest;
 use Iyzipay\Model\InstallmentInfo;
 
-class OrderPaidSubscriber implements EventSubscriberInterface {
+/**
+ * Class OrderCompleteSubscriber.
+ *
+ * @package Drupal\aydinlik
+ */
+class OrderCompleteSubscriber implements EventSubscriberInterface {
 
   /**
-   * Current user account.
+   * Drupal\Core\Entity\EntityTypeManager definition.
    *
-   * @var \Drupal\Core\Session\AccountInterface
+   * @var \Drupal\Core\Entity\EntityTypeManager
    */
   protected $current_user;
   protected $entityQuery;
-  protected $messenger;
+  protected $entityTypeManager;
   private $entity;
 
   /**
-   * OrderPaidSubscriber constructor.
-   *
-   * @param \Drupal\Core\Session\AccountInterface $current_user
-   *   Current user account.
+   * Constructor.
    */
-  public function __construct(AccountInterface $current_user) {
-    $this->current_user = $current_user;
+  public function __construct(EntityTypeManager $entity_type_manager) {
+    $this->entityTypeManager = $entity_type_manager;
   }
-
 
   /**
    * {@inheritdoc}
    */
-  public static function getSubscribedEvents() {
-    $events = ['commerce_order.order.paid' => 'onPaid'];
+  static function getSubscribedEvents() {
+    $events['commerce_order.place.post_transition'] = ['orderCompleteHandler'];
+
     return $events;
   }
 
   /**
-   * Adds the necessary role to the customer upon successful payment
+   * This method is called whenever the commerce_order.place.post_transition event is
+   * dispatched.
    *
-   * @param \Drupal\commerce_order\Event\OrderEvent $event
-   *   The event.
+   * @param WorkflowTransitionEvent $event
    */
-  public function onPaid(OrderEvent $event) {
-    $order = $event->getOrder();
+  public function orderCompleteHandler(WorkflowTransitionEvent $event) {
+    /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+    //$order = $event->getEntity();
+    $orders = Order::loadMultiple();
+    $order = end($orders);
     $this->current_user = User::load($order->uid[0]->target_id);
-    /*if ($order->getState()->value === 'completed') {
-      $this->current_user->addRole('abone');
-      $this->current_user->save();
-    }
-    else {
-      if ($this->current_user-hasRole('abone')) {
-        $this->current_user->removeRole('abone');
-        $this->current_user->save();
-      }
-    }*/
+    $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
+    $today = $dateTime->format('Y-m-d');
+    $this->entity;
+    // @var \Drupal\commerce_order\Entity\OrderInterface $order
+    $order_id = $order->id();
+    $order_price = $order->total_price->number;
+    $order_items = $order->getItems();
+    $order_item = reset($order_items);
+    $product_variation = $order_item->getPurchasedEntity();
+    $sku = $product_variation->getSku();
     if ($order->getState()->value === 'completed') {
-      $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
-      $today = $dateTime->format('Y-m-d');
-      $this->entity;
-      // @var \Drupal\commerce_order\Entity\OrderInterface $order
-      $order_price = $order->total_price->number;
-      $order_items = $order->getItems();
-      $order_item = reset($order_items);
-      $product_variation = $order_item->getPurchasedEntity();
-      $sku = $product_variation->getSku();
       if (str_contains ($sku, 'aylik')) {
         $sku_substr = substr($sku, 0, 14);
       }
@@ -140,8 +140,9 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
       $cardType = $installmentInfo->getInstallmentDetails()[0]->getCardType();
       if ($cardType != NULL) {
         if (!str_contains($cardType, 'DEBIT')) {
-          $orders = Order::loadMultiple();
-          $order = end($orders);
+          //$order = $event->getEntity();
+          //$orders = Order::loadMultiple();
+          //$order = end($orders);
           $order_items = $order->getItems();
           $order_item = reset($order_items);
           $product_variation = $order_item->getPurchasedEntity();
@@ -255,17 +256,11 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
           $order->field_kart_turu->value = 'Kredi Kartı';
           $order->save();
           if ($order->total_paid->number != $order->total_price->number) {
-            \Drupal::messenger()->addError($this->t('Your payment has failed and subscription was not created.'));
+            \Drupal::messenger()->addError(t('Your payment has failed and subscription was not created.'));
           }
           else {
-            \Drupal::messenger()->addMessage($this->t('Your payment was successfully received and subscription was created.'));
+            \Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
           }
-          // Delete the last payment method local entity.
-          $payment = Payment::loadMultiple();
-          $last_payment = end($payment);
-          $payment_method = $last_payment->getPaymentMethod();
-          $payment_method->delete();
-          return new TrustedRedirectResponse('/user/');
         }
         else {
           $config->delete();
@@ -274,26 +269,21 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
           $this->current_user->field_abonelik_durumu->value = 'Banka Kartı ile Abonelik';
           $this->current_user->save();
           if ($order->total_paid->number != $order->total_price->number) {
-            \Drupal::messenger()->addError($this->t('Your payment was failed and subscription was not created.'));
+            \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
           }
           else {
-            \Drupal::messenger()->addMessage($this->t('Your payment card is a debit card. Subsciption can not be created.'));
-            \Drupal::messenger()->addMessage($this->t('Your payment was successfully received.'));
+            \Drupal::messenger()->addMessage(t('Your payment card is a debit card. Subsciption can not be created.'));
+            \Drupal::messenger()->addMessage(t('Your payment was successfully received.'));
             $this->current_user->addRole('abone');
             $this->current_user->save();
           }
-          // Delete the last payment method local entity.
-          $payment = Payment::loadMultiple();
-          $last_payment = end($payment);
-          $payment_method = $last_payment->getPaymentMethod();
-          $payment_method->delete();
-          return new TrustedRedirectResponse('/user/');
         }
       }
       else{
         try {
-          $orders = Order::loadMultiple();
-          $order = end($orders);
+          //$order = $event->getEntity();
+          //$orders = Order::loadMultiple();
+          //$order = end($orders);
           $order_items = $order->getItems();
           $order_item = reset($order_items);
           $product_variation = $order_item->getPurchasedEntity();
@@ -409,30 +399,22 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
           $order->field_kart_turu->value = 'Yabancı Kart';
           $order->save();
           if ($order->total_paid->number != $order->total_price->number) {
-            \Drupal::messenger()->addError($this->t('Your payment was failed and subscription was not created.'));
+            \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
           }
           else {
-            \Drupal::messenger()->addMessage($this->t('Your payment was successfully received and subscription was created.'));
+            \Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
           }
-          // Delete the last payment method local entity.
-          $payment = Payment::loadMultiple();
-          $last_payment = end($payment);
-          $payment_method = $last_payment->getPaymentMethod();
-          $payment_method->delete();
-          return new TrustedRedirectResponse('/user/');   
         }
         catch (Exception $e) {
           $config->delete();
-          \Drupal::messenger()->addError($this->t('Your payment card is not a credit card. Subsciption can not be created, please contact us.'));
-          // Delete the last payment method local entity.
-          $payment = Payment::loadMultiple();
-          $last_payment = end($payment);
-          $payment_method = $last_payment->getPaymentMethod();
-          $payment_method->delete();
-          return new TrustedRedirectResponse('/user/');
+          \Drupal::messenger()->addError(t('Your payment card is not a credit card. Subsciption can not be created, please contact us.'));
         }
       }
     }
+    // Delete the last payment method local entity.
+    if (!$order->get('payment_method')->isEmpty()) {
+      $payment_method = $order->get('payment_method')->first()->entity;
+      $payment_method->delete();
+    }
   }
-
 }

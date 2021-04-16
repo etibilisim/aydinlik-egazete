@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d59d55e2c2178a8d4a073b7992e6d8ab",
+    "content-hash": "e1b0c4b5e48a684734def89a4679e2df",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3855,17 +3855,17 @@
         },
         {
             "name": "drupal/imce",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/imce.git",
-                "reference": "8.x-2.3"
+                "reference": "8.x-2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/imce-8.x-2.3.zip",
-                "reference": "8.x-2.3",
-                "shasum": "87548af8f66ef91146b70046755c1700a3847be6"
+                "url": "https://ftp.drupal.org/files/projects/imce-8.x-2.4.zip",
+                "reference": "8.x-2.4",
+                "shasum": "2797d6a669b739490edd00c753303cd9263f8dc3"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -3873,8 +3873,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.3",
-                    "datestamp": "1599926540",
+                    "version": "8.x-2.4",
+                    "datestamp": "1618251147",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3905,20 +3905,21 @@
         },
         {
             "name": "drupal/inline_entity_form",
-            "version": "1.0.0-rc8",
+            "version": "1.0.0-rc9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/inline_entity_form.git",
-                "reference": "8.x-1.0-rc8"
+                "reference": "8.x-1.0-rc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-rc8.zip",
-                "reference": "8.x-1.0-rc8",
-                "shasum": "103de382dd07b4acdd6bacd5ad76628fdf0eefda"
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-rc9.zip",
+                "reference": "8.x-1.0-rc9",
+                "shasum": "78953103a9c6e4e44bc877820a35f39913ea4559"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9"
+                "drupal/core": "^8.8 || ^9",
+                "php": ">=7.1"
             },
             "require-dev": {
                 "drupal/entity_reference_revisions": "^1.0"
@@ -3926,8 +3927,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc8",
-                    "datestamp": "1602172716",
+                    "version": "8.x-1.0-rc9",
+                    "datestamp": "1618174486",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -4911,6 +4912,50 @@
             }
         },
         {
+            "name": "drupal/redirect_after_registration",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/redirect_after_registration.git",
+                "reference": "1.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/redirect_after_registration-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "4dc83e926e63a932da832c8eed4c935bd5165e29"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.0",
+                    "datestamp": "1602582314",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "gupta324",
+                    "homepage": "https://www.drupal.org/user/2631215"
+                }
+            ],
+            "description": "Module to help you configure destination to be redirected after registration.",
+            "homepage": "http://drupal.org/project/redirect_after_registration",
+            "support": {
+                "source": "https://git.drupalcode.org/project/redirect_after_registration"
+            }
+        },
+        {
             "name": "drupal/restui",
             "version": "1.20.0",
             "source": {
@@ -5797,16 +5842,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "10.4.2",
+            "version": "10.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "0d48a046f5511dd8fda10ac3376b97bb65a2b7ec"
+                "reference": "472ce3e0ac48b418f8168a053b3bcb4c8582bf99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/0d48a046f5511dd8fda10ac3376b97bb65a2b7ec",
-                "reference": "0d48a046f5511dd8fda10ac3376b97bb65a2b7ec",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/472ce3e0ac48b418f8168a053b3bcb4c8582bf99",
+                "reference": "472ce3e0ac48b418f8168a053b3bcb4c8582bf99",
                 "shasum": ""
             },
             "require": {
@@ -5930,7 +5975,7 @@
                 "irc": "irc://irc.freenode.org/drush",
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/10.4.2"
+                "source": "https://github.com/drush-ops/drush/tree/10.4.3"
             },
             "funding": [
                 {
@@ -5938,7 +5983,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-06T03:37:46+00:00"
+            "time": "2021-04-14T14:08:05+00:00"
         },
         {
             "name": "easyrdf/easyrdf",

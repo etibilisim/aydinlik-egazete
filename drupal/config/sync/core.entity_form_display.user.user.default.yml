@@ -121,15 +121,15 @@ content:
   field_telefon:
     weight: 1
     settings:
-      placeholder: '+90 (000) 000 0000'
+      placeholder: +90xxxxxxxxxx
     third_party_settings:
       mask:
-        value: '+90 (000) 000 0000'
-        clearifnotmatch: '1'
-        selectonfocus: '1'
+        value: ''
         translation_help:
           table: ''
         reverse: 0
+        clearifnotmatch: 0
+        selectonfocus: 0
     type: telephone_default
     region: content
   language:
