@@ -1,0 +1,6 @@
+redirect_after_registration:
+  destination: /user/login
+_core:
+  default_config_hash: 7V7YF8A7V0N6MXtT4eNg4TBxkgVhgAJHeW2mmY2IdRA
+langcode: tr
+destination: /satin-al

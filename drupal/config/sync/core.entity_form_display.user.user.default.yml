@@ -17,13 +17,10 @@ dependencies:
     - field.field.user.user.field_tc
     - field.field.user.user.field_telefon
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
     - address
     - datetime
-    - image
     - mask
-    - path
     - telephone
     - user
 _core:
@@ -34,7 +31,7 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -56,7 +53,7 @@ content:
     third_party_settings: {  }
     region: content
   field_abonelik_durumu:
-    weight: 16
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -64,7 +61,7 @@ content:
     type: string_textfield
     region: content
   field_abonelik_referans_kodu:
-    weight: 17
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -84,7 +81,7 @@ content:
     third_party_settings: {  }
     region: content
   field_adiniz_soyadiniz:
-    weight: 14
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -92,34 +89,20 @@ content:
     type: string_textfield
     region: content
   field_adres:
-    weight: 10
+    weight: 3
     type: address_default
     settings: {  }
     third_party_settings: {  }
     region: content
   field_onay:
-    weight: 13
+    weight: 12
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_taahhut_tarihi:
-    weight: 15
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_tc:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_telefon:
-    weight: 1
+    weight: 2
     settings:
       placeholder: +90xxxxxxxxxx
     third_party_settings:
@@ -137,26 +120,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   timezone:
     weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  user_picture:
-    type: image_image
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
   commerce_remote_id: true
   customer_profiles: true
+  field_taahhut_tarihi: true
+  field_tc: true
   langcode: true
+  path: true
+  user_picture: true

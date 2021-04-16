@@ -90,6 +90,7 @@ module:
   profile: 0
   quickedit: 0
   rdf: 0
+  redirect_after_registration: 0
   rest: 0
   restui: 0
   scheduler: 0
