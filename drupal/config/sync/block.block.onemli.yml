@@ -1,0 +1,31 @@
+uuid: ba3d1e5a-8736-4d52-8978-3d48c08bc2aa
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:22bd412d-9880-49c4-9e35-9d8b9aeb3445'
+  module:
+    - block_content
+    - system
+  theme:
+    - conference_lite
+id: onemli
+theme: conference_lite
+region: content
+weight: -13
+provider: null
+plugin: 'block_content:22bd412d-9880-49c4-9e35-9d8b9aeb3445'
+settings:
+  id: 'block_content:22bd412d-9880-49c4-9e35-9d8b9aeb3445'
+  label: Önemli
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/checkout/*/order_information'
+    negate: false
+    context_mapping: {  }
