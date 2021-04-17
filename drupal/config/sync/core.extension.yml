@@ -65,6 +65,7 @@ module:
   iyzipay: 0
   jquery_ui: 0
   jquery_ui_datepicker: 0
+  jsonapi: 0
   language: 0
   link: 0
   locale: 0
