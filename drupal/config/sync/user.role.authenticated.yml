@@ -13,7 +13,6 @@ permissions:
   - 'access comments'
   - 'access commerce_order overview'
   - 'access content'
-  - 'access devel information'
   - 'access user profiles'
   - 'access variation add to cart'
   - 'administer ajax document viewer'
