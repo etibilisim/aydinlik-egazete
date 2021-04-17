@@ -1,6 +1,6 @@
 uuid: 7f6e9160-8778-4037-83e7-646fb2adc083
 langcode: tr
-status: true
+status: false
 dependencies: {  }
 id: havale_eft
 label: Havale/EFT
