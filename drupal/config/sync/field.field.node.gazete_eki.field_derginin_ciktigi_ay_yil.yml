@@ -1,0 +1,21 @@
+uuid: ed358e75-95ae-4cec-b32c-a69337b96174
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_derginin_ciktigi_ay_yil
+    - node.type.gazete_eki
+  module:
+    - datetime
+id: node.gazete_eki.field_derginin_ciktigi_ay_yil
+field_name: field_derginin_ciktigi_ay_yil
+entity_type: node
+bundle: gazete_eki
+label: 'Gazetenin Çıktığı Gün'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

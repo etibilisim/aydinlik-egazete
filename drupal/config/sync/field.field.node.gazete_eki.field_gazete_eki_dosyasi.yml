@@ -1,0 +1,27 @@
+uuid: 4ecc0d69-b3cc-4648-a5f2-12b3f44851fb
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gazete_eki_dosyasi
+    - node.type.gazete_eki
+  module:
+    - file
+id: node.gazete_eki.field_gazete_eki_dosyasi
+field_name: field_gazete_eki_dosyasi
+entity_type: node
+bundle: gazete_eki
+label: 'Gazete Eki Dosyası'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'gazete-ekleri/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc docx ppt pptx xls xlsx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

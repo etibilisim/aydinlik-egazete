@@ -1,0 +1,41 @@
+uuid: 553c000d-9416-4fdc-8c79-cf799ead457f
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.field.node.gazete_eki.field_derginin_ciktigi_ay_yil
+    - field.field.node.gazete_eki.field_gazete_eki_dosyasi
+    - node.type.gazete_eki
+  module:
+    - datetime
+    - file
+    - user
+id: node.gazete_eki.default
+targetEntityType: node
+bundle: gazete_eki
+mode: default
+content:
+  field_derginin_ciktigi_ay_yil:
+    weight: 101
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_gazete_eki_dosyasi:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
