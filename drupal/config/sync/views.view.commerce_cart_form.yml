@@ -418,7 +418,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<div id="kasa-yonlendirme">Ürün adetiniz doğru ise alışverişe devam etmek için "Kasa" düğmesine tıklayın.</div>'
+            value: '<div id="kasa-yonlendirme">Ürün adetiniz "1" ise alışverişe devam etmek için "Kasa" düğmesine tıklayın. Ürün adetiniz birden fazla ise ya da yanlışlıkla başka ürün eklediyseniz abonelik sistemi otomatik olarak başlatılamaz.</div>'
             format: basic_html
           plugin_id: text
       empty: {  }
