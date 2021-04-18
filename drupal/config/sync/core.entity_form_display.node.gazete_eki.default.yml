@@ -12,6 +12,7 @@ dependencies:
     - datetime
     - file
     - image
+    - imce
     - path
     - scheduler
 id: node.gazete_eki.default
@@ -41,9 +42,11 @@ content:
   field_gazete_eki_gorseli:
     weight: 11
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
     region: content
   langcode:
