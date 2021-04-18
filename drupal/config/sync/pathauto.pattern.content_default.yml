@@ -1,0 +1,24 @@
+uuid: 526e3b10-2c60-4c75-bbd2-4d58e0972cc0
+langcode: tr
+status: true
+dependencies:
+  module:
+    - node
+id: content_default
+label: 'Content - Default'
+type: 'canonical_entities:node'
+pattern: '[node:content-type]/[node:title]'
+selection_criteria:
+  7fb3b78b-e74f-44a9-bebc-4322917ff185:
+    id: node_type
+    bundles:
+      e_arsiv: e_arsiv
+      e_dergi: e_dergi
+      gazete_eki: gazete_eki
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 7fb3b78b-e74f-44a9-bebc-4322917ff185
+selection_logic: and
+weight: -5
+relationships: {  }
