@@ -1,9 +1,9 @@
-uuid: 3c90655b-4490-4537-8188-54d70427298f
+uuid: 5c89f74a-650d-4c7f-9c22-4505d35651bc
 langcode: tr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:9e2a4ee7-b0f0-46fa-a308-5a5f0f8bc0e9'
+    - 'block_content:basic:c642f524-2c34-4e3e-85e9-e175d29a2a5b'
   module:
     - block_content
     - system
@@ -15,9 +15,9 @@ theme: conference_lite
 region: content
 weight: -4
 provider: null
-plugin: 'block_content:9e2a4ee7-b0f0-46fa-a308-5a5f0f8bc0e9'
+plugin: 'block_content:c642f524-2c34-4e3e-85e9-e175d29a2a5b'
 settings:
-  id: 'block_content:9e2a4ee7-b0f0-46fa-a308-5a5f0f8bc0e9'
+  id: 'block_content:c642f524-2c34-4e3e-85e9-e175d29a2a5b'
   label: 'Öğrenci Abonelik Başvuru Blok'
   provider: block_content
   label_display: '0'

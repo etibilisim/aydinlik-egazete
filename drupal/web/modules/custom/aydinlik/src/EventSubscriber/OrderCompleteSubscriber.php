@@ -8,7 +8,6 @@ use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Entity\Order;
 use Drupal\Core\Messenger\MessengerInterface;
-
 use Drupal\Core\Session\AccountInterface;
 use Drupal\user\Entity\User;
 use Drupal\commerce_order\Event\OrderEvent;
@@ -124,7 +123,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           # code...
           break;
       }
-
+      
       $config = \Drupal::configFactory()->getEditable('iyzipay.settings');
       $bin_number = substr($config->get('number'),0,6);
       # create request class
@@ -140,9 +139,6 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
       $cardType = $installmentInfo->getInstallmentDetails()[0]->getCardType();
       if ($cardType != NULL) {
         if (!str_contains($cardType, 'DEBIT')) {
-          //$order = $event->getEntity();
-          //$orders = Order::loadMultiple();
-          //$order = end($orders);
           $order_items = $order->getItems();
           $order_item = reset($order_items);
           $product_variation = $order_item->getPurchasedEntity();
@@ -251,8 +247,6 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             $this->current_user->field_abonelik_durumu->value = 'Beklemede';
             $this->current_user->save();
           }
-
-          $config->delete();
           $order->field_kart_turu->value = 'Kredi Kartı';
           $order->save();
           if ($order->total_paid->number != $order->total_price->number) {
@@ -261,9 +255,9 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           else {
             \Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
           }
+          $config->delete();
         }
         else {
-          $config->delete();
           $order->field_kart_turu->value = 'Banka Kartı';
           $order->save();
           $this->current_user->field_abonelik_durumu->value = 'Banka Kartı ile Abonelik';
@@ -277,13 +271,11 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             $this->current_user->addRole('abone');
             $this->current_user->save();
           }
+          $config->delete();
         }
       }
       else{
         try {
-          //$order = $event->getEntity();
-          //$orders = Order::loadMultiple();
-          //$order = end($orders);
           $order_items = $order->getItems();
           $order_item = reset($order_items);
           $product_variation = $order_item->getPurchasedEntity();
@@ -395,26 +387,34 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             $this->current_user->save();
           }
           
-          $config->delete();
           $order->field_kart_turu->value = 'Yabancı Kart';
           $order->save();
           if ($order->total_paid->number != $order->total_price->number) {
             \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
+            // Delete the last payment method local entity.
+            if (!$order->get('payment_method')->isEmpty()) {
+              $payment_method = $order->get('payment_method')->first()->entity;
+              $payment_method->delete();
+            }
           }
           else {
             \Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
+            if (!$order->get('payment_method')->isEmpty()) {
+              $payment_method = $order->get('payment_method')->first()->entity;
+              $payment_method->delete();
+            }
+            $config->delete();
           }
         }
         catch (Exception $e) {
           $config->delete();
           \Drupal::messenger()->addError(t('Your payment card is not a credit card. Subsciption can not be created, please contact us.'));
+          if (!$order->get('payment_method')->isEmpty()) {
+            $payment_method = $order->get('payment_method')->first()->entity;
+            $payment_method->delete();
+          }
         }
       }
-    }
-    // Delete the last payment method local entity.
-    if (!$order->get('payment_method')->isEmpty()) {
-      $payment_method = $order->get('payment_method')->first()->entity;
-      $payment_method->delete();
     }
   }
 }

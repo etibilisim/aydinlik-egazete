@@ -101,6 +101,7 @@ module:
   smtp: 0
   state_machine: 0
   statistics: 0
+  structure_sync: 0
   superfish: 0
   syslog: 0
   system: 0

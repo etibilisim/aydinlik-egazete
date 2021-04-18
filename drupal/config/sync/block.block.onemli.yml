@@ -1,9 +1,9 @@
-uuid: ba3d1e5a-8736-4d52-8978-3d48c08bc2aa
+uuid: dc3ec4a6-01fa-459d-a9a5-6934dd695aac
 langcode: tr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:22bd412d-9880-49c4-9e35-9d8b9aeb3445'
+    - 'block_content:basic:e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8'
   module:
     - block_content
     - system
@@ -14,12 +14,12 @@ theme: conference_lite
 region: content
 weight: -13
 provider: null
-plugin: 'block_content:22bd412d-9880-49c4-9e35-9d8b9aeb3445'
+plugin: 'block_content:e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8'
 settings:
-  id: 'block_content:22bd412d-9880-49c4-9e35-9d8b9aeb3445'
+  id: 'block_content:e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8'
   label: Önemli
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full
