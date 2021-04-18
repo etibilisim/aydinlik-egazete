@@ -5,11 +5,12 @@ use Drupal\Core\Url;
 use Drupal\user\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\user\Entity\User;
+use Drupal\commerce_cart\CartManagerInterface;
 
 /**
  * Implements hook_user_login().
  */
-
+  
 function aydinlik_user_login(UserInterface $account) {
   global $base_url;
   $current_user = User::load(\Drupal::currentUser()->id());
@@ -59,5 +60,14 @@ function aydinlik_user_login(UserInterface $account) {
   if ($account->field_abonelik_bitis_tarihi->value < $today && $account->field_abonelik_durumu->value == 'Yenileme bekliyor') {
     $account->removeRole('abone');
     $account->save();
+  }
+
+  $cartManager = \Drupal::service('commerce_cart.cart_manager');
+  $store = \Drupal\commerce_store\Entity\Store::load(1);
+  $order_type = 'default';
+  $cart_provider = \Drupal::service('commerce_cart.cart_provider');
+  $cart = $cart_provider->getCart($order_type, $store);
+  if (!empty($cart)) {
+    $cartManager->emptyCart($cart);
   }
 }
