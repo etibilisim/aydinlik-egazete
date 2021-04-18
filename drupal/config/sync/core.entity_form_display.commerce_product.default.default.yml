@@ -11,6 +11,7 @@ dependencies:
   module:
     - commerce
     - image
+    - imce
     - path
     - text
 id: commerce_product.default.default
@@ -37,9 +38,11 @@ content:
   field_urun_gorseli:
     weight: 9
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
     region: content
   field_urun_turu:
