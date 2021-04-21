@@ -6,11 +6,13 @@ use Drupal\user\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\user\Entity\User;
 use Drupal\commerce_cart\CartManagerInterface;
+use Drupal\Core\Messenger\MessengerTrait;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Implements hook_user_login().
  */
-  
+
 function aydinlik_user_login(UserInterface $account) {
   global $base_url;
   $current_user = User::load(\Drupal::currentUser()->id());
@@ -44,12 +46,17 @@ function aydinlik_user_login(UserInterface $account) {
       }
     }
   }
-  if ($account->field_adres->country_code == 'TR') {
-    $account->addRole('yurtici_abone');
-    $account->save();
-  } else {
-    $account->addRole('yurtdisi_abone');
-    $account->save();
+  if ($account->field_adres->country_code == 'TR' || $account->field_adres->country_code == '' ) {
+    if (!$account->hasRole('yurtici_abone') || !$account->hasRole('yurtdisi_abone')){
+      $account->addRole('yurtici_abone');
+      $account->save();
+    } 
+  }
+  else {
+    if (!$account->hasRole('yurtici_abone') || !$account->hasRole('yurtdisi_abone')){
+      $account->addRole('yurtdisi_abone');
+      $account->save();
+    }
   }
   /* if ($account->field_adiniz_soyadiniz->value == '' || $account->field_adres->address_line1 == '' || $account->field_adres->administrative_area == '' || $account->field_adres->locality == '' || $account->field_telefon->value == '' || $account->field_onay->value != 1) {
     $uid = $account->id();
@@ -57,9 +64,8 @@ function aydinlik_user_login(UserInterface $account) {
     $response = new RedirectResponse($base_url.$user_edit_form);
     $response->send();
   } */
-  if ($account->field_abonelik_bitis_tarihi->value < $today && $account->field_abonelik_durumu->value == 'Yenileme bekliyor') {
-    $account->removeRole('abone');
-    $account->save();
+  if ($account->field_abonelik_bitis_tarihi->value < $today) {
+    \Drupal::messenger()->addError(t('Abonelik süreniz dolmuştur. Artık sadece abonelik süreniz içerisindeki içeriklere ve e-arşiv aboneliğiniz var ise arşiv gazetelere erişebilirsiniz. Aboneliğinizi uzatmak için lütfen yukarıdaki Satın Al düğmesine tıklayın.'));
   }
 
   $cartManager = \Drupal::service('commerce_cart.cart_manager');

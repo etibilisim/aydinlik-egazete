@@ -83,7 +83,7 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
                 $epaper_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
                 if (!str_contains($epaper_subscription->getName(), 'E-Gazete')) {
                   $this->messenger->addWarning($config->get('satinalmesaji'));
-                  $redirect = new RedirectResponse($login->toString());
+                  $redirect = new RedirectResponse('/e-gazete-aboneligi');
                   $redirect->send();
                 }
               }
@@ -95,7 +95,7 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
                 }
               }
               if (!str_contains($subscription_duration->getName(), 'Yıllık')) {
-                if (!($subscription_start_date<$publication_date && $publication_date<$subscription_end_date) || !($subscription_end_date>$publication_date)) {
+                if ($subscription_start_date > $publication_date || $publication_date > $subscription_end_date) {
                   $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
                   $redirect = new RedirectResponse($login->toString());
                   $redirect->send();
@@ -115,7 +115,7 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
               $earchives_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
               if (!str_contains($earchives_subscription->getName(), 'E-Arşiv')) {
                 $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
-                $redirect = new RedirectResponse('/satin-al');
+                $redirect = new RedirectResponse('/e-gazete-aboneligi');
                 $redirect->send();
               }
             }
