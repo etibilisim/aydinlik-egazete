@@ -1,5 +1,18 @@
 blocks:
   -
+    info: 'Abone Ol'
+    langcode: tr
+    uuid: 631d982d-0774-4799-b2cf-0d2e4d3c2539
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><div id=\"abone-ol\"><a href=\"/e-gazete-aboneligi\">Abone ol</a></div></p>\r\n"
+          summary: ''
+          format: full_html
+  -
     info: Önemli
     langcode: tr
     uuid: e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8

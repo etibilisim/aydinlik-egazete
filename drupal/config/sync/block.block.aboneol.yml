@@ -13,7 +13,7 @@ dependencies:
 id: aboneol
 theme: conference_lite
 region: content
-weight: -15
+weight: -16
 provider: null
 plugin: 'block_content:631d982d-0774-4799-b2cf-0d2e4d3c2539'
 settings:
