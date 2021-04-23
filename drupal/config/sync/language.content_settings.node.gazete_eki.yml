@@ -1,0 +1,11 @@
+uuid: ae881f49-7bc4-4bc4-87fa-f7e56a91173e
+langcode: tr
+status: true
+dependencies:
+  config:
+    - node.type.gazete_eki
+id: node.gazete_eki
+target_entity_type_id: node
+target_bundle: gazete_eki
+default_langcode: site_default
+language_alterable: false
