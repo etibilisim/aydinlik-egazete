@@ -1,35 +1,30 @@
-uuid: 7d39b1ec-d294-416d-bd30-b6be3e62e998
+uuid: 64030a18-0992-48a8-8db8-7dfb5c01028d
 langcode: tr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:56a61f01-7062-41fa-9cb7-90318c3c523f'
+    - 'block_content:basic:631d982d-0774-4799-b2cf-0d2e4d3c2539'
   module:
     - block_content
     - system
     - user
   theme:
     - conference_lite
-id: satinalkonukblok
+id: aboneol
 theme: conference_lite
 region: content
-weight: -11
+weight: -15
 provider: null
-plugin: 'block_content:56a61f01-7062-41fa-9cb7-90318c3c523f'
+plugin: 'block_content:631d982d-0774-4799-b2cf-0d2e4d3c2539'
 settings:
-  id: 'block_content:56a61f01-7062-41fa-9cb7-90318c3c523f'
-  label: 'Satın Al Konuk Blok'
+  id: 'block_content:631d982d-0774-4799-b2cf-0d2e4d3c2539'
+  label: 'Abone Ol'
   provider: block_content
   label_display: '0'
   status: true
   info: ''
   view_mode: full
 visibility:
-  request_path:
-    id: request_path
-    pages: /e-gazete-aboneligi
-    negate: false
-    context_mapping: {  }
   user_role:
     id: user_role
     roles:
@@ -37,3 +32,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
