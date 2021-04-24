@@ -1,3 +1,447 @@
+taxonomies:
+  abonelik_suresi:
+    -
+      vid: abonelik_suresi
+      tid: '1355'
+      langcode: tr
+      name: '3 Aylık Abonelik'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: b9569e9a-dd85-4fd5-ada1-f22e96034514
+      field_sku: {  }
+    -
+      vid: abonelik_suresi
+      tid: '1356'
+      langcode: tr
+      name: '6 Aylık Abonelik'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: f204d81f-a15d-4a10-af9c-25565f57f1af
+      field_sku: {  }
+    -
+      vid: abonelik_suresi
+      tid: '1354'
+      langcode: tr
+      name: 'Aylık Abonelik'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 426cf2a1-11b3-4031-882f-546b728e4d9f
+      field_sku:
+        -
+          value: 7f1b0afd-4227-4ec9-9e4b-298e55e0b0e2
+    -
+      vid: abonelik_suresi
+      tid: '1360'
+      langcode: tr
+      name: 'Aylık Abonelik Öğrenci'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 3efb226d-f957-4c35-9184-f99e78a8e987
+      field_sku:
+        -
+          value: 25bb1a61-865d-4c34-8efb-d1a483d937f4
+    -
+      vid: abonelik_suresi
+      tid: '1358'
+      langcode: tr
+      name: 'Yıllık Abonelik'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: ba14cfad-8a8c-4c68-a1f1-d876ef07f04a
+      field_sku:
+        -
+          value: e8e172ad-cad4-475c-99d3-b8bf9a5a5166
+    -
+      vid: abonelik_suresi
+      tid: '1364'
+      langcode: tr
+      name: 'Yıllık Abonelik Avrupa'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: cebf0893-e7b9-498a-856c-9d92ffbd2402
+      field_sku:
+        -
+          value: f3b4354d-b444-4a62-8187-69bb1c0aad77
+    -
+      vid: abonelik_suresi
+      tid: '1365'
+      langcode: tr
+      name: 'Yıllık Abonelik Avrupa Dışı'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 4f08aa8e-93f8-400e-91cb-6e839b5a07d4
+      field_sku:
+        -
+          value: b3e20c2e-210d-47a2-bb2d-f045b60492a2
+    -
+      vid: abonelik_suresi
+      tid: '1359'
+      langcode: tr
+      name: 'Yıllık Abonelik Öğrenci'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: c6dd4383-16c0-4218-86dc-fccfa2ad75f0
+      field_sku:
+        -
+          value: dbf521d8-c0ab-4a16-b2bc-7b97e0a03d19
+  abonelik_turu:
+    -
+      vid: abonelik_turu
+      tid: '3'
+      langcode: tr
+      name: 'E-Arşiv Aboneliği'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 3290e048-4bf4-47cc-a83d-48435c3f6b76
+    -
+      vid: abonelik_turu
+      tid: '1'
+      langcode: tr
+      name: 'E-Gazete Aboneliği'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: b6b310e8-d7a6-4e9d-92c8-08c5e4e4ac8c
+  arsiv_aylar:
+    -
+      vid: arsiv_aylar
+      tid: '1348'
+      langcode: tr
+      name: Ağustos
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: d75cb48b-dfd6-461e-8bad-04851ca5eccc
+      field_baglanti_yolu:
+        -
+          value: agustos
+    -
+      vid: arsiv_aylar
+      tid: '1352'
+      langcode: tr
+      name: Aralık
+      description__value: null
+      description__format: null
+      weight: '11'
+      parent: '0'
+      uuid: 3ba91f58-a0af-4a3a-9d88-4ab0405af359
+      field_baglanti_yolu:
+        -
+          value: aralik
+    -
+      vid: arsiv_aylar
+      tid: '1350'
+      langcode: tr
+      name: Ekim
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: bcd751d1-61cf-4d71-bebb-daeb26268c09
+      field_baglanti_yolu:
+        -
+          value: ekim
+    -
+      vid: arsiv_aylar
+      tid: '1349'
+      langcode: tr
+      name: Eylül
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: ee150155-a195-4d68-815c-5c8826eb5fac
+      field_baglanti_yolu:
+        -
+          value: eylul
+    -
+      vid: arsiv_aylar
+      tid: '1346'
+      langcode: tr
+      name: Haziran
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: d32b0ac7-415e-4b91-bf10-556f3bb32f5c
+      field_baglanti_yolu:
+        -
+          value: haziran
+    -
+      vid: arsiv_aylar
+      tid: '1351'
+      langcode: tr
+      name: Kasım
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '0'
+      uuid: fafeccc2-419b-49d0-830b-edfcad687850
+      field_baglanti_yolu:
+        -
+          value: kasim
+    -
+      vid: arsiv_aylar
+      tid: '1343'
+      langcode: tr
+      name: Mart
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 13a0e156-34d0-459d-a1f6-7812edb0ecf4
+      field_baglanti_yolu:
+        -
+          value: mart
+    -
+      vid: arsiv_aylar
+      tid: '1345'
+      langcode: tr
+      name: Mayıs
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: a50af686-ea5a-4fbe-adb4-971f5604c7e0
+      field_baglanti_yolu:
+        -
+          value: mayis
+    -
+      vid: arsiv_aylar
+      tid: '1344'
+      langcode: tr
+      name: Nisan
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 6c166e51-1332-4f77-8cd3-81a903a003a1
+      field_baglanti_yolu:
+        -
+          value: nisan
+    -
+      vid: arsiv_aylar
+      tid: '1341'
+      langcode: tr
+      name: Ocak
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: d1c34242-c7ce-44a2-be46-e921ae3e0191
+      field_baglanti_yolu:
+        -
+          value: ocak
+    -
+      vid: arsiv_aylar
+      tid: '1342'
+      langcode: tr
+      name: Şubat
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 1ac7854d-9324-4ad5-9549-a732c00726dd
+      field_baglanti_yolu:
+        -
+          value: subat
+    -
+      vid: arsiv_aylar
+      tid: '1347'
+      langcode: tr
+      name: Temmuz
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: c6301e0a-4bd6-4fd1-9bd4-3cb0cbc113f5
+      field_baglanti_yolu:
+        -
+          value: temmuz
+  arsiv_yillari:
+    -
+      vid: arsiv_yillari
+      tid: '21'
+      langcode: tr
+      name: '2011'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: e4771c3f-617d-410d-a4a2-fd4aa0a81a8f
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '22'
+      langcode: tr
+      name: '2012'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7c06ead5-f8b7-4a5c-af5f-d2876d877698
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '24'
+      langcode: tr
+      name: '2013'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5d13ac89-9fba-4197-8935-b3ef0c78014e
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '25'
+      langcode: tr
+      name: '2014'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 01e5b191-f135-41ba-82c0-0d7756bc7e41
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '26'
+      langcode: tr
+      name: '2015'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 69c4c105-4e32-42f0-a5c1-e007807caec1
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '31'
+      langcode: tr
+      name: '2016'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 453ef001-2d8f-494e-a623-6cc1f264a479
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '32'
+      langcode: tr
+      name: '2017'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 220a840a-6ea6-4283-bcf6-2ad8b7d0249c
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '33'
+      langcode: tr
+      name: '2018'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6aa24713-9704-4f25-9cff-7a4e98c822ff
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '1339'
+      langcode: tr
+      name: '2019'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: dbb5ded2-a531-40f6-9683-3c003fb2bfbb
+      field_terim_gorseli: {  }
+    -
+      vid: arsiv_yillari
+      tid: '1353'
+      langcode: tr
+      name: '2020'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 78f64708-ef3f-4332-8208-7cc5876b2b24
+      field_terim_gorseli: {  }
+  gelen_form_durumu:
+    -
+      vid: gelen_form_durumu
+      tid: '1327'
+      langcode: tr
+      name: Okunmamış
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1d08aa16-ccc8-4a7b-afd7-0073e54e1d9b
+    -
+      vid: gelen_form_durumu
+      tid: '1326'
+      langcode: tr
+      name: Okunmuş
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 592ef663-f308-42a0-bc27-7e3775db41d6
+  tags: {  }
+  urun_turleri:
+    -
+      vid: urun_turleri
+      tid: '1361'
+      langcode: tr
+      name: 'Normal Abonelik'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: afee1f3d-6a59-494a-a395-f8aee0887155
+    -
+      vid: urun_turleri
+      tid: '1362'
+      langcode: tr
+      name: 'Öğrenci Abonelik'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 21bfda90-ab68-4b79-a4f4-607671c2d230
+    -
+      vid: urun_turleri
+      tid: '1363'
+      langcode: tr
+      name: 'Yurtdışı Abonelik'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 483f3bf5-70c9-4bb1-a572-035e59f70897
 blocks:
   -
     info: 'Abone Ol'
@@ -142,3 +586,124 @@ blocks:
           value: "<p>Lorem ipsum dolor sit ahmet</p>\r\n"
           summary: ''
           format: basic_html
+menus:
+  -
+    menu_name: account
+    title: 'Alışveriş Sepetim'
+    parent: null
+    uri: 'internal:/cart'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: ac3e562d-7243-4ea9-9e16-b23753b85512
+  -
+    menu_name: footer
+    title: 'Gizlilik İlkesi'
+    parent: null
+    uri: 'entity:node/4030'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: d0f3c864-d2cb-4f06-bf7a-d74eb55090d3
+  -
+    menu_name: footer
+    title: 'Kullanım Koşulları'
+    parent: null
+    uri: 'entity:node/4029'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 567c7b98-8dc3-4e12-a99b-038a415249fd
+  -
+    menu_name: footer
+    title: 'Mesafeli Satış ve E-Gazete Abonelik Sözleşmesi'
+    parent: null
+    uri: 'entity:node/4038'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 3caebf03-9736-4477-8f41-02af03477464
+  -
+    menu_name: footer
+    title: Hakkımızda
+    parent: null
+    uri: 'entity:node/4039'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: e5731c72-c722-4563-944b-56411d306568
+  -
+    menu_name: main
+    title: 'Bize Ulaşın'
+    parent: null
+    uri: 'entity:node/4006'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-46'
+    langcode: tr
+    uuid: 8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0
+  -
+    menu_name: main
+    title: 'Satın Al'
+    parent: null
+    uri: 'entity:node/4087'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: tr
+    uuid: 3647f1b2-5bea-40d6-92ee-392dce8cfed9
+  -
+    menu_name: main
+    title: 'Öğrenci Abonelik Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4100'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 4474ab5c-f10b-4d84-a8c3-965c2341ade0
+  -
+    menu_name: main
+    title: 'Abonelik Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4101'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 7721d5a7-97cd-4d01-9bac-f12b1e9717dc
+  -
+    menu_name: main
+    title: 'Abonelik İptal Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4102'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 5e3ce283-7c87-492b-b153-c1d407ed8d11
