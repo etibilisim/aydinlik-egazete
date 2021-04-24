@@ -18,6 +18,7 @@ dependencies:
     - field.field.user.user.field_telefon
     - field.field.user.user.user_picture
   module:
+    - address
     - datetime
     - telephone
     - user
@@ -30,7 +31,7 @@ mode: default
 content:
   field_abonelik_baslangic_tarihi:
     type: datetime_custom
-    weight: 1
+    weight: 4
     region: content
     label: above
     settings:
@@ -39,7 +40,7 @@ content:
     third_party_settings: {  }
   field_abonelik_bitis_tarihi:
     type: datetime_custom
-    weight: 2
+    weight: 5
     region: content
     label: above
     settings:
@@ -47,7 +48,7 @@ content:
       date_format: d-m-Y
     third_party_settings: {  }
   field_abonelik_durumu:
-    weight: 9
+    weight: 8
     label: above
     settings:
       link_to_entity: false
@@ -55,7 +56,7 @@ content:
     type: string
     region: content
   field_abonelik_referans_kodu:
-    weight: 10
+    weight: 9
     label: above
     settings:
       link_to_entity: false
@@ -63,7 +64,7 @@ content:
     type: string
     region: content
   field_abonelik_suresi:
-    weight: 3
+    weight: 6
     label: above
     settings:
       link: false
@@ -72,32 +73,29 @@ content:
     region: content
   field_abonelik_turu:
     type: entity_reference_label
-    weight: 0
+    weight: 3
     region: content
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_adiniz_soyadiniz:
-    weight: 5
+    weight: 0
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_onay:
-    weight: 7
-    label: above
-    settings:
-      format: yes-no
-      format_custom_true: ''
-      format_custom_false: ''
-    third_party_settings: {  }
-    type: boolean
+  field_adres:
+    type: address_default
+    weight: 2
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_taahhut_tarihi:
-    weight: 8
+    weight: 7
     label: above
     settings:
       timezone_override: ''
@@ -105,16 +103,8 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_tc:
-    weight: 6
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_telefon:
-    weight: 4
+    weight: 1
     label: above
     settings:
       title: ''
@@ -124,7 +114,8 @@ content:
 hidden:
   commerce_remote_id: true
   customer_profiles: true
-  field_adres: true
+  field_onay: true
+  field_tc: true
   langcode: true
   member_for: true
   user_picture: true
