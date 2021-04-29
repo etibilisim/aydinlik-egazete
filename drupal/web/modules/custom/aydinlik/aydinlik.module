@@ -58,9 +58,8 @@ function aydinlik_user_login(UserInterface $account) {
       $account->save();
     }
   }
-  if ($account->field_adiniz_soyadiniz->value == '' || $account->field_adres->administrative_area == '' || $account->field_adres->locality == '' || $account->field_telefon->value == '') {
+  if ($account->field_adiniz_soyadiniz->value == NULL || $account->field_telefon->value == NULL) {
     $uid = $account->id();
-    $messenger->addError('Kullanıcı profilinizdeki eksik bilgileri doldurmanız gerekiyor.Eğer doğrudan kullanıcı profilinize yönlendirilmediyseniz lütfen yukarıdaki "HESABIM" yazısına tıkladıktan sonra gelen ekranda "DÜZENLE" yazısına tıklayarak profilinizdeki yıldız olan alanları doldurunuz.(Doldurumlası gereken zorunlu alanlar(Adınız Soyadınız, Telefon Numaranız ve Adres Bilgileriniz))');
     $response = new RedirectResponse($base_url.$user_edit_form);
     $response->send();
   }
