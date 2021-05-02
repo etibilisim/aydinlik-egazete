@@ -64,7 +64,7 @@ function aydinlik_user_login(UserInterface $account) {
     $response = new RedirectResponse($base_url.$user_edit_form);
     $response->send();
   }
-  if ($account->field_abonelik_bitis_tarihi->value < $today) {
+  if ($account->field_abonelik_bitis_tarihi->value < $today && $account->field_abonelik_bitis_tarihi->value != '') {
     \Drupal::messenger()->addError(t('Abonelik süreniz dolmuştur. Artık sadece abonelik süreniz içerisindeki içeriklere ve e-arşiv aboneliğiniz var ise arşiv gazetelere erişebilirsiniz. Aboneliğinizi uzatmak için lütfen yukarıdaki Satın Al düğmesine tıklayın.'));
   }
 
