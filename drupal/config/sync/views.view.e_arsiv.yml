@@ -191,7 +191,7 @@ display:
         type: normal
         title: E-Arşiv
         menu_name: main
-        weight: -47
+        weight: -46
       display_description: ''
     cache_metadata:
       max-age: -1

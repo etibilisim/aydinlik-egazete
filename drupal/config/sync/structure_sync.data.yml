@@ -656,7 +656,7 @@ menus:
     description: null
     enabled: '1'
     expanded: '0'
-    weight: '-46'
+    weight: '-45'
     langcode: tr
     uuid: 8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0
   -

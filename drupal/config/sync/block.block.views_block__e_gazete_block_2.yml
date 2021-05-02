@@ -1,0 +1,30 @@
+uuid: 329ae309-f717-4a18-9c46-791fb299acbf
+langcode: tr
+status: true
+dependencies:
+  config:
+    - views.view.e_gazete
+  module:
+    - system
+    - views
+  theme:
+    - conference_lite
+id: views_block__e_gazete_block_2
+theme: conference_lite
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:e_gazete-block_2'
+settings:
+  id: 'views_block:e_gazete-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

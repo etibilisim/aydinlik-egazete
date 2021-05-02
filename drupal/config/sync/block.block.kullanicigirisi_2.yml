@@ -10,7 +10,7 @@ dependencies:
 id: kullanicigirisi_2
 theme: conference_lite
 region: content
-weight: -15
+weight: -16
 provider: null
 plugin: user_login_block
 settings:

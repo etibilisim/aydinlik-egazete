@@ -12,7 +12,7 @@ dependencies:
 id: onemli
 theme: conference_lite
 region: content
-weight: -12
+weight: -13
 provider: null
 plugin: 'block_content:e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8'
 settings:
