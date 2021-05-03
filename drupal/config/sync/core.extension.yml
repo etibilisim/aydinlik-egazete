@@ -126,6 +126,7 @@ module:
   webform_submission_log: 0
   webform_ui: 0
   webform_views: 0
+  webform_xlsx_export: 0
   xls_serialization: 0
   pathauto: 1
   webform_bootstrap: 1
