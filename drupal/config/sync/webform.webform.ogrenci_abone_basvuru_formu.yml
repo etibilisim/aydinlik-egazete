@@ -112,10 +112,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
+  confirmation_type: url_message
   confirmation_title: 'Öğrenci Abonelik Başvurusu'
-  confirmation_message: '&Ouml;ğrenci abonelik başvurunuz alınmıştır.'
-  confirmation_url: ''
+  confirmation_message: 'Başvurunuz alınmıştır. &Ouml;ğrencilik işleminiz onaylanınca tarafınıza e-posta ile d&ouml;n&uuml;ş yapılacaktır.'
+  confirmation_url: '<front>'
   confirmation_attributes: {  }
   confirmation_back: false
   confirmation_back_label: ''

@@ -9,7 +9,7 @@ _core:
 id: conference_lite_page_title
 theme: conference_lite
 region: content
-weight: -14
+weight: -17
 provider: null
 plugin: page_title_block
 settings:

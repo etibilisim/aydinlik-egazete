@@ -10,7 +10,7 @@ dependencies:
 id: kullanicigirisi_2
 theme: conference_lite
 region: content
-weight: -16
+weight: -14
 provider: null
 plugin: user_login_block
 settings:
@@ -21,7 +21,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "<front>\r\n/e-gazete-aboneligi"
     negate: false
     context_mapping: {  }
   user_role:
