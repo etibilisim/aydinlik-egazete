@@ -64,7 +64,8 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
     $this->messenger = \Drupal::messenger();
     $route_match = RouteMatch::createFromRequest($event->getRequest());
     if (($node = $route_match->getParameter('node')) && $node instanceof NodeInterface) {
-      if (!\Drupal::service('path.matcher')->isFrontPage() || ($node->bundle() != 'page' || $node->bundle() != 'webform')) {
+      //if (!\Drupal::service('path.matcher')->isFrontPage() || ($node->bundle() != 'page' || $node->bundle() != 'webform')) {
+      if ($node->bundle() == 'e_dergi') {
         if ($this->current_user->isAnonymous()) {
           $this->messenger->addMessage($config->get('girisyapmesaji'));
           $redirect = new RedirectResponse($login->toString());
