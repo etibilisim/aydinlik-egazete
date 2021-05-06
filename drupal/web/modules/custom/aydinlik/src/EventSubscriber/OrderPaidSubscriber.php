@@ -80,6 +80,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
     $order_item = reset($order_items);
     $product_variation = $order_item->getPurchasedEntity();
     $sku = $product_variation->getSku();
+    if ($order->getState()->value == 'completed' && $this->current_user->field_abonelik_durumu != "Aktif") {
       if (str_contains ($sku, 'aylik')) {
         $sku_substr = substr($sku, 0, 14);
       }
@@ -414,5 +415,6 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           }
         }
       }
+    }
   }
 }
