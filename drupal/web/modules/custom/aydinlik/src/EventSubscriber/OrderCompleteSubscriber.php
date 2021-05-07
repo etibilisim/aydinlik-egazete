@@ -80,19 +80,29 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
     $order_item = reset($order_items);
     $product_variation = $order_item->getPurchasedEntity();
     $sku = $product_variation->getSku();
-      if (str_contains ($sku, 'aylik')) {
-        $sku_substr = substr($sku, 0, 14);
-      }
-      elseif (str_contains ($sku, 'yillik')) {
-        $sku_substr = substr($sku, 0, 15);   
-      }
-      $from = ["aylik", "yillik", "-"];
-      $to = ["Aylık", "Yıllık", " "];
-      $name = ucwords(str_replace($from, $to, $sku_substr));
+    $config = \Drupal::configFactory()->getEditable('iyzipay.settings');
+    $bin_number = substr($config->get('number'),0,6);
+    # create request class
+    $request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
+    $request->setLocale(\Iyzipay\Model\Locale::TR);
+    $request->setConversationId($order_id);
+    $request->setBinNumber($bin_number);
+    $request->setPrice("$order_price");
+
+    # make request
+    $installmentInfo = \Iyzipay\Model\InstallmentInfo::retrieve($request, \Drupal\iyzipay\Config::options());
+
+    $cardType = $installmentInfo->getInstallmentDetails()[0]->getCardType();
+    $paymentStatus = $installmentInfo->getStatus();
+    
+    $from = ["aylik", "yillik", "ogrenci", "avrupa", "disi","-"];
+    $to = ["Aylık", "Yıllık", "Öğrenci", "Avrupa", "Dışı", " "];
+    $name = ucwords(str_replace($from, $to, $sku));
+    if($paymentStatus == "success"){
       $epaper_subscription = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'E-Gazete Aboneliği']);
       $subscription_duration = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $name]);
       $this->current_user->field_abonelik_suresi[0] = ['target_id' => reset($subscription_duration)->id()];
-      switch ($sku_substr) {
+      switch ($sku) {
         case 'aylik-abonelik':
         case 'aylik-abonelik-ogrenci':
           if (!empty($this->current_user->field_abonelik_turu)) {
@@ -107,6 +117,8 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           break;
         case 'yillik-abonelik':
         case 'yillik-abonelik-ogrenci':
+        case 'yillik-abonelik-avrupa':
+        case 'yillik-abonelik-avrupa-disi':
           if (!empty($this->current_user->field_abonelik_turu)) {
             unset($this->current_user->field_abonelik_turu);
           }
@@ -122,20 +134,8 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           # code...
           break;
       }
-      
-      $config = \Drupal::configFactory()->getEditable('iyzipay.settings');
-      $bin_number = substr($config->get('number'),0,6);
-      # create request class
-      $request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
-      $request->setLocale(\Iyzipay\Model\Locale::TR);
-      $request->setConversationId($order_id);
-      $request->setBinNumber($bin_number);
-      $request->setPrice("$order_price");
-
-      # make request
-      $installmentInfo = \Iyzipay\Model\InstallmentInfo::retrieve($request, \Drupal\iyzipay\Config::options());
-
-      $cardType = $installmentInfo->getInstallmentDetails()[0]->getCardType();
+    }
+    if ($paymentStatus == "success"){
       if ($cardType != NULL) {
         if (!str_contains($cardType, 'DEBIT')) {
           $order_items = $order->getItems();
@@ -390,29 +390,21 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $order->save();
           if ($order->total_paid->number != $order->total_price->number) {
             \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
-            // Delete the last payment method local entity.
-            if (!$order->get('payment_method')->isEmpty()) {
-              $payment_method = $order->get('payment_method')->first()->entity;
-              $payment_method->delete();
-            }
           }
           else {
             \Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
-            if (!$order->get('payment_method')->isEmpty()) {
-              $payment_method = $order->get('payment_method')->first()->entity;
-              $payment_method->delete();
-            }
             $config->delete();
           }
         }
         catch (Exception $e) {
           $config->delete();
           \Drupal::messenger()->addError(t('Your payment card is not a credit card. Subsciption can not be created, please contact us.'));
-          if (!$order->get('payment_method')->isEmpty()) {
-            $payment_method = $order->get('payment_method')->first()->entity;
-            $payment_method->delete();
-          }
         }
       }
+    }
+    else{
+      $config->delete();
+          \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
+    }
   }
 }
