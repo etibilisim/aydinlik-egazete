@@ -639,7 +639,7 @@ blocks:
     fields:
       body:
         -
-          value: "<p><a href=\"/user/register\">Bu bağlantıya tıklayarak yeni abone kaydı oluşturabilirsiniz.</a></p>\r\n\r\n<p>Daha önce kayıt yaptıysanız \"Kullanızı Girişi\"nden ilerleyebilirsiniz.</p>\r\n"
+          value: "<p>Satın alma sayfasına erişmek için giriş ya da kayıt yapmanız gerekmektedir.</p>\r\n\r\n<p><a href=\"/user/register\">Bu bağlantıya tıklayarak yeni abone kaydı oluşturabilirsiniz</a> ya da aşağıdaki bölümden giriş yapabilirsiniz.</p>\r\n"
           summary: ''
           format: full_html
   -

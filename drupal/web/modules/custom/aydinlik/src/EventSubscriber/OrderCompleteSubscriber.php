@@ -260,6 +260,8 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $order->field_kart_turu->value = 'Banka Kartı';
           $order->save();
           $this->current_user->field_abonelik_durumu->value = 'Banka Kartı ile Abonelik';
+          $this->current_user->field_abonelik_referans_kodu->value = "";
+          $this->current_user->addRole('abone');
           $this->current_user->save();
           if ($order->total_paid->number != $order->total_price->number) {
             \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
