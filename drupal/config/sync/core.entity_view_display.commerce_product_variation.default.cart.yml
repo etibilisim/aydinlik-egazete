@@ -8,6 +8,7 @@ dependencies:
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
     - field.field.commerce_product_variation.default.field_aciklama
     - field.field.commerce_product_variation.default.field_sku
+    - field.field.commerce_product_variation.default.maximum_order_quantity
   module:
     - commerce_price
 id: commerce_product_variation.default.cart
@@ -38,6 +39,7 @@ hidden:
   field_aciklama: true
   field_sku: true
   langcode: true
+  maximum_order_quantity: true
   product_id: true
   sku: true
   title: true

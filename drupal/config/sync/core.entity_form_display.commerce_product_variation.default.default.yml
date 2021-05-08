@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product_variation.default.attribute_e_gazete_aboneligi
     - field.field.commerce_product_variation.default.field_aciklama
     - field.field.commerce_product_variation.default.field_sku
+    - field.field.commerce_product_variation.default.maximum_order_quantity
   module:
     - commerce_price
     - text
@@ -52,6 +53,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  maximum_order_quantity:
+    type: number
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
   price:
     type: commerce_price_default
     weight: 0

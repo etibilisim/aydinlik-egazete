@@ -23,6 +23,7 @@
         "drupal/colorbox": "^1.6",
         "drupal/commerce": "^2.24",
         "drupal/commerce_cart_redirection": "^3.0",
+        "drupal/commerce_product_limits": "^1.0",
         "drupal/commerce_variation_add_to_cart": "^1.5",
         "drupal/conference_lite": "^1.2",
         "drupal/core-composer-scaffold": "^8.8",

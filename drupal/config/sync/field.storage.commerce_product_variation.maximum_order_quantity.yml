@@ -1,0 +1,20 @@
+uuid: 8ea83848-bbb3-48bf-ae6a-5a2b7422e345
+langcode: tr
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.maximum_order_quantity
+field_name: maximum_order_quantity
+entity_type: commerce_product_variation
+type: integer
+settings:
+  unsigned: false
+  size: tiny
+module: core
+locked: true
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

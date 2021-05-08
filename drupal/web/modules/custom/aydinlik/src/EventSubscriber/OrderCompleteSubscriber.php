@@ -113,6 +113,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           }
           $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 month'));
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($epaper_subscription)->id()];
+          $this->current_user->addRole('abone');
           $this->current_user->save();
           break;
         case 'yillik-abonelik':
@@ -129,6 +130,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $earchive_subscription = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'E-Arşiv Aboneliği']);
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($epaper_subscription)->id()];
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($earchive_subscription)->id()];
+          $this->current_user->addRole('abone');
           $this->current_user->save();
         default:
           # code...
