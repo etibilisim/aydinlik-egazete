@@ -602,10 +602,12 @@ display:
           exposed: true
           expose:
             operator_id: combine_op
-            label: 'Ad ya da e-posta şunu içersin'
+            label: 'Kullanıcı adı ya da e-posta'
             description: ''
             use_operator: false
             operator: combine_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: user
             required: false
             remember: false
@@ -613,9 +615,13 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              yonetici: '0'
               administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
+              abone: '0'
+              yurtici_abone: '0'
+              yurtdisi_abone: '0'
+              ogrenci_abone: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -632,6 +638,52 @@ display:
             name: name
             mail: mail
           plugin_id: combine
+        field_adiniz_soyadiniz_value:
+          id: field_adiniz_soyadiniz_value
+          table: user__field_adiniz_soyadiniz
+          field: field_adiniz_soyadiniz_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_adiniz_soyadiniz_value_op
+            label: Ad-Soyad
+            description: ''
+            use_operator: false
+            operator: field_adiniz_soyadiniz_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_adiniz_soyadiniz_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              yonetici: '0'
+              administrator: '0'
+              abone: '0'
+              yurtici_abone: '0'
+              yurtdisi_abone: '0'
+              ogrenci_abone: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
         status:
           id: status
           table: users_field_data

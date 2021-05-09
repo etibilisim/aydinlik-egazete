@@ -1,3 +1,268 @@
+menus:
+  -
+    menu_name: account
+    title: 'Alışveriş Sepetim'
+    parent: null
+    uri: 'internal:/cart'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: ac3e562d-7243-4ea9-9e16-b23753b85512
+  -
+    menu_name: footer
+    title: 'Gizlilik İlkesi'
+    parent: null
+    uri: 'entity:node/4030'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: d0f3c864-d2cb-4f06-bf7a-d74eb55090d3
+  -
+    menu_name: footer
+    title: 'Kullanım Koşulları'
+    parent: null
+    uri: 'entity:node/4029'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 567c7b98-8dc3-4e12-a99b-038a415249fd
+  -
+    menu_name: footer
+    title: 'Mesafeli Satış ve E-Gazete Abonelik Sözleşmesi'
+    parent: null
+    uri: 'entity:node/4038'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 3caebf03-9736-4477-8f41-02af03477464
+  -
+    menu_name: footer
+    title: Hakkımızda
+    parent: null
+    uri: 'entity:node/4039'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: e5731c72-c722-4563-944b-56411d306568
+  -
+    menu_name: main
+    title: 'Bize Ulaşın'
+    parent: null
+    uri: 'entity:node/4006'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-45'
+    langcode: tr
+    uuid: 8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0
+  -
+    menu_name: main
+    title: 'Satın Al'
+    parent: null
+    uri: 'entity:node/4087'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: tr
+    uuid: 3647f1b2-5bea-40d6-92ee-392dce8cfed9
+  -
+    menu_name: main
+    title: 'Öğrenci Abonelik Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4100'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 4474ab5c-f10b-4d84-a8c3-965c2341ade0
+  -
+    menu_name: main
+    title: 'Abonelik Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4101'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 7721d5a7-97cd-4d01-9bac-f12b1e9717dc
+  -
+    menu_name: main
+    title: 'Abonelik İptal Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4102'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 5e3ce283-7c87-492b-b153-c1d407ed8d11
+blocks:
+  -
+    info: 'Abone Ol'
+    langcode: tr
+    uuid: 631d982d-0774-4799-b2cf-0d2e4d3c2539
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><div id=\"abone-ol\"><a href=\"/e-gazete-aboneligi\">Abone ol</a></div></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: Önemli
+    langcode: tr
+    uuid: e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Ödeme yaparken kredi kartı yerine banka kartı kullanırsanız düzenli abonelik için arkadaşlarımız sizinle iletişime geçecekler.</p>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'Öğrenci Abonelik Başvuru Blok'
+    langcode: tr
+    uuid: c642f524-2c34-4e3e-85e9-e175d29a2a5b
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><strong><a class=\"button button--outline\" href=\"/ogrenci-abonelik-basvurusu\">Öğrenci indiriminden yararlanmak istiyorum</a></strong></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: Duyuru
+    langcode: tr
+    uuid: 93c4e87c-d27a-4548-bb11-3531307a395d
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Siz değerli abonelerimize daha iyi hizmet verebilmek için bir süreliğine satış sistemimizi bakıma aldık. İyileştirmeler tamamlandığında satın alma işlemi kullanımınıza açılacaktır.</p>\r\n\r\n<p>İlginiz ve anlayışınız için teşekkür ederiz.</p>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: Bilgilendirme
+    langcode: tr
+    uuid: e069b431-9d82-42b5-8583-74ac05e7ee4b
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Değerli abonemiz,</p>\r\n\r\n<p>E-Aydınlık’ta uygulamaya başladığımız yeni sistemimizde güncellemeler sürüyor. Bugün sitemize girdiğinizde, gazetenize ulaşamayabilirsiniz. Bunun nedeni bu güncellemelerdir. Mağduriyetinizi gidermek için bugün sizlere gazetemizin PDF'sini e-postayla iletiyoruz.<br />\r\n<strong>Bundan sonra gazetenize sorunsuz ulaşabilmeniz için lütfen aşağıdaki adımları uygulayınız:</strong></p>\r\n\r\n<p>1- egazete.aydinlik.com.tr sitesinden her zaman kullandığınız kullanıcı adı ve parolanızı kullanarak giriş yapınız.<br />\r\n2- Ana sayfada, yukarıda bulunan \"HESABIM\" yazısına tıklayınız.<br />\r\n3- Çıkan sayfada \"DÜZENLE\" yazısına tıklayınız.<br />\r\n4- Açılan sayfada, yanında kırmızı yıldız olan \"<strong>Ad-Soyad, TC Kimlik No, Telefon ve Adres Bilgileri</strong>\" alanlarını eksiksiz doldurunuz. Kaydetmeyi unutmayınız.</p>\r\n\r\n<p>Söz konusu bilgi girişleri tek seferlik olup, sistemimizin sağlıklı çalışması için zorunluluktur.</p>\r\n\r\n<p>İletişim:</p>\r\n\r\n<p>0541 782 09 42<br />\r\n0531 888 00 06<br />\r\n0534 526 41 81</p>\r\n\r\n<p>Yaşanan sorun nedeniyle özür diler, anlayışınız için teşekkür ederiz.</p>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'Satın Al Konuk Blok'
+    langcode: tr
+    uuid: 56a61f01-7062-41fa-9cb7-90318c3c523f
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Satın alma sayfasına erişmek için giriş ya da kayıt yapmanız gerekmektedir.</p>\r\n\r\n<p><a href=\"/user/register\">Bu bağlantıya tıklayarak yeni abone kaydı oluşturabilirsiniz</a> ya da aşağıdaki bölümden giriş yapabilirsiniz.</p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Satın Al Açıklama'
+    langcode: tr
+    uuid: 51276151-c9ab-47e9-9b25-9fa3ffd916ef
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h3>Satın alma işlemlerinin buraya taşınması için hazırlanmış bu sayfa henüz test aşamasındadır.</h3>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'Destek İletişim Numaraları'
+    langcode: tr
+    uuid: 372ecfed-9ce0-4b06-9ae2-bf339bd36393
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p><span class=\"fontawesome-icon-inline\"><i class=\"fas fa-phone-alt fa\"></i></span> &nbsp; <a href=\"tel:+905417820942\">05417820942</a> &nbsp; <a href=\"tel:+905318880006\">05318880006</a></p>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Giriş ekranı açıklama'
+    langcode: tr
+    uuid: 2a0b3de5-dcbe-4a7f-8f9b-e04f9bf2a6bc
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<h5><strong>Gazetenize ulaşmak için <a href=\"/e-gazete\">buraya tıklayın.</a></strong></h5>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'Tasarım Bilgisi'
+    langcode: tr
+    uuid: 70b0d38b-034b-4742-9e86-ffcb040e259c
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Copyright © 2021 Aydınlık Gazetesi - Tüm hakları saklıdır. Tasarım <a href=\"http://www.etibilisim.com\">Eti Bilişim</a></p>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'Giriş yap ey kullanıcı'
+    langcode: tr
+    uuid: 09999c5b-e9a8-48ab-842d-7a1efc5e3979
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Lorem ipsum dolor sit ahmet</p>\r\n"
+          summary: ''
+          format: basic_html
 taxonomies:
   abonelik_suresi:
     -
@@ -442,268 +707,3 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 483f3bf5-70c9-4bb1-a572-035e59f70897
-menus:
-  -
-    menu_name: account
-    title: 'Alışveriş Sepetim'
-    parent: null
-    uri: 'internal:/cart'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: ac3e562d-7243-4ea9-9e16-b23753b85512
-  -
-    menu_name: footer
-    title: 'Gizlilik İlkesi'
-    parent: null
-    uri: 'entity:node/4030'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: d0f3c864-d2cb-4f06-bf7a-d74eb55090d3
-  -
-    menu_name: footer
-    title: 'Kullanım Koşulları'
-    parent: null
-    uri: 'entity:node/4029'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 567c7b98-8dc3-4e12-a99b-038a415249fd
-  -
-    menu_name: footer
-    title: 'Mesafeli Satış ve E-Gazete Abonelik Sözleşmesi'
-    parent: null
-    uri: 'entity:node/4038'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 3caebf03-9736-4477-8f41-02af03477464
-  -
-    menu_name: footer
-    title: Hakkımızda
-    parent: null
-    uri: 'entity:node/4039'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: e5731c72-c722-4563-944b-56411d306568
-  -
-    menu_name: main
-    title: 'Bize Ulaşın'
-    parent: null
-    uri: 'entity:node/4006'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-45'
-    langcode: tr
-    uuid: 8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0
-  -
-    menu_name: main
-    title: 'Satın Al'
-    parent: null
-    uri: 'entity:node/4087'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-49'
-    langcode: tr
-    uuid: 3647f1b2-5bea-40d6-92ee-392dce8cfed9
-  -
-    menu_name: main
-    title: 'Öğrenci Abonelik Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4100'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 4474ab5c-f10b-4d84-a8c3-965c2341ade0
-  -
-    menu_name: main
-    title: 'Abonelik Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4101'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 7721d5a7-97cd-4d01-9bac-f12b1e9717dc
-  -
-    menu_name: main
-    title: 'Abonelik İptal Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4102'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 5e3ce283-7c87-492b-b153-c1d407ed8d11
-blocks:
-  -
-    info: 'Abone Ol'
-    langcode: tr
-    uuid: 631d982d-0774-4799-b2cf-0d2e4d3c2539
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p><div id=\"abone-ol\"><a href=\"/e-gazete-aboneligi\">Abone ol</a></div></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: Önemli
-    langcode: tr
-    uuid: e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Ödeme yaparken kredi kartı yerine banka kartı kullanırsanız düzenli abonelik için arkadaşlarımız sizinle iletişime geçecekler.</p>\r\n"
-          summary: ''
-          format: basic_html
-  -
-    info: 'Öğrenci Abonelik Başvuru Blok'
-    langcode: tr
-    uuid: c642f524-2c34-4e3e-85e9-e175d29a2a5b
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p><strong><a class=\"button button--outline\" href=\"/ogrenci-abonelik-basvurusu\">Öğrenci indiriminden yararlanmak istiyorum</a></strong></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: Duyuru
-    langcode: tr
-    uuid: 93c4e87c-d27a-4548-bb11-3531307a395d
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Siz değerli abonelerimize daha iyi hizmet verebilmek için bir süreliğine satış sistemimizi bakıma aldık. İyileştirmeler tamamlandığında satın alma işlemi kullanımınıza açılacaktır.</p>\r\n\r\n<p>İlginiz ve anlayışınız için teşekkür ederiz.</p>\r\n"
-          summary: ''
-          format: basic_html
-  -
-    info: Bilgilendirme
-    langcode: tr
-    uuid: e069b431-9d82-42b5-8583-74ac05e7ee4b
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Değerli abonemiz,</p>\r\n\r\n<p>E-Aydınlık’ta uygulamaya başladığımız yeni sistemimizde güncellemeler sürüyor. Bugün sitemize girdiğinizde, gazetenize ulaşamayabilirsiniz. Bunun nedeni bu güncellemelerdir. Mağduriyetinizi gidermek için bugün sizlere gazetemizin PDF'sini e-postayla iletiyoruz.<br />\r\n<strong>Bundan sonra gazetenize sorunsuz ulaşabilmeniz için lütfen aşağıdaki adımları uygulayınız:</strong></p>\r\n\r\n<p>1- egazete.aydinlik.com.tr sitesinden her zaman kullandığınız kullanıcı adı ve parolanızı kullanarak giriş yapınız.<br />\r\n2- Ana sayfada, yukarıda bulunan \"HESABIM\" yazısına tıklayınız.<br />\r\n3- Çıkan sayfada \"DÜZENLE\" yazısına tıklayınız.<br />\r\n4- Açılan sayfada, yanında kırmızı yıldız olan \"<strong>Ad-Soyad, TC Kimlik No, Telefon ve Adres Bilgileri</strong>\" alanlarını eksiksiz doldurunuz. Kaydetmeyi unutmayınız.</p>\r\n\r\n<p>Söz konusu bilgi girişleri tek seferlik olup, sistemimizin sağlıklı çalışması için zorunluluktur.</p>\r\n\r\n<p>İletişim:</p>\r\n\r\n<p>0541 782 09 42<br />\r\n0531 888 00 06<br />\r\n0534 526 41 81</p>\r\n\r\n<p>Yaşanan sorun nedeniyle özür diler, anlayışınız için teşekkür ederiz.</p>\r\n"
-          summary: ''
-          format: basic_html
-  -
-    info: 'Satın Al Konuk Blok'
-    langcode: tr
-    uuid: 56a61f01-7062-41fa-9cb7-90318c3c523f
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Satın alma sayfasına erişmek için giriş ya da kayıt yapmanız gerekmektedir.</p>\r\n\r\n<p><a href=\"/user/register\">Bu bağlantıya tıklayarak yeni abone kaydı oluşturabilirsiniz</a> ya da aşağıdaki bölümden giriş yapabilirsiniz.</p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Satın Al Açıklama'
-    langcode: tr
-    uuid: 51276151-c9ab-47e9-9b25-9fa3ffd916ef
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h3>Satın alma işlemlerinin buraya taşınması için hazırlanmış bu sayfa henüz test aşamasındadır.</h3>\r\n"
-          summary: ''
-          format: basic_html
-  -
-    info: 'Destek İletişim Numaraları'
-    langcode: tr
-    uuid: 372ecfed-9ce0-4b06-9ae2-bf339bd36393
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p><span class=\"fontawesome-icon-inline\"><i class=\"fas fa-phone-alt fa\"></i></span> &nbsp; <a href=\"tel:+905417820942\">05417820942</a> &nbsp; <a href=\"tel:+905318880006\">05318880006</a></p>\r\n"
-          summary: ''
-          format: full_html
-  -
-    info: 'Giriş ekranı açıklama'
-    langcode: tr
-    uuid: 2a0b3de5-dcbe-4a7f-8f9b-e04f9bf2a6bc
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<h5><strong>Gazetenize ulaşmak için <a href=\"/e-gazete\">buraya tıklayın.</a></strong></h5>\r\n"
-          summary: ''
-          format: basic_html
-  -
-    info: 'Tasarım Bilgisi'
-    langcode: tr
-    uuid: 70b0d38b-034b-4742-9e86-ffcb040e259c
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Copyright © 2021 Aydınlık Gazetesi - Tüm hakları saklıdır. Tasarım <a href=\"http://www.etibilisim.com\">Eti Bilişim</a></p>\r\n"
-          summary: ''
-          format: basic_html
-  -
-    info: 'Giriş yap ey kullanıcı'
-    langcode: tr
-    uuid: 09999c5b-e9a8-48ab-842d-7a1efc5e3979
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Lorem ipsum dolor sit ahmet</p>\r\n"
-          summary: ''
-          format: basic_html
