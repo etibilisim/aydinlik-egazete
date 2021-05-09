@@ -53,7 +53,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   static function getSubscribedEvents() {
-    $events['commerce_order.place.post_transition'] = ['orderCompleteHandler'];
+    $events['commerce_order.place.post_transition'] = ['orderCompleteHandler', 50];
 
     return $events;
   }

@@ -75,7 +75,7 @@ class CartEventSubscriber implements EventSubscriberInterface {
     $cart = $cart_provider->getCart($order_type, $store);
     $total_items = count($cart-> getItems());
     if ($total_items>1){
-       \Drupal::messenger()->addError('Her siparişte yalnızca bir abonelik satın alabilirsiniz. Lütfen satın almak istediğiniz abonelik türünü sadece bir adet olacak şekide seçiniz.');
+       \Drupal::messenger()->addError('Her siparişte yalnızca bir adet abonelik satın alabilirsiniz. Lütfen "Satın Al" sayfasına dönünüz');
       $cartManager = \Drupal::service('commerce_cart.cart_manager');
       $store = \Drupal\commerce_store\Entity\Store::load(1);
       $order_type = 'default';

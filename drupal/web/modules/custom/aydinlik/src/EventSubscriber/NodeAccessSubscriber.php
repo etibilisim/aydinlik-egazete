@@ -106,7 +106,7 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
           }
           else {
             $this->messenger->addWarning($config->get('abonelikaktifdegilmesaji'));
-            $redirect = new RedirectResponse($login->toString());
+            $redirect = new RedirectResponse('/e-gazete-aboneligi');
             $redirect->send();
           }
           if ($node->bundle() == 'e_arsiv') {

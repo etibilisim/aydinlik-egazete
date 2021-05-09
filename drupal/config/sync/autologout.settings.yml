@@ -1,0 +1,24 @@
+timeout: 600
+max_timeout: 172800
+padding: 10
+no_individual_logout_threshold: false
+role_logout: true
+role_logout_max: false
+redirect_url: /user/login
+no_dialog: false
+message: 'Bir süredir aktif olmadığınızı fark ettik. Oturumunuzun devam etmesini istiyor musunuz?'
+inactivity_message: 'Bir süredir siteyi kullanmadığınız için çıkış yaptınız.'
+inactivity_message_type: status
+enforce_admin: false
+jstimer_format: '%hours%:%mins%:%secs%'
+jstimer_js_load_option: false
+use_alt_logout_method: false
+use_watchdog: true
+_core:
+  default_config_hash: j-ZIPT_JseG1aLxuAdzS-NomYUmBK3OUOjP53Pg8uA8
+langcode: tr
+dialog_title: 'e-Aydınlık Çıkış Uyarısı'
+disable_buttons: false
+yes_button: 'Devam et'
+no_button: 'Oturumu sonlandır'
+whitelisted_ip_addresses: ''

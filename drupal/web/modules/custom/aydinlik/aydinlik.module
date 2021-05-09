@@ -9,6 +9,19 @@ use Drupal\commerce_cart\CartManagerInterface;
 use Drupal\Core\Messenger\MessengerTrait;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+use Drupal\Core\Form\FormStateInterface;
+
+function aydinlik_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (($form_id == 'billing_information')) {
+    $form['billing_information']['address'][0]['address']['#after_build'][] = 'aydinlik_customize_address';
+  }
+}
+
+function aydinlik_customize_address($element, $form_state) {
+  $element['administrative_area']['#required'] = TRUE;
+  return $element;
+}
+
 /**
  * Implements hook_user_login().
  */
