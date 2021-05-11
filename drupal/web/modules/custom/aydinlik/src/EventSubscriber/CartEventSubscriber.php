@@ -16,7 +16,7 @@ use Drupal\commerce_order\AvailabilityCheckerInterface;
 use Drupal\commerce_order\AvailabilityResult;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-
+use Drupal\commerce_order\Entity\Order;
 /**
  * Cart Event Subscriber.
  */
@@ -52,7 +52,7 @@ class CartEventSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     return [
-      CartEvents::CART_ENTITY_ADD => [['addToCart', 50]]
+      CartEvents::CART_ENTITY_ADD => [['addToCart']]
     ];
   }
 
@@ -74,13 +74,15 @@ class CartEventSubscriber implements EventSubscriberInterface {
     $store = $entity_manager->getStorage('commerce_store')->load($store_id); 
     $cart = $cart_provider->getCart($order_type, $store);
     $order_items = $cart-> getItems();
+    $order_item = end($order_items);
     $total_items = count($cart-> getItems());
     $cart_manager = \Drupal::service('commerce_cart.cart_manager');
     if ($total_items > 1){
-      for ($i = 0; $i < ($total_items-1); $i++) {
-        $cart_manager->removeOrderItem($cart, $order_items[$i]);
-        $cart->save();
-      }
+      $order_id = $cart->order_id->value;
+      $order = \Drupal\commerce_order\Entity\Order::load($order_id);
+      $cart->delete();
+      $order->delete();
+      \Drupal::messenger()->addError('Her siparişte yalnızca bir abonelik satın alabilirsiniz. Lütfen üst menüdeki "Satın Al" sekmesine tıklayınız.');
     }
   }
 }
