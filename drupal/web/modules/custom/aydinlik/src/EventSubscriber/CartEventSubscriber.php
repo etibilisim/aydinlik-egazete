@@ -78,7 +78,8 @@ class CartEventSubscriber implements EventSubscriberInterface {
     $cart_manager = \Drupal::service('commerce_cart.cart_manager');
     if ($total_items > 1){
       for ($i = 0; $i < ($total_items-1); $i++) {
-      $cart_manager->removeOrderItem($cart, $order_items[$i]);
+        $cart_manager->removeOrderItem($cart, $order_items[$i]);
+        $cart->save();
       }
     }
   }
