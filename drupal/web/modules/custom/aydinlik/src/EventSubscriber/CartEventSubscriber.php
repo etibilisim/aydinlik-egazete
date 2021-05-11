@@ -52,7 +52,7 @@ class CartEventSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     return [
-      CartEvents::CART_ENTITY_ADD => [['addToCart', 100]]
+      CartEvents::CART_ENTITY_ADD => [['addToCart', 50]]
     ];
   }
 
@@ -73,17 +73,12 @@ class CartEventSubscriber implements EventSubscriberInterface {
     $entity_manager = \Drupal::entityManager();
     $store = $entity_manager->getStorage('commerce_store')->load($store_id); 
     $cart = $cart_provider->getCart($order_type, $store);
+    $order_items = $cart-> getItems();
     $total_items = count($cart-> getItems());
-    if ($total_items>1){
-       \Drupal::messenger()->addError('Her siparişte yalnızca bir adet abonelik satın alabilirsiniz. Lütfen "Satın Al" sayfasına dönünüz');
-      $cartManager = \Drupal::service('commerce_cart.cart_manager');
-      $store = \Drupal\commerce_store\Entity\Store::load(1);
-      $order_type = 'default';
-      $cart_provider = \Drupal::service('commerce_cart.cart_provider');
-      $cart = $cart_provider->getCart($order_type, $store);
-      if (!empty($cart)) {
-        $cartManager->emptyCart($cart);
-        return new RedirectResponse('user.login');
+    $cart_manager = \Drupal::service('commerce_cart.cart_manager');
+    if ($total_items > 1){
+      for ($i = 0; $i < ($total_items-1); $i++) {
+      $cart_manager->removeOrderItem($cart, $order_items[$i]);
       }
     }
   }
