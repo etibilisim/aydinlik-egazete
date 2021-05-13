@@ -13,7 +13,7 @@ dependencies:
 id: girisekraniaciklama
 theme: conference_lite
 region: content
-weight: -11
+weight: -10
 provider: null
 plugin: 'block_content:2a0b3de5-dcbe-4a7f-8f9b-e04f9bf2a6bc'
 settings:

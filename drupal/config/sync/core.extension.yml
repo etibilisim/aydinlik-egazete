@@ -99,6 +99,7 @@ module:
   search: 0
   serialization: 0
   shortcut: 0
+  simple_popup_blocks: 0
   sitemap: 0
   smtp: 0
   state_machine: 0

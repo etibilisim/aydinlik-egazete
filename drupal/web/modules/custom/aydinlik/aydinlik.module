@@ -8,7 +8,7 @@ use Drupal\user\Entity\User;
 use Drupal\commerce_cart\CartManagerInterface;
 use Drupal\Core\Messenger\MessengerTrait;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-
+use Drupal\commerce_order\Entity\Order;
 use Drupal\Core\Form\FormStateInterface;
 
 function aydinlik_form_alter(&$form, FormStateInterface $form_state, $form_id) {
@@ -88,5 +88,8 @@ function aydinlik_user_login(UserInterface $account) {
   $cart = $cart_provider->getCart($order_type, $store);
   if (!empty($cart)) {
     $cartManager->emptyCart($cart);
+    $order_id = $cart->order_id;
+    $order = Order::load($order_id->value);
+    $order->delete();
   }
 }

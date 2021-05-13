@@ -13,7 +13,7 @@ dependencies:
 id: satinalkonukblok
 theme: conference_lite
 region: content
-weight: -15
+weight: -14
 provider: null
 plugin: 'block_content:56a61f01-7062-41fa-9cb7-90318c3c523f'
 settings:

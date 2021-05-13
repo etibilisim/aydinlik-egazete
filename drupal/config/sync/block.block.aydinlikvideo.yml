@@ -1,23 +1,23 @@
-uuid: dc3ec4a6-01fa-459d-a9a5-6934dd695aac
+uuid: 25af4225-c6af-4677-805e-acad796ef209
 langcode: tr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8'
+    - 'block_content:basic:322665b9-c85a-4712-8baa-4f74769fa89f'
   module:
     - block_content
     - system
   theme:
     - conference_lite
-id: onemli
+id: aydinlikvideo
 theme: conference_lite
 region: content
-weight: -11
+weight: -15
 provider: null
-plugin: 'block_content:e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8'
+plugin: 'block_content:322665b9-c85a-4712-8baa-4f74769fa89f'
 settings:
-  id: 'block_content:e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8'
-  label: Önemli
+  id: 'block_content:322665b9-c85a-4712-8baa-4f74769fa89f'
+  label: 'Aydınlık Video'
   provider: block_content
   label_display: '0'
   status: true
@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '/checkout/*/order_information'
+    pages: '<front>'
     negate: false
     context_mapping: {  }

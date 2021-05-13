@@ -9,7 +9,7 @@ _core:
 id: conference_lite_local_actions
 theme: conference_lite
 region: content
-weight: -10
+weight: -9
 provider: null
 plugin: local_actions_block
 settings:

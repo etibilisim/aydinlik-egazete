@@ -1,0 +1,25 @@
+uuid: fa0165a6-679d-4b50-adc1-241170beb955
+langcode: tr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4ce291c7-5e22-4662-92d9-40008ab1133d'
+  module:
+    - block_content
+  theme:
+    - conference_lite
+id: popup
+theme: conference_lite
+region: banner
+weight: -18
+provider: null
+plugin: 'block_content:4ce291c7-5e22-4662-92d9-40008ab1133d'
+settings:
+  id: 'block_content:4ce291c7-5e22-4662-92d9-40008ab1133d'
+  label: Popup
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
