@@ -1,18 +1,18 @@
 tawk_to_widget_page_id: 609f7181185beb22b30d6bd6
 tawk_to_widget_id: 1f5nd6p8r
 visibility:
-  'entity_bundle:commerce_product':
-    id: 'entity_bundle:commerce_product'
-    bundles: {  }
-    negate: false
-    context_mapping:
-      commerce_product: '@commerce_product.product_route_context:commerce_product'
   'entity_bundle:commerce_product_variation':
     id: 'entity_bundle:commerce_product_variation'
     bundles: {  }
     negate: false
     context_mapping:
       commerce_product_variation: '@commerce_product.product_variation_route_context:commerce_product_variation'
+  'entity_bundle:commerce_product':
+    id: 'entity_bundle:commerce_product'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      commerce_product: '@commerce_product.product_route_context:commerce_product'
   'entity_bundle:node':
     id: 'entity_bundle:node'
     bundles: {  }
@@ -27,12 +27,14 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: ''
-    negate: false
+    pages: '/admin/*'
+    negate: true
     context_mapping: {  }
   user_role:
     id: user_role
-    roles: {  }
+    roles:
+      yonetici: yonetici
+      administrator: administrator
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

@@ -7,8 +7,10 @@ dependencies:
     - field.storage.user.field_abonelik_bitis_tarihi
     - field.storage.user.field_abonelik_suresi
     - field.storage.user.field_abonelik_turu
+    - field.storage.user.field_adiniz
     - field.storage.user.field_adiniz_soyadiniz
     - field.storage.user.field_adres
+    - field.storage.user.field_soyadiniz
     - field.storage.user.field_taahhut_tarihi
     - field.storage.user.field_telefon
     - system.menu.tools
@@ -260,6 +262,132 @@ display:
           group_type: group
           admin_label: ''
           label: 'Adınız Soyadınız'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_adiniz:
+          id: field_adiniz
+          table: user__field_adiniz
+          field: field_adiniz
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Adınız
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_soyadiniz:
+          id: field_soyadiniz
+          table: user__field_soyadiniz
+          field: field_soyadiniz
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Soyadınız
           exclude: false
           alter:
             alter_text: false
@@ -1185,8 +1313,10 @@ display:
         - 'config:field.storage.user.field_abonelik_bitis_tarihi'
         - 'config:field.storage.user.field_abonelik_suresi'
         - 'config:field.storage.user.field_abonelik_turu'
+        - 'config:field.storage.user.field_adiniz'
         - 'config:field.storage.user.field_adiniz_soyadiniz'
         - 'config:field.storage.user.field_adres'
+        - 'config:field.storage.user.field_soyadiniz'
         - 'config:field.storage.user.field_taahhut_tarihi'
         - 'config:field.storage.user.field_telefon'
   data_export_1:
@@ -1246,8 +1376,10 @@ display:
         - 'config:field.storage.user.field_abonelik_bitis_tarihi'
         - 'config:field.storage.user.field_abonelik_suresi'
         - 'config:field.storage.user.field_abonelik_turu'
+        - 'config:field.storage.user.field_adiniz'
         - 'config:field.storage.user.field_adiniz_soyadiniz'
         - 'config:field.storage.user.field_adres'
+        - 'config:field.storage.user.field_soyadiniz'
         - 'config:field.storage.user.field_taahhut_tarihi'
         - 'config:field.storage.user.field_telefon'
   page_1:
@@ -1281,7 +1413,9 @@ display:
         - 'config:field.storage.user.field_abonelik_bitis_tarihi'
         - 'config:field.storage.user.field_abonelik_suresi'
         - 'config:field.storage.user.field_abonelik_turu'
+        - 'config:field.storage.user.field_adiniz'
         - 'config:field.storage.user.field_adiniz_soyadiniz'
         - 'config:field.storage.user.field_adres'
+        - 'config:field.storage.user.field_soyadiniz'
         - 'config:field.storage.user.field_taahhut_tarihi'
         - 'config:field.storage.user.field_telefon'

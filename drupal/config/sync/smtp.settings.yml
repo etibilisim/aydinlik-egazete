@@ -6,7 +6,7 @@ smtp_protocol: ssl
 smtp_autotls: true
 smtp_timeout: 30
 smtp_username: egazete@aydinlik.com.tr
-smtp_password: egazete123Z
+smtp_password: egazete123ZX
 smtp_from: egazete@aydinlik.com.tr
 smtp_fromname: 'Aydınlık E-Gazete'
 smtp_client_hostname: ''
