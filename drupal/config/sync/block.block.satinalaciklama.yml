@@ -12,7 +12,7 @@ dependencies:
 id: satinalaciklama
 theme: conference_lite
 region: hidden_blocks_collection
-weight: 0
+weight: -13
 provider: null
 plugin: 'block_content:51276151-c9ab-47e9-9b25-9fa3ffd916ef'
 settings:

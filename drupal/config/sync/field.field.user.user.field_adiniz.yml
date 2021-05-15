@@ -1,0 +1,20 @@
+uuid: 5633df63-310d-4e04-8a5d-36b0ed12aa7a
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_adiniz
+  module:
+    - user
+id: user.user.field_adiniz
+field_name: field_adiniz
+entity_type: user
+bundle: user
+label: Adınız
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

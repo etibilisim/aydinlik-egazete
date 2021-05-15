@@ -63,6 +63,7 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
     $login = Url::fromRoute('user.login');
     $this->messenger = \Drupal::messenger();
     $route_match = RouteMatch::createFromRequest($event->getRequest());
+    
     if (($node = $route_match->getParameter('node')) && $node instanceof NodeInterface) {
       if (!\Drupal::service('path.matcher')->isFrontPage() || ($node->bundle() != 'page' || $node->bundle() != 'webform')) {
       if ($node->bundle() == 'e_dergi') {
@@ -88,14 +89,14 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
                   $redirect->send();
                 }
               }
-              if (str_contains($subscription_duration->getName(), 'Yıllık')) {
+              if (str_contains($subscription_duration->getName(), 'Yıllık') || (str_contains($subscription_duration->getName(), 'Aylık') && $this->current_user->field_taahhut_tarihi != NULL)) {
                 if ($publication_date>$subscription_end_date) {
                   $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
                   $redirect = new RedirectResponse($login->toString());
                   $redirect->send();
                 }
               }
-              if (!str_contains($subscription_duration->getName(), 'Yıllık')) {
+              if (!str_contains($subscription_duration->getName(), 'Yıllık') && $this->current_user->field_taahhut_tarihi == NULL) {
                 if ($subscription_start_date > $publication_date || $publication_date > $subscription_end_date) {
                   $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
                   $redirect = new RedirectResponse($login->toString());

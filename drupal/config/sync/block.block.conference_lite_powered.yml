@@ -11,7 +11,7 @@ _core:
 id: conference_lite_powered
 theme: conference_lite
 region: hidden_blocks_collection
-weight: -9
+weight: -15
 provider: null
 plugin: system_powered_by_block
 settings:

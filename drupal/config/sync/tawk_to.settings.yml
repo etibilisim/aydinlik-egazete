@@ -1,0 +1,50 @@
+tawk_to_widget_page_id: 609f7181185beb22b30d6bd6
+tawk_to_widget_id: 1f5nd6p8r
+visibility:
+  'entity_bundle:commerce_product':
+    id: 'entity_bundle:commerce_product'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      commerce_product: '@commerce_product.product_route_context:commerce_product'
+  'entity_bundle:commerce_product_variation':
+    id: 'entity_bundle:commerce_product_variation'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      commerce_product_variation: '@commerce_product.product_variation_route_context:commerce_product_variation'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles: {  }
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: ''
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles: {  }
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  webform:
+    id: webform
+    webforms: {  }
+    negate: false
+    context_mapping: {  }
+show_user_name: true
+user_name: '[current-user:name]'
+show_user_email: true
+user_email: '[current-user:mail]'
+_core:
+  default_config_hash: S6NRFEgsde_e73V98JUHksEfLFkWP2J4R_Zkk-ugDhE
+langcode: tr

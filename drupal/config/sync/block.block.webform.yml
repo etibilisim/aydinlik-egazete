@@ -12,7 +12,7 @@ dependencies:
 id: webform
 theme: conference_lite
 region: hidden_blocks_collection
-weight: -11
+weight: -17
 provider: null
 plugin: webform_block
 settings:

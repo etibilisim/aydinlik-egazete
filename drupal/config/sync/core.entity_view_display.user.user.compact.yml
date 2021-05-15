@@ -11,9 +11,11 @@ dependencies:
     - field.field.user.user.field_abonelik_referans_kodu
     - field.field.user.user.field_abonelik_suresi
     - field.field.user.user.field_abonelik_turu
+    - field.field.user.user.field_adiniz
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
     - field.field.user.user.field_onay
+    - field.field.user.user.field_soyadiniz
     - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
     - field.field.user.user.field_telefon
@@ -47,9 +49,11 @@ hidden:
   field_abonelik_referans_kodu: true
   field_abonelik_suresi: true
   field_abonelik_turu: true
+  field_adiniz: true
   field_adiniz_soyadiniz: true
   field_adres: true
   field_onay: true
+  field_soyadiniz: true
   field_taahhut_tarihi: true
   field_tc: true
   field_telefon: true

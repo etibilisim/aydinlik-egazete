@@ -2,6 +2,8 @@
 
 namespace Drupal\aydinlik\EventSubscriber;
 
+use Drupal\user\Entity\User;
+use Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\OffsitePaymentGatewayInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
 use Drupal\Core\Entity\EntityTypeManager;
@@ -9,7 +11,6 @@ use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Entity\Order;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\user\Entity\User;
 use Drupal\commerce_order\Event\OrderEvent;
 use Iyzipay\Model\ThreedsPayment;
 use Iyzipay\Options;
@@ -25,17 +26,12 @@ use Drupal\commerce_payment\Entity\Payment;
 use Iyzipay\Request\RetrieveInstallmentInfoRequest;
 use Iyzipay\Model\InstallmentInfo;
 
-/**
- * Class OrderCompleteSubscriber.
- *
- * @package Drupal\aydinlik
- */
-class OrderCompleteSubscriber implements EventSubscriberInterface {
+class OrderPaidSubscriber implements EventSubscriberInterface {
 
   /**
-   * Drupal\Core\Entity\EntityTypeManager definition.
+   * Current user account.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManager
+   * @var \Drupal\Core\Session\AccountInterface
    */
   protected $current_user;
   protected $entityQuery;
@@ -49,26 +45,37 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
     $this->entityTypeManager = $entity_type_manager;
   }
 
+
   /**
    * {@inheritdoc}
    */
   static function getSubscribedEvents() {
-    $events['commerce_order.place.post_transition'] = ['orderCompleteHandler', 50];
-
+    $events['commerce_order.order.paid'] = ['onPaid', 10];
     return $events;
   }
 
   /**
-   * This method is called whenever the commerce_order.place.post_transition event is
-   * dispatched.
+   * Places the order after it has been fully paid through an off-site gateway.
    *
-   * @param WorkflowTransitionEvent $event
+   * Off-site payments can only be made at checkout.
+   * If the gateway supports notifications, these two scenarios are possible:
+   *
+   * 1) The onNotify() method is called before the customer returns to the
+   *    site. A payment is created, the order is now considered fully paid,
+   *    causing the "payment" step to no longer be visible, sending the
+   *    customer back to the first checkout step.
+   * 2) The customer never returns to the site. The onNotify() method completed
+   *    the payment, but the order is still unplaced and stuck in checkout.
+   *
+   * To avoid both problems, this subscriber ensures that the order is placed,
+   * which also ensures that the customer is sent to the checkout complete
+   * page once they (eventually) return.
+   *
+   * @param \Drupal\commerce_order\Event\OrderEvent $event
+   *   The event.
    */
-  public function orderCompleteHandler(WorkflowTransitionEvent $event) {
-    /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
-    //$order = $event->getEntity();
-    $orders = Order::loadMultiple();
-    $order = end($orders);
+  public function onPaid(OrderEvent $event) {
+    $order = $event->getOrder();
     $this->current_user = User::load($order->uid[0]->target_id);
     $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
     $today = $dateTime->format('Y-m-d');
@@ -415,4 +422,5 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
     }
   }
+
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "255c5a2dbb7aea263df257933981b1ed",
+    "content-hash": "b1ace5ba0cb15e002731919334de488e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5701,6 +5701,59 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/superfish",
                 "issues": "https://www.drupal.org/project/superfish"
+            }
+        },
+        {
+            "name": "drupal/tawk_to",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/tawk_to.git",
+                "reference": "8.x-1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/tawk_to-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "403bb0288682975577f7338a040774b4cada9c3c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.9",
+                    "datestamp": "1591637761",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Andriy Khomych",
+                    "homepage": "https://www.drupal.org/u/andriy-khomych",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Provides base intergraton with tawk.to service.",
+            "homepage": "https://www.drupal.org/project/tawk_to",
+            "keywords": [
+                "Drupal",
+                "chat",
+                "free chat",
+                "tawk",
+                "tawk.to"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/tawk_to",
+                "issues": "https://www.drupal.org/project/issues/tawk_to"
             }
         },
         {

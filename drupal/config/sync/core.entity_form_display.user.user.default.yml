@@ -10,9 +10,11 @@ dependencies:
     - field.field.user.user.field_abonelik_referans_kodu
     - field.field.user.user.field_abonelik_suresi
     - field.field.user.user.field_abonelik_turu
+    - field.field.user.user.field_adiniz
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
     - field.field.user.user.field_onay
+    - field.field.user.user.field_soyadiniz
     - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
     - field.field.user.user.field_telefon
@@ -31,36 +33,28 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_abonelik_baslangic_tarihi:
-    weight: 8
-    type: datetime_default
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_abonelik_bitis_tarihi:
     weight: 9
     type: datetime_default
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_abonelik_durumu:
+  field_abonelik_bitis_tarihi:
     weight: 10
-    settings:
-      size: 60
-      placeholder: ''
+    type: datetime_default
+    settings: {  }
     third_party_settings: {  }
-    type: string_textfield
     region: content
-  field_abonelik_referans_kodu:
+  field_abonelik_durumu:
     weight: 11
     settings:
       size: 60
@@ -68,19 +62,27 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_abonelik_referans_kodu:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_abonelik_suresi:
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_abonelik_turu:
-    weight: 5
+    weight: 6
     type: options_buttons
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_adiniz_soyadiniz:
+  field_adiniz:
     weight: 0
     settings:
       size: 60
@@ -89,20 +91,34 @@ content:
     type: string_textfield
     region: content
   field_adres:
-    weight: 3
+    weight: 4
     type: address_default
     settings: {  }
     third_party_settings: {  }
     region: content
   field_onay:
-    weight: 12
+    weight: 13
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_soyadiniz:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_taahhut_tarihi:
+    type: datetime_default
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_telefon:
-    weight: 2
+    weight: 3
     settings:
       placeholder: +90xxxxxxxxxx
     third_party_settings:
@@ -116,7 +132,7 @@ content:
     type: telephone_default
     region: content
   language:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -128,7 +144,7 @@ content:
 hidden:
   commerce_remote_id: true
   customer_profiles: true
-  field_taahhut_tarihi: true
+  field_adiniz_soyadiniz: true
   field_tc: true
   langcode: true
   path: true

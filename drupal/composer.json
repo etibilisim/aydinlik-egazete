@@ -57,6 +57,7 @@
         "drupal/smtp": "^1.0",
         "drupal/structure_sync": "^2.0",
         "drupal/superfish": "^1.4",
+        "drupal/tawk_to": "^1.9",
         "drupal/token": "^1.8",
         "drupal/typed_data": "^1.0@alpha",
         "drupal/views_data_export": "^1.0",

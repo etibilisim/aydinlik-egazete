@@ -10,9 +10,11 @@ dependencies:
     - field.field.user.user.field_abonelik_referans_kodu
     - field.field.user.user.field_abonelik_suresi
     - field.field.user.user.field_abonelik_turu
+    - field.field.user.user.field_adiniz
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
     - field.field.user.user.field_onay
+    - field.field.user.user.field_soyadiniz
     - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
     - field.field.user.user.field_telefon
@@ -31,7 +33,7 @@ mode: default
 content:
   field_abonelik_baslangic_tarihi:
     type: datetime_custom
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings:
@@ -40,7 +42,7 @@ content:
     third_party_settings: {  }
   field_abonelik_bitis_tarihi:
     type: datetime_custom
-    weight: 5
+    weight: 6
     region: content
     label: above
     settings:
@@ -48,14 +50,6 @@ content:
       date_format: d-m-Y
     third_party_settings: {  }
   field_abonelik_durumu:
-    weight: 8
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_abonelik_referans_kodu:
     weight: 9
     label: above
     settings:
@@ -63,8 +57,16 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_abonelik_referans_kodu:
+    weight: 10
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_abonelik_suresi:
-    weight: 6
+    weight: 7
     label: above
     settings:
       link: false
@@ -73,15 +75,15 @@ content:
     region: content
   field_abonelik_turu:
     type: entity_reference_label
-    weight: 3
+    weight: 4
     region: content
     label: above
     settings:
       link: false
     third_party_settings: {  }
-  field_adiniz_soyadiniz:
+  field_adiniz:
     weight: 0
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -89,13 +91,21 @@ content:
     region: content
   field_adres:
     type: address_default
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_soyadiniz:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_taahhut_tarihi:
-    weight: 7
+    weight: 8
     label: above
     settings:
       timezone_override: ''
@@ -104,7 +114,7 @@ content:
     type: datetime_default
     region: content
   field_telefon:
-    weight: 1
+    weight: 2
     label: above
     settings:
       title: ''
@@ -114,6 +124,7 @@ content:
 hidden:
   commerce_remote_id: true
   customer_profiles: true
+  field_adiniz_soyadiniz: true
   field_onay: true
   field_tc: true
   langcode: true

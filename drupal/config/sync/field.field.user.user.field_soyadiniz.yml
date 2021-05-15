@@ -1,0 +1,20 @@
+uuid: 1d783d01-8232-4211-ac43-b3e0e52d81bd
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_soyadiniz
+  module:
+    - user
+id: user.user.field_soyadiniz
+field_name: field_soyadiniz
+entity_type: user
+bundle: user
+label: Soyadınız
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

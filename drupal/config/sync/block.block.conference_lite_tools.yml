@@ -13,7 +13,7 @@ _core:
 id: conference_lite_tools
 theme: conference_lite
 region: hidden_blocks_collection
-weight: -10
+weight: -16
 provider: null
 plugin: 'system_menu_block:tools'
 settings:
