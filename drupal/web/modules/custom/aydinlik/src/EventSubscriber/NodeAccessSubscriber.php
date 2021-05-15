@@ -63,9 +63,8 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
     $login = Url::fromRoute('user.login');
     $this->messenger = \Drupal::messenger();
     $route_match = RouteMatch::createFromRequest($event->getRequest());
-    
     if (($node = $route_match->getParameter('node')) && $node instanceof NodeInterface) {
-      if (!\Drupal::service('path.matcher')->isFrontPage() || ($node->bundle() != 'page' || $node->bundle() != 'webform')) {
+      //if (!\Drupal::service('path.matcher')->isFrontPage() || ($node->bundle() != 'page' || $node->bundle() != 'webform')) {
       if ($node->bundle() == 'e_dergi') {
         if ($this->current_user->isAnonymous()) {
           $this->messenger->addMessage($config->get('girisyapmesaji'));
@@ -89,14 +88,14 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
                   $redirect->send();
                 }
               }
-              if (str_contains($subscription_duration->getName(), 'Yıllık') || (str_contains($subscription_duration->getName(), 'Aylık') && $this->current_user->field_taahhut_tarihi != NULL)) {
+              if (str_contains($subscription_duration->getName(), 'Yıllık')) {
                 if ($publication_date>$subscription_end_date) {
                   $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
                   $redirect = new RedirectResponse($login->toString());
                   $redirect->send();
                 }
               }
-              if (!str_contains($subscription_duration->getName(), 'Yıllık') && $this->current_user->field_taahhut_tarihi == NULL) {
+              if (!str_contains($subscription_duration->getName(), 'Yıllık')) {
                 if ($subscription_start_date > $publication_date || $publication_date > $subscription_end_date) {
                   $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
                   $redirect = new RedirectResponse($login->toString());
@@ -110,35 +109,21 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
             $redirect = new RedirectResponse('/e-gazete-aboneligi');
             $redirect->send();
           }
-        }
-      }
-      if ($node->bundle() == 'e_arsiv') {
-        if ($this->current_user->isAnonymous()) {
-          $this->messenger->addMessage($config->get('girisyapmesaji'));
-          $redirect = new RedirectResponse($login->toString());
-          $event->setResponse($redirect);
-        }
-        elseif (!$this->current_user->hasPermission('bypass permission checks')) {
-            if ($this->current_user->hasRole('abone')) {
-              $subscription_type = $this->current_user->get('field_abonelik_turu');
-              $subscription_type_count = $subscription_type->count();
-              if ($subscription_type_count < 2){
-                $earchives_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
-                if (!str_contains($earchives_subscription->getName(), 'E-Arşiv')) {
-                  $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
-                  $redirect = new RedirectResponse('/e-gazete-aboneligi');
-                  $redirect->send();
-                }
+          if ($node->bundle() == 'e_arsiv') {
+            $subscription_type = $this->current_user->get('field_abonelik_turu');
+            $subscription_type_count = $subscription_type->count();
+            if ($subscription_type_count < 2){
+              $earchives_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
+              if (!str_contains($earchives_subscription->getName(), 'E-Arşiv')) {
+                $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
+                $redirect = new RedirectResponse('/e-gazete-aboneligi');
+                $redirect->send();
               }
-            }
-            else {
-              $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
-              $redirect = new RedirectResponse('/e-gazete-aboneligi');
-              $redirect->send();
             }
           }
         }
       }
     }
   }
+
 }

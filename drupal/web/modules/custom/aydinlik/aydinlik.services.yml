@@ -9,11 +9,6 @@ services:
       arguments: ['@entity_type.manager']
       tags:
         - { name: event_subscriber }
-#  aydinlik.order_paid:
-#      class: Drupal\aydinlik\EventSubscriber\OrderPaidSubscriber
-#      arguments: ['@entity_type.manager']
-#      tags:
-#        - { name: event_subscriber }
   aydinlik.event_subscriber:
     class: Drupal\aydinlik\EventSubscriber\CartEventSubscriber
     arguments: ['@messenger', '@commerce_cart.cart_manager']
