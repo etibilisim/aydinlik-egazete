@@ -145,10 +145,13 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $product_variation = $order_item->getPurchasedEntity();
           $sku_field = $product_variation->field_sku->value;
           $user = User::load(\Drupal::currentUser()->id());
-          $ad_soyad = $user->field_adiniz_soyadiniz->value;
+          /* $ad_soyad = $user->field_adiniz_soyadiniz->value;
           $parts = explode(' ', $ad_soyad);
           $last = array_pop($parts);
-          $parts = array(implode(' ', $parts), $last);
+          $parts = array(implode(' ', $parts), $last); */
+          $ad = $user->field_adiniz->value;
+          $soyad = $user->field_soyadiniz->value;
+          $ad_soyad = $ad.' '.$soyad;
           $request = new \Iyzipay\Request\Subscription\SubscriptionCreateRequest();
           $request->setLocale("tr");
           $request->setConversationId($order_id);
@@ -162,8 +165,8 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $paymentCard->setCvc($config->get('cvc'));
           $request->setPaymentCard($paymentCard);
           $customer = new \Iyzipay\Model\Customer();
-          $customer->setName($parts[0]);
-          $customer->setSurname($parts[1]);
+          $customer->setName($ad);
+          $customer->setSurname($soyad);
           $gsm_number = $user->field_telefon->value;
           $num='';
           $gsm_st='';
@@ -284,10 +287,13 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $product_variation = $order_item->getPurchasedEntity();
           $sku_field = $product_variation->field_sku->value;
           $user = User::load(\Drupal::currentUser()->id());
-          $ad_soyad = $user->field_adiniz_soyadiniz->value;
+          /* $ad_soyad = $user->field_adiniz_soyadiniz->value;
           $parts = explode(' ', $ad_soyad);
           $last = array_pop($parts);
-          $parts = array(implode(' ', $parts), $last);
+          $parts = array(implode(' ', $parts), $last); */
+          $ad = $user->field_adiniz->value;
+          $soyad = $user->field_soyadiniz->value;
+          $ad_soyad = $ad.' '.$soyad;
           $request = new \Iyzipay\Request\Subscription\SubscriptionCreateRequest();
           $request->setLocale("tr");
           $request->setConversationId($order_id);
@@ -301,8 +307,8 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $paymentCard->setCvc($config->get('cvc'));
           $request->setPaymentCard($paymentCard);
           $customer = new \Iyzipay\Model\Customer();
-          $customer->setName($parts[0]);
-          $customer->setSurname($parts[1]);
+          $customer->setName($ad);
+          $customer->setSurname($soyad);
           //$customer->setGsmNumber(($user->field_telefon->value)?: '+905555555555');
           //$customer->setGsmNumber('+905555555555');
           $gsm_number = $user->field_telefon->value;
