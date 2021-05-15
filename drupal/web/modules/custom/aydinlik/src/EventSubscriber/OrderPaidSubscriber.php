@@ -41,7 +41,7 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
   /**
    * Constructor.
    */
-  public function __construct(EntityTypeManager $entity_type_manager) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
     $this->entityTypeManager = $entity_type_manager;
   }
 
@@ -49,8 +49,10 @@ class OrderPaidSubscriber implements EventSubscriberInterface {
   /**
    * {@inheritdoc}
    */
-  static function getSubscribedEvents() {
-    $events['commerce_order.order.paid'] = ['onPaid', 10];
+  public static function getSubscribedEvents() {
+    $events = [
+      'commerce_order.order.paid' => 'onPaid',
+    ];
     return $events;
   }
 
