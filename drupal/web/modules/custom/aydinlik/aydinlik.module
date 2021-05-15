@@ -51,7 +51,7 @@ function aydinlik_user_login(UserInterface $account) {
   $taahhut_tarihi = $current_user->field_taahhut_tarihi->value;
   if ($taahhut_tarihi != null) {
     $taahhut_bitis = strtotime('1 year',strtotime($taahhut_tarihi));
-    $taahhut_bitis = date('d/m/Y' ,$taahhut_bitis );
+    $taahhut_bitis = date('Y-m-d' ,$taahhut_bitis );
     if ($today > $taahhut_bitis ) {
       $current_user->field_taahhut_tarihi->value = '';
       $messenger->addWarning('Aboneliğinizin taahhüt süresi dolmuştur. Taahhütlü aboneliğin ayrıcalıklarından yararlanmak için bir sonraki siparişinizde taahhüt vermeyi unutmayın.');
@@ -78,7 +78,7 @@ function aydinlik_user_login(UserInterface $account) {
   $il = $current_user->field_adres->administrative_area;
   $fields = array($ad, $soyad, $telefon, $ulke, $ilce, $il);
   $field_names = array ('field_adiniz', 'field_soyadiniz', 'field_telefon', 'field_adres', 'field_adres', 'field_adres');
-  for ($i = 0; $i<6; $i++) {
+  /* for ($i = 0; $i<6; $i++) {
     if ($fields[$i] == NULL){
       $field_name = $field_names[$i];
       $field_label = $current_user->$field_name->getFieldDefinition()->getLabel();
@@ -86,7 +86,7 @@ function aydinlik_user_login(UserInterface $account) {
       $response = new RedirectResponse($base_url.$user_edit_form);
       $response->send();
     }
-  }
+  } */
   if ($current_user->field_abonelik_bitis_tarihi->value < $today && $current_user->field_abonelik_bitis_tarihi->value != '') {
     \Drupal::messenger()->addError(t('Abonelik süreniz dolmuştur. Artık sadece abonelik süreniz içerisindeki içeriklere ve e-arşiv aboneliğiniz var ise arşiv gazetelere erişebilirsiniz. Aboneliğinizi uzatmak için lütfen yukarıdaki Satın Al düğmesine tıklayın.'));
   }
