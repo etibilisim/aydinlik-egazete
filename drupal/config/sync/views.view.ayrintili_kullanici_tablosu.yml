@@ -9,7 +9,6 @@ dependencies:
     - field.storage.user.field_abonelik_turu
     - field.storage.user.field_adiniz
     - field.storage.user.field_adiniz_soyadiniz
-    - field.storage.user.field_adres
     - field.storage.user.field_soyadiniz
     - field.storage.user.field_taahhut_tarihi
     - field.storage.user.field_telefon
@@ -938,14 +937,14 @@ display:
           hide_alter_empty: true
           display_name: true
           plugin_id: subdivision
-        field_adres:
-          id: field_adres
+        field_adres_administrative_area:
+          id: field_adres_administrative_area
           table: user__field_adres
-          field: field_adres
+          field: field_adres_administrative_area
           relationship: none
           group_type: group
           admin_label: ''
-          label: Adres
+          label: Şehir/Eyalet
           exclude: false
           alter:
             alter_text: false
@@ -986,20 +985,58 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: locality
-          type: address_plain
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          display_name: true
+          plugin_id: subdivision
+        field_adres_country_code:
+          id: field_adres_country_code
+          table: user__field_adres
+          field: field_adres_country_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Ülke
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          display_name: true
+          plugin_id: country
         access:
           id: access
           table: users_field_data
@@ -1315,7 +1352,6 @@ display:
         - 'config:field.storage.user.field_abonelik_turu'
         - 'config:field.storage.user.field_adiniz'
         - 'config:field.storage.user.field_adiniz_soyadiniz'
-        - 'config:field.storage.user.field_adres'
         - 'config:field.storage.user.field_soyadiniz'
         - 'config:field.storage.user.field_taahhut_tarihi'
         - 'config:field.storage.user.field_telefon'
@@ -1380,7 +1416,6 @@ display:
         - 'config:field.storage.user.field_abonelik_turu'
         - 'config:field.storage.user.field_adiniz'
         - 'config:field.storage.user.field_adiniz_soyadiniz'
-        - 'config:field.storage.user.field_adres'
         - 'config:field.storage.user.field_soyadiniz'
         - 'config:field.storage.user.field_taahhut_tarihi'
         - 'config:field.storage.user.field_telefon'
@@ -1417,7 +1452,6 @@ display:
         - 'config:field.storage.user.field_abonelik_turu'
         - 'config:field.storage.user.field_adiniz'
         - 'config:field.storage.user.field_adiniz_soyadiniz'
-        - 'config:field.storage.user.field_adres'
         - 'config:field.storage.user.field_soyadiniz'
         - 'config:field.storage.user.field_taahhut_tarihi'
         - 'config:field.storage.user.field_telefon'
