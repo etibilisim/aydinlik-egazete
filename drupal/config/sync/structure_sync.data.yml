@@ -565,19 +565,6 @@ taxonomies:
       uuid: 483f3bf5-70c9-4bb1-a572-035e59f70897
 blocks:
   -
-    info: Popup
-    langcode: tr
-    uuid: 4ce291c7-5e22-4662-92d9-40008ab1133d
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<img alt=\"aydınlık, ramazan bayramı\" data-align=\"center\" data-entity-type=\"file\" data-entity-uuid=\"342db43b-9a67-4948-9f1c-7cb152967e21\" src=\"/sites/default/files/inline-images/aydinlik-ramazan.jpeg\" width=\"100%\" />\r\n<p>&nbsp;</p>\r\n"
-          summary: ''
-          format: basic_html
-  -
     info: 'Aydınlık Video'
     langcode: tr
     uuid: 322665b9-c85a-4712-8baa-4f74769fa89f
@@ -590,6 +577,45 @@ blocks:
           value: "<p><iframe allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\" frameborder=\"0\" height=\"360\" src=\"https://www.youtube.com/embed/TDLWCyE_0uU\" title=\"YouTube video player\" width=\"100%\"></iframe></p>\r\n"
           summary: ''
           format: full_html
+  -
+    info: Popup
+    langcode: tr
+    uuid: 4ce291c7-5e22-4662-92d9-40008ab1133d
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<img alt=\"aydınlık, ramazan bayramı\" data-align=\"center\" data-entity-type=\"file\" data-entity-uuid=\"80e41e9c-966e-41e6-9da2-ff7c29536e1d\" src=\"/sites/default/files/inline-images/aydinlik-ramazan.jpeg\" width=\"100%\" />\r\n<p>&nbsp;</p>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'Aydınlık Video'
+    langcode: tr
+    uuid: 5b8acd46-84f2-4ff0-8e48-de02a4d989b9
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<iframe width="100%" height="360" src="https://www.youtube.com/embed/TDLWCyE_0uU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+          summary: ''
+          format: full_html
+  -
+    info: 'PDF Açıklaması'
+    langcode: tr
+    uuid: 0c8a4e45-6a7c-4d38-b9ee-a72bda3c6896
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Bilgisayardan giriş yapan abonelerimiz gazeteyi büyüterek okuyabilmek için aşağıdaki PDF dosyasına tıklayabilirler.</p>\r\n"
+          summary: ''
+          format: basic_html
   -
     info: 'Abone Ol'
     langcode: tr
@@ -604,19 +630,6 @@ blocks:
           summary: ''
           format: full_html
   -
-    info: Önemli
-    langcode: tr
-    uuid: e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8
-    bundle: basic
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Ödeme yaparken kredi kartı yerine banka kartı kullanırsanız düzenli abonelik için arkadaşlarımız sizinle iletişime geçecekler.</p>\r\n"
-          summary: ''
-          format: basic_html
-  -
     info: 'Öğrenci Abonelik Başvuru Blok'
     langcode: tr
     uuid: c642f524-2c34-4e3e-85e9-e175d29a2a5b
@@ -626,9 +639,22 @@ blocks:
     fields:
       body:
         -
-          value: "<p><strong><a class=\"button button--outline\" href=\"/ogrenci-abonelik-basvurusu\">Öğrenci indiriminden yararlanmak istiyorum</a></strong></p>\r\n"
+          value: "<p><strong><a class=\"button button--outline\" href=\"/ogrenci-abonelik-basvuru-formu\">Öğrenci indiriminden yararlanmak istiyorum</a></strong></p>\r\n"
           summary: ''
           format: full_html
+  -
+    info: Önemli
+    langcode: tr
+    uuid: e6056f7f-e9b5-4e6e-9754-1fbd02f91ba8
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Kredi kartı yerine banka kartı kullanırsanız, aboneliğe geçişiniz için yetkililerimiz sizinle iletişime geçecektir.</p>\r\n"
+          summary: ''
+          format: basic_html
   -
     info: Duyuru
     langcode: tr
@@ -665,7 +691,7 @@ blocks:
     fields:
       body:
         -
-          value: "<p>Satın alma sayfasına erişmek için giriş ya da kayıt yapmanız gerekmektedir.</p>\r\n\r\n<p><a href=\"/user/register\">Bu bağlantıya tıklayarak yeni abone kaydı oluşturabilirsiniz</a> ya da aşağıdaki bölümden giriş yapabilirsiniz.</p>\r\n"
+          value: "<p>Satın alma sayfasına erişmek için giriş ya da kayıt yapmanız gerekmektedir.</p>\r\n\r\n<p><strong><a href=\"/user/register\">Bu bağlantıya tıklayarak yeni abone kaydı oluşturabilirsiniz</a></strong> ya da hesabınız varsa <strong>KULLANICI GİRİŞİNDEN</strong> devam edebilirsiniz.</p>\r\n"
           summary: ''
           format: full_html
   -
@@ -678,7 +704,7 @@ blocks:
     fields:
       body:
         -
-          value: "<h3>Satın alma işlemlerinin buraya taşınması için hazırlanmış bu sayfa henüz test aşamasındadır.</h3>\r\n"
+          value: "<h3>Satın alma işlemleri teknik altyapısında bakım çalışması vardır. Anlayışınız için teşekkür ederiz.</h3>\r\n"
           summary: ''
           format: basic_html
   -
@@ -691,7 +717,7 @@ blocks:
     fields:
       body:
         -
-          value: "<p><span class=\"fontawesome-icon-inline\"><i class=\"fas fa-phone-alt fa\"></i></span> &nbsp; <a href=\"tel:+905417820942\">05417820942</a> &nbsp; <a href=\"tel:+905318880006\">05318880006</a></p>\r\n"
+          value: "<p class=\"text-align-center\"><span class=\"fontawesome-icon-inline\"><i class=\"fas fa-phone-alt fa\"></i></span> <a href=\"tel:+905417820942\">0541 782 0942</a>&nbsp;-<u>0531 888 0006</u><br />\r\n&nbsp; &nbsp; &nbsp;<u>Yurtdışı: 0049 151 18958982</u></p>\r\n"
           summary: ''
           format: full_html
   -

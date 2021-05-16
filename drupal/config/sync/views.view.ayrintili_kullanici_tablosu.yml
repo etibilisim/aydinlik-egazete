@@ -1326,11 +1326,11 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: ayrintili-kullanici-tablosu/export.xls
-      filename: ''
+      path: export
+      filename: aktexport.xlsx
       automatic_download: true
       store_in_public_file_directory: false
-      redirect_to_display: none
+      redirect_to_display: page_1
       custom_redirect_path: false
       include_query_params: false
       displays:
@@ -1351,7 +1351,7 @@ display:
             utf8_bom: '0'
             use_serializer_encode_only: false
           xls_settings:
-            xls_format: Excel2007
+            xls_format: Excel5
             metadata:
               creator: ''
               last_modified_by: ''
@@ -1362,6 +1362,8 @@ display:
               category: ''
               manager: ''
               company: ''
+      export_method: batch
+      export_batch_size: 1000
     cache_metadata:
       max-age: -1
       contexts:
