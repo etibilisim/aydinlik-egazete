@@ -89,6 +89,10 @@ function aydinlik_user_login(UserInterface $account) {
   } */
   if ($current_user->field_abonelik_bitis_tarihi->value < $today && $current_user->field_abonelik_bitis_tarihi->value != '') {
     \Drupal::messenger()->addError(t('Abonelik süreniz dolmuştur. Artık sadece abonelik süreniz içerisindeki içeriklere ve e-arşiv aboneliğiniz var ise arşiv gazetelere erişebilirsiniz. Aboneliğinizi uzatmak için lütfen yukarıdaki Satın Al düğmesine tıklayın.'));
+    if ($current_user->hasRole('abone'))  {
+      $current_user->removeRole('abone');
+      $current_user->save();
+    }
   }
 
   $cartManager = \Drupal::service('commerce_cart.cart_manager');
