@@ -15,7 +15,7 @@ smtp_allowhtml: '0'
 smtp_test_address: ''
 smtp_debugging: true
 prev_mail_system: php_mail
-smtp_keepalive: true
+smtp_keepalive: false
 _core:
   default_config_hash: 2v5R3I9tNatGzKQjuZWh1y_955xK09313Vn-IIuedyI
 langcode: tr
