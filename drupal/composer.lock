@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1ace5ba0cb15e002731919334de488e",
+    "content-hash": "0bcf77c631b934b0c98bcf5faf9ec2a9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -116,16 +116,16 @@
         },
         {
             "name": "commerceguys/addressing",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/commerceguys/addressing.git",
-                "reference": "00c263fa945e7f78524bbb6b99d331f3b493be2a"
+                "reference": "311040bd78ea2ea82105dd1f17205c449ac8de47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/00c263fa945e7f78524bbb6b99d331f3b493be2a",
-                "reference": "00c263fa945e7f78524bbb6b99d331f3b493be2a",
+                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/311040bd78ea2ea82105dd1f17205c449ac8de47",
+                "reference": "311040bd78ea2ea82105dd1f17205c449ac8de47",
                 "shasum": ""
             },
             "require": {
@@ -173,30 +173,30 @@
             ],
             "support": {
                 "issues": "https://github.com/commerceguys/addressing/issues",
-                "source": "https://github.com/commerceguys/addressing/tree/v1.2.0"
+                "source": "https://github.com/commerceguys/addressing/tree/v1.2.1"
             },
-            "time": "2021-03-14T20:04:10+00:00"
+            "time": "2021-05-17T08:05:21+00:00"
         },
         {
             "name": "commerceguys/intl",
-            "version": "v1.0.8",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/commerceguys/intl.git",
-                "reference": "b8df285687b8d5d6494874d22e2e5cf625dbe180"
+                "reference": "90b4f75c4917927a1960c0dcaa002a91ab97f5d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/commerceguys/intl/zipball/b8df285687b8d5d6494874d22e2e5cf625dbe180",
-                "reference": "b8df285687b8d5d6494874d22e2e5cf625dbe180",
+                "url": "https://api.github.com/repos/commerceguys/intl/zipball/90b4f75c4917927a1960c0dcaa002a91ab97f5d5",
+                "reference": "90b4f75c4917927a1960c0dcaa002a91ab97f5d5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.8"
+                "php": ">=7.1.3"
             },
             "require-dev": {
                 "mikey179/vfsstream": "1.*",
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
             "extra": {
@@ -221,9 +221,9 @@
             "description": "Internationalization library powered by CLDR data.",
             "support": {
                 "issues": "https://github.com/commerceguys/intl/issues",
-                "source": "https://github.com/commerceguys/intl/tree/v1.0.8"
+                "source": "https://github.com/commerceguys/intl/tree/v1.1.0"
             },
-            "time": "2020-12-05T16:31:25+00:00"
+            "time": "2021-05-17T08:25:58+00:00"
         },
         {
             "name": "composer/installers",

@@ -80,6 +80,9 @@
         "patches": {
             "drupal/core": {
                 "Error _editor_get_file_uuids_by_field()": "https://www.drupal.org/files/issues/2020-02-19/2974156-typerror-27.patch"
+            },
+            "drupal/smtp": {
+                "Disabled fields are overridden in site-specific configuration file Warning": "https://www.drupal.org/files/issues/2020-08-11/removed_config_override_logic-2826189-39.patch"
             }
         },
         "drupal-scaffold": {

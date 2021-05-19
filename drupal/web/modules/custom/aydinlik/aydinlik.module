@@ -59,7 +59,7 @@ function aydinlik_user_login(UserInterface $account) {
     }
   }
   if ($current_user->field_adres->country_code == 'TR' || $current_user->field_adres->country_code == '' ) {
-    if (!$current_user->hasRole('yurtici_abone') || !$current_user->hasRole('yurtdisi_abone')){
+    if (!$current_user->hasRole('yurtici_abone') || !$current_user->hasRole('yurtdisi_abone') || !$current_user->hasRole('ogrenci_abone')){
       $current_user->addRole('yurtici_abone');
       $current_user->save();
     } 
