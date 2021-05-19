@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e99f97a4419114a8f21ab3de9e51f48c",
+    "content-hash": "0bcf77c631b934b0c98bcf5faf9ec2a9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4977,67 +4977,6 @@
             "homepage": "https://www.drupal.org/project/pdf",
             "support": {
                 "source": "https://git.drupalcode.org/project/pdf"
-            }
-        },
-        {
-            "name": "drupal/phpmailer",
-            "version": "3.0.0-beta1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/phpmailer.git",
-                "reference": "8.x-3.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/phpmailer-8.x-3.0-beta1.zip",
-                "reference": "8.x-3.0-beta1",
-                "shasum": "8bba7c4bd0f2eeec793f6f98daa1dc13299f883b"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "phpmailer/phpmailer": ">=5.2.21"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-3.0-beta1",
-                    "datestamp": "1509677886",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Stefan M. Kudwien (smk-ka)",
-                    "homepage": "http://drupal.org/user/48898"
-                },
-                {
-                    "name": "Daniel F. Kudwien (sun)",
-                    "homepage": "http://drupal.org/user/54136"
-                },
-                {
-                    "name": "sun",
-                    "homepage": "https://www.drupal.org/user/54136"
-                }
-            ],
-            "description": "Integrates the PHPMailer library for SMTP e-mail delivery.",
-            "homepage": "https://drupal.org/project/phpmailer",
-            "keywords": [
-                "drupal",
-                "email",
-                "mail",
-                "phpmailer",
-                "smtp"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/phpmailer",
-                "issues": "https://www.drupal.org/project/issues/phpmailer"
             }
         },
         {
@@ -11469,7 +11408,6 @@
         "drupal/better_exposed_filters": 10,
         "drupal/iyzipay": 15,
         "drupal/mask": 15,
-        "drupal/phpmailer": 10,
         "drupal/typed_data": 15,
         "drupal/webform_views": 15
     },
