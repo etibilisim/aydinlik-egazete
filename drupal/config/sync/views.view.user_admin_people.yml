@@ -638,10 +638,10 @@ display:
             name: name
             mail: mail
           plugin_id: combine
-        field_adiniz_soyadiniz_value:
-          id: field_adiniz_soyadiniz_value
-          table: user__field_adiniz_soyadiniz
-          field: field_adiniz_soyadiniz_value
+        field_adiniz_value:
+          id: field_adiniz_value
+          table: user__field_adiniz
+          field: field_adiniz_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -650,14 +650,60 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_adiniz_soyadiniz_value_op
-            label: Ad-Soyad
+            operator_id: field_adiniz_value_op
+            label: Ad
             description: ''
             use_operator: false
-            operator: field_adiniz_soyadiniz_value_op
+            operator: field_adiniz_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_adiniz_soyadiniz_value
+            identifier: field_adiniz_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              yonetici: '0'
+              administrator: '0'
+              abone: '0'
+              yurtici_abone: '0'
+              yurtdisi_abone: '0'
+              ogrenci_abone: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_soyadiniz_value:
+          id: field_soyadiniz_value
+          table: user__field_soyadiniz
+          field: field_soyadiniz_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_soyadiniz_value_op
+            label: Soyad
+            description: ''
+            use_operator: false
+            operator: field_soyadiniz_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_soyadiniz_value
             required: false
             remember: false
             multiple: false

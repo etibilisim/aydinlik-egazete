@@ -23,10 +23,9 @@ function aydinlik_user_login(UserInterface $account) {
   $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
   $today = $dateTime->format('Y-m-d');
   $uid = \Drupal::currentUser()->id();
-  $current_user = User::load($uid);
-  if ($current_user->field_abonelik_durumu == 'Aktif'){
+  if ($current_user->field_abonelik_durumu->value == 'Aktif'){
     $src = $current_user->field_abonelik_referans_kodu->value;
-    if ($current_user->field_abonelik_bitis_tarihi->value < $today) {
+    if ($current_user->field_abonelik_bitis_tarihi[0]->value <= $today ) {
       $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
       $request->setSubscriptionReferenceCode($src);
       $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,Drupal\iyzipay\Config::options());
@@ -34,18 +33,24 @@ function aydinlik_user_login(UserInterface $account) {
       $last_payment = $orders[count($orders)-1]->paymentAttempts[0]->paymentStatus;
       $ppn = $result->getPricingPlanName(); //$ppn is pricing plan name
       if ($last_payment == 'SUCCESS') {
-        if (str_contains ($ppn, 'Aylik')) {
-          $current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 month'));
+        if (str_contains ($ppn, 'Aylık')) {
+          $fabt = date('Y-m-d', strtotime('1 month',strtotime($current_user->field_abonelik_bitis_tarihi[0]->value)));
+          $current_user->field_abonelik_bitis_tarihi[0]->value = $fabt;
           $current_user->save();
+          $messenger->addMessage('Aylık aboneliğiniz başarılı bir şekilde uzatılmıştır. Keyifli okumalar dileriz');
         }
-        if (str_contains ($ppn, 'Yillik')) {
-          $current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 year'));
+        if (str_contains ($ppn, 'Yıllık')) {
+          $fabt = date('Y-m-d', strtotime('1 month',strtotime($current_user->field_abonelik_bitis_tarihi[0]->value)));
+          $current_user->field_abonelik_bitis_tarihi[0]->value = $fabt;
           $current_user->save();
+          $messenger->addMessage('Yıllık aboneliğiniz başarılı bir şekilde uzatılmıştır. Keyifli okumalar dileriz');
         }
       }
-      else{
+      else {
         $current_user->field_abonelik_durumu->value = 'Yenileme bekliyor';
+        $current_user->removeRole('abone');
         $current_user->save();
+        $messenger->addWarning('Aboneliğinizin uzatılması sırasında bir hata oluşmuştur. Lütfen bizimle iletişime geçiniz.');
       }
     }
   }
