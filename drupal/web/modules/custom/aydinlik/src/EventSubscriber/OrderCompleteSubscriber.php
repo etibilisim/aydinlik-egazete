@@ -113,6 +113,9 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           }
           $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 month'));
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($epaper_subscription)->id()];
+          if ($this->current_user->field_taahhut_tarihi->value != NULL){
+            $this->current_user->field_abonelik_turu[] = ['target_id' => 3];
+          }
           $this->current_user->addRole('abone');
           $this->current_user->save();
           break;
