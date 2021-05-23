@@ -6,9 +6,9 @@ definitions:
     expanded: false
     weight: 0
   sitemap__page:
+    weight: -46
     menu_name: tools
     parent: ''
-    weight: 0
     expanded: false
     enabled: false
   standard__front_page:
@@ -17,6 +17,24 @@ definitions:
     parent: ''
     enabled: true
     expanded: false
+  search__view:
+    weight: -50
+    menu_name: tools
+    parent: ''
+    expanded: false
+    enabled: false
+  filter__tips_all:
+    weight: -45
+    menu_name: tools
+    parent: ''
+    expanded: false
+    enabled: false
+  node__add_page:
+    weight: -44
+    menu_name: tools
+    parent: ''
+    expanded: false
+    enabled: true
 _core:
   default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ
 langcode: tr

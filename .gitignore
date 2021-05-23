@@ -10,6 +10,10 @@
 /drupal/web/sites/*/settings.php
 /drupal/web/sites/*/settings.local.php
 drupal/private/*
+/drupal/web/*.sql
+/drupal/web/*.sql.zip
+/drupal/web/*.zip
+
 
 # Ignore Drupal's files directory
 /drupal/web/sites/*/files/
