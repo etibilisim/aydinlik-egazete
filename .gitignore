@@ -4,6 +4,7 @@
 /drupal/web/modules/contrib/
 /drupal/web/themes/contrib/
 /drupal/web/profiles/contrib/
+/drupal/config/sync/commerce_payment.commerce_payment_gateway.iyzipay.yml
 
 # Ignore sensitive information
 /drupal/web/sites/*/settings.php
