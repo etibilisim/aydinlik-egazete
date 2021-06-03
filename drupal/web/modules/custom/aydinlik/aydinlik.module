@@ -71,7 +71,7 @@ function aydinlik_user_login(UserInterface $account) {
     } 
   }
   else {
-    if (!$current_user->hasRole('yurtici_abone') || !$current_user->hasRole('yurtdisi_abone')){
+    if (!$current_user->hasRole('yurtici_abone') || !$current_user->hasRole('yurtdisi_abone') || !$current_user->hasRole('ogrenci_abone')){
       $current_user->addRole('yurtdisi_abone');
       $current_user->save();
     }
