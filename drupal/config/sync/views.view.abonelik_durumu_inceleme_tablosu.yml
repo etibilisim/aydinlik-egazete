@@ -12,10 +12,12 @@ dependencies:
     - field.storage.user.field_soyadiniz
     - field.storage.user.field_telefon
     - system.menu.tools
+    - taxonomy.vocabulary.abonelik_suresi
   module:
     - datetime
     - rest
     - serialization
+    - taxonomy
     - user
     - views_data_export
     - xls_serialization
@@ -655,6 +657,59 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        roles_target_id:
+          id: roles_target_id
+          table: user__roles
+          field: roles_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Roller
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: separator
+          separator: ', '
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
         field_abonelik_turu:
           id: field_abonelik_turu
           table: user__field_abonelik_turu
@@ -888,6 +943,107 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        field_abonelik_suresi_target_id:
+          id: field_abonelik_suresi_target_id
+          table: user__field_abonelik_suresi
+          field: field_abonelik_suresi_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_abonelik_suresi_target_id_op
+            label: 'Abonelik Süresi'
+            description: ''
+            use_operator: true
+            operator: field_abonelik_suresi_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_abonelik_suresi_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              yonetici: '0'
+              administrator: '0'
+              abone: '0'
+              yurtici_abone: '0'
+              yurtdisi_abone: '0'
+              ogrenci_abone: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: abonelik_suresi
+          hierarchy: true
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        roles_target_id:
+          id: roles_target_id
+          table: user__roles
+          field: roles_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: roles_target_id_op
+            label: Roller
+            description: ''
+            use_operator: true
+            operator: roles_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: roles_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              yonetici: '0'
+              administrator: '0'
+              abone: '0'
+              yurtici_abone: '0'
+              yurtdisi_abone: '0'
+              ogrenci_abone: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
       sorts: {  }
       title: 'Abonelik Durumu İnceleme Tablosu'
       header: {  }
@@ -903,6 +1059,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.permissions
       tags:
         - 'config:field.storage.user.field_abonelik_bitis_tarihi'
@@ -965,6 +1122,7 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - user
         - user.permissions
       tags:
         - 'config:field.storage.user.field_abonelik_bitis_tarihi'
@@ -999,6 +1157,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.permissions
       tags:
         - 'config:field.storage.user.field_abonelik_bitis_tarihi'
