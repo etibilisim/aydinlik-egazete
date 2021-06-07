@@ -59,8 +59,6 @@ function aydinlik_cron_cron() {
       }
     }
   } */
-
-  use Drupal\user\Entity\User;
   $rCodes = array("a46d8cb4-2f9e-4d83-bc6e-1ff86db7af0f"
   ,"2bf1e69a-35dc-4e0c-a1af-7da32e8be2eb"
   ,"3d746b26-3a5c-49dc-a41e-d42f187097f7"
