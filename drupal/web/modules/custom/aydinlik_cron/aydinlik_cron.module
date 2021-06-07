@@ -60,107 +60,110 @@ function aydinlik_cron_cron() {
     }
   } */
 
-$rCodes = array("5366ceb0-36c9-4f53-a13c-b352e070dc8b"
-,"bb440768-24a7-4031-add6-2b535be45ff6"
-,"9f2831b5-2ad7-4cf0-8dea-ecdf408079f6"
-,"d615b72b-d741-4351-a08e-a5f643be6535"
-,"7130af07-f504-4f72-befa-0914aa185b87"
-,"5c32e222-8666-408a-987a-061ac92f0610"
-,"dd56de3f-fad8-42e2-860a-e15f19c0dda5"
-,"64f2f803-afe8-4528-9029-71d99c19cf66"
-,"34d11a9e-94d1-4c62-8d6b-d56115eaafad"
-,"491a4602-c0a5-4018-a04a-2cc381a1493d"
-,"b36f659f-9589-457a-b3e7-6aac7319a9f1"
-,"1da8ecaa-300f-4a96-b5ee-0ecc7d44d222"
-,"c01ee385-2688-435c-a0d9-7f27237ecc05"
-,"bf88fdcb-a10d-49e2-839e-b4ccf1a6a2bb"
-,"720841af-bbec-4d25-94c9-9bee6cbf2281"
-,"b53939b0-9492-4cf8-8196-71ae275efd86"
-,"4cefa0f8-9f85-4241-a569-42c594f67290"
-,"2bd802b0-a59a-487f-87d2-c04097dad5cf"
-,"928592dd-6405-4c83-b35f-64ca444e78b9"
-,"ac2ea746-d5ad-455d-b758-1925b0bb6634"
-,"f2abf13a-dc64-4082-9cbe-706a84f5ef3d"
-,"149bdfc0-82d5-4c8f-9166-3bd9057e3dfc"
-,"6672d6fd-149b-43a2-bd32-37993a57b507"
-,"36b2c6ea-dc09-4cc8-854e-a11f07fd363b"
-,"05de12f4-2c09-4135-b3f8-39665637c601"
-,"e14f1534-6d88-4f02-8db9-d0cc2a7f2fdb"
-,"f88e51c5-e32a-4ac6-ac02-7794494a5edc"
-,"aa4067c9-ea34-4f85-a488-dbc39bb541ba"
-,"9c54e11a-5db9-47f4-a5b0-fef05f55aabb"
-,"7986eba3-86e9-4b04-915e-858be82e6515"
-,"f9765b06-006c-4747-88f1-4e6aeb064c11"
-,"e37f7006-6ac5-4275-8be3-134d627f87ea"
-,"d4f6d372-84d7-4bf5-bd39-b3df17c72850"
-,"e628d251-72b7-42e2-b244-d6a21dd7c588"
-,"560b0599-7eff-484a-b60c-10a180f8ea25"
-,"86810d25-ef01-475e-9ada-31d53bbf9a49"
-,"dcab5f8e-5cd7-482a-bf8f-503eaa209875"
-,"0f38da2f-fe02-4c78-8f84-5e7a490d7426"
-,"c10462e4-f020-4de2-b8aa-0c6427a9a36b"
-,"abb129f1-586f-47e4-8599-545b81f82e71"
-,"4315138e-33ef-4077-a821-e46303c4bbd7"
-,"cec45263-cbae-4be3-995e-ae0f43d365c3"
-,"0f929398-455d-45fa-8b0f-46f405d90027"
-,"d0200690-368b-46c6-ba8b-49295b8b5241"
-,"7b3847b6-8c80-4fa0-9d37-ac2ca0953cae"
-,"8802fade-ba14-40c1-bd29-79212bea8569"
-,"141cf750-53c4-4739-b5e9-75bd2f4e463d"
-,"b2256696-5873-4747-b40b-07947491f517"
-,"ef96df72-6b57-4a65-a46e-c72bbd8d9c59");
-
-foreach ($rCodes as $rCode) {
-$request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
-$request->setSubscriptionReferenceCode($rCode);
-$result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,\Drupal\iyzipay\Config::options());
-if ($result->getStatus() == 'success') {
-$email = $result->getCustomerEmail();
-$productName = $result->getProductName();
-dpm($email.' '.$productName);
-
-$users = User::loadMultiple();
-foreach ($users as $user) {
-  $umail = $user->mail->value;
-  if ($email == $umail) {
-    dpm('E-postalar aynı'. ' ' . $email.'='.$umail);
-    if ($user->field_abonelik_suresi->target_id == '1354') {
-      $sType = 'Aylık Abonelik';
-    }
-    if ($user->field_abonelik_suresi->target_id =='1360') {
-      $sType = 'Aylık Abonelik - Öğrenci';
-    }
-    if ($user->field_abonelik_suresi->target_id == '1364') {
-      $sType = 'Yıllık Abonelik - Avrupa';
-    }
-    if ($user->field_abonelik_suresi->target_id == '1365') {
-      $sType = 'Yıllık Abonelik - Avrupa Dışı';
-    }
-    if ($user->field_abonelik_suresi->target_id == '1359') {
-      $sType = 'Yıllık Abonelik - Öğrenci';
-    }
-    if ($user->field_abonelik_suresi->target_id == '1355') {
-      $sType = '3 Aylık Abonelik';
-    }
-    if ($user->field_abonelik_suresi->target_id == '1356') {
-      $sType = '6 Aylık Abonelik';
-    }
-    if ($user->field_abonelik_suresi->target_id == '1358') {
-      $sType = 'Yıllık Abonelik';
-    }
-if ($productName != $sType) {
-    $name = $user->field_adiniz->value;
-    $surname = $user->field_soyadiniz->value;
-    $ns = $name.' '.$surname;
-$request = new \Iyzipay\Request\Subscription\SubscriptionCancelRequest();
-$request->setLocale("tr");
-$request->setSubscriptionReferenceCode($rCode);
-$result = \Iyzipay\Model\Subscription\SubscriptionCancel::cancel($request,\Drupal\iyzipay\Config::options());
-$message = $ns.' kullanıcısının yanlış aboneliği iptal edilmiştir.';
-\Drupal::logger('aydinlik_cron')->notice($message);
-         }
+  use Drupal\user\Entity\User;
+  $rCodes = array("a46d8cb4-2f9e-4d83-bc6e-1ff86db7af0f"
+  ,"2bf1e69a-35dc-4e0c-a1af-7da32e8be2eb"
+  ,"3d746b26-3a5c-49dc-a41e-d42f187097f7"
+  ,"cda02ee9-02a2-4d1b-b48d-bb26911ea5e2"
+  ,"31e4c194-9a69-45ae-ae93-77366f352f01"
+  ,"210c7c2f-ba97-474b-a7a4-bba81b003a60"
+  ,"2b686200-ca67-476c-ab46-f32bce0b430b"
+  ,"d7586d99-fcf1-4605-8012-5070f28a4860"
+  ,"590ce658-a5bf-4028-8e4d-e6215778266c"
+  ,"03b01f3a-da39-44fd-b0df-29310753c7e2"
+  ,"9f643483-aedf-4ba6-9e69-a253ea9af81a"
+  ,"6ab3a9f4-1906-4317-88db-02f77432601c"
+  ,"f674930b-3798-4ba2-97b3-fe12bc55e9cc"
+  ,"ea2d0310-25b7-46ff-a4c4-f2e0dd59d767"
+  ,"0dc394c3-9c54-45a3-93f0-a3ed8aadef2e"
+  ,"f6ffa7ae-d053-4a2a-ad60-bf921d03e2e2"
+  ,"2f2ad636-3a61-4ecd-b6ea-1831c6181399"
+  ,"d453ab5d-74f0-4bc2-97ce-254641d56aa6"
+  ,"469f6112-26ff-4281-9599-eff4fcb94e0e"
+  ,"88159b76-58ae-45e8-9da9-90db8f5e307c"
+  ,"e1647cff-20dc-4148-8122-f6296a5657b0"
+  ,"7f513ae8-e153-430c-80c8-7896e88cca8c"
+  ,"4d88a033-cd10-4885-9730-0b270605f477"
+  ,"317da345-aad9-4a66-b4e1-f451df3bcf39"
+  ,"8a04e76e-b280-4ca2-b5ea-0667a523a4a2"
+  ,"127ed2a5-6a70-4e0b-b9fb-0ec1b3722fce"
+  ,"69fd6bb8-4b2b-427f-95fb-fef60389e0bc"
+  ,"cec9d80c-53d3-4a1d-a85f-32069772a52b"
+  ,"43a4d951-2abe-43ed-98e0-36ba9f3672f1"
+  ,"00b170b0-89a5-41e9-a0f9-96278846e3b0"
+  ,"39b78fe3-9dbf-431d-b95b-0a2a3f409681"
+  ,"d4494125-2e80-4b02-a447-e96754badad6"
+  ,"bcfe5683-8b1e-41fc-b2a8-1b87487e34b9"
+  ,"bda9758e-ab99-4453-8c96-204cdfcbfa9c"
+  ,"c0ebc195-626c-4e10-8ba1-0c8245679792"
+  ,"3010c510-8318-489c-a923-051b296488a7"
+  ,"3d77b851-699b-4c5d-b8a4-d564e2a884f3"
+  ,"f37aba17-50cc-4457-a82d-1515a878ef08"
+  ,"080a995c-d011-47c7-8bc2-d06f5870bfee"
+  ,"ab670b38-7949-4136-8e95-3a94c8a1e49a"
+  ,"b552a7e9-d085-4b0c-b59e-12892a3f3ed1"
+  ,"2678b6c9-7ded-43cb-8891-40c09d4e1023"
+  ,"eb611aaa-f10b-4758-8c6c-20b9f415cffd"
+  ,"5efde6f2-2457-476c-9fc8-ce45558b9915"
+  ,"0ef4ace8-47c5-431c-9cec-3b4055338567"
+  ,"9c11e7f7-2d66-4c69-bae0-453d3f3287d6"
+  ,"f25dd1fb-e755-42cc-9e3a-76370b121205"
+  ,"c67ce520-cd75-4cb6-a108-f922dcdbffd6"
+  ,"3aa1274e-a3b4-459f-a58c-159c6169a3ee"
+  ,"76984cb1-5528-491d-80ae-0eba882b1e66"
+  ,"229d5dda-874e-425e-b112-6fbc210c3dc2");
+  
+  foreach ($rCodes as $rCode) {
+  $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
+  $request->setSubscriptionReferenceCode($rCode);
+  $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,\Drupal\iyzipay\Config::options());
+  if ($result->getStatus() == 'success') {
+  $email = $result->getCustomerEmail();
+  $productName = $result->getProductName();
+  dpm($email.' '.$productName);
+  
+  $users = User::loadMultiple();
+  foreach ($users as $user) {
+    $umail = $user->mail->value;
+    if ($email == $umail) {
+      dpm('E-postalar aynı'. ' ' . $email.'='.$umail);
+      if ($user->field_abonelik_suresi->target_id == '1354') {
+    $sType = 'Aylık Abonelik';
+  }
+  if ($user->field_abonelik_suresi->target_id =='1360') {
+    $sType = 'Aylık Abonelik - Öğrenci';
+  }
+  if ($user->field_abonelik_suresi->target_id == '1364') {
+    $sType = 'Yıllık Abonelik - Avrupa';
+  }
+  if ($user->field_abonelik_suresi->target_id == '1365') {
+    $sType = 'Yıllık Abonelik - Avrupa Dışı';
+  }
+  if ($user->field_abonelik_suresi->target_id == '1359') {
+    $sType = 'Yıllık Abonelik - Öğrenci';
+  }
+  if ($user->field_abonelik_suresi->target_id == '1355') {
+    $sType = '3 Aylık Abonelik';
+  }
+  if ($user->field_abonelik_suresi->target_id == '1356') {
+    $sType = '6 Aylık Abonelik';
+  }
+  if ($user->field_abonelik_suresi->target_id == '1358') {
+    $sType = 'Yıllık Abonelik';
+  }
+  if ($productName != $sType) {
+      $name = $user->field_adiniz->value;
+      $surname = $user->field_soyadiniz->value;
+      $ns = $name.' '.$surname;
+  $request = new \Iyzipay\Request\Subscription\SubscriptionCancelRequest();
+  $request->setLocale("tr");
+  $request->setSubscriptionReferenceCode($rCode);
+  $result = \Iyzipay\Model\Subscription\SubscriptionCancel::cancel($request,\Drupal\iyzipay\Config::options());
+  $message = $ns.' kullanıcısının yanlış aboneliği iptal edilmiştir.';
+  \Drupal::logger('aydinlik_cron')->notice($message);
+           }
+        }
       }
     }
   }
-}
 }
