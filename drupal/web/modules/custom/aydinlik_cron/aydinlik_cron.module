@@ -124,30 +124,30 @@ foreach ($users as $user) {
   $umail = $user->mail->value;
   if ($email == $umail) {
     dpm('E-postalar aynı'. ' ' . $email.'='.$umail);
-if ($user->field_abonelik_suresi->target_id == '1354') {
-  $sType = 'Aylık Abonelik';
-}
-if ($user->field_abonelik_suresi->target_id =='1360') {
-  $sType = 'Aylık Abonelik Öğrenci';
-}
-if ($user->field_abonelik_suresi->target_id == '1364') {
-  $sType = 'Yıllık Abonelik Avrupa';
-}
-if ($user->field_abonelik_suresi->target_id == '1365') {
-  $sType = 'Yıllık Abonelik Avrupa Dışı';
-}
-if ($user->field_abonelik_suresi->target_id == '1359') {
-  $sType = 'Yıllık Abonelik Öğrenci';
-}
-if ($user->field_abonelik_suresi->target_id == '1355') {
-  $sType = '3 Aylık Abonelik';
-}
-if ($user->field_abonelik_suresi->target_id == '1356') {
-  $sType = '6 Aylık Abonelik';
-}
-if ($user->field_abonelik_suresi->target_id == '1358') {
-  $sType = 'Yıllık Abonelik';
-}
+    if ($user->field_abonelik_suresi->target_id == '1354') {
+      $sType = 'Aylık Abonelik';
+    }
+    if ($user->field_abonelik_suresi->target_id =='1360') {
+      $sType = 'Aylık Abonelik - Öğrenci';
+    }
+    if ($user->field_abonelik_suresi->target_id == '1364') {
+      $sType = 'Yıllık Abonelik - Avrupa';
+    }
+    if ($user->field_abonelik_suresi->target_id == '1365') {
+      $sType = 'Yıllık Abonelik - Avrupa Dışı';
+    }
+    if ($user->field_abonelik_suresi->target_id == '1359') {
+      $sType = 'Yıllık Abonelik - Öğrenci';
+    }
+    if ($user->field_abonelik_suresi->target_id == '1355') {
+      $sType = '3 Aylık Abonelik';
+    }
+    if ($user->field_abonelik_suresi->target_id == '1356') {
+      $sType = '6 Aylık Abonelik';
+    }
+    if ($user->field_abonelik_suresi->target_id == '1358') {
+      $sType = 'Yıllık Abonelik';
+    }
 if ($productName != $sType) {
     $name = $user->field_adiniz->value;
     $surname = $user->field_soyadiniz->value;
