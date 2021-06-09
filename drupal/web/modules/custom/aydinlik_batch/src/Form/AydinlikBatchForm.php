@@ -33,7 +33,7 @@ class AydinlikBatchForm extends FormBase {
 
     $form['submit_button'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Start Batch'),
+      '#value' => $this->t('Check subscriptions'),
     ]; 
 
     return $form;
@@ -58,14 +58,20 @@ class AydinlikBatchForm extends FormBase {
     
     $batch = array(
       'title' => t('Verifying subscirptions...'),
-      'operations' => [],
       'init_message'     => t('Processing'),
+      'operations' => [
+        [
+          '_aydinlik_batch',
+          [$rCodes],
+        ],
+      ],
+      'file' => drupal_get_path('module', 'aydinlik_batch') . '/aydinlik_batch.aydinlik.inc',
       'progress_message' => t('Processed @current out of @total.'),
       'error_message'    => t('An error occurred during processing'),
       'finished' => '\Drupal\aydinlik_batch\Form\AydinlikBatchForm::batchFinished',
     );
     
-    foreach ($rCodes as $rCode) {
+    /* foreach ($rCodes as $rCode) {
       $rCode = trim($rCode);
       $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
       $request->setSubscriptionReferenceCode($rCode);
@@ -117,7 +123,7 @@ class AydinlikBatchForm extends FormBase {
             }
           }
         }
-      }
+      } */
       batch_set($batch);
       \Drupal::messenger()->addMessage('Abonelikler kontrol edildi. Yanlış abonelikler iptal edildi.');
     }
