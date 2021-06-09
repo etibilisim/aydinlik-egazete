@@ -1,0 +1,7 @@
+aydinlik_batch_subscription_control:
+  path: '/admin/config/system/batch-form'
+  defaults:
+    _title: 'Aydınlık Batch Form'
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikBatchForm'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,4 @@
+name: Aydınlık Batch
+description: Drupal 8 Batch Example.
+type: module
+core_version_requirement: ^8 | ^9
