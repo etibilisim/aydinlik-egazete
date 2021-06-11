@@ -1,4 +1,7 @@
 name: Aydınlık Batch
-description: Drupal 8 Batch Example.
+description: Aydınlık abonelik kontrol
+defaults:
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikBatchForm'
+    _title: 'Verifying subscirptions...'
 type: module
 core_version_requirement: ^8 | ^9

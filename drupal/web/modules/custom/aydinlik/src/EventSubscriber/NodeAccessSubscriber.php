@@ -109,18 +109,32 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
             $redirect = new RedirectResponse('/e-gazete-aboneligi');
             $redirect->send();
           }
-          if ($node->bundle() == 'e_arsiv') {
-            $subscription_type = $this->current_user->get('field_abonelik_turu');
-            $subscription_type_count = $subscription_type->count();
-            if ($subscription_type_count < 2){
-              $earchives_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
-              if (!str_contains($earchives_subscription->getName(), 'E-Arşiv')) {
-                $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
-                $redirect = new RedirectResponse('/e-gazete-aboneligi');
-                $redirect->send();
-              }
+        }
+      }
+      if ($node->bundle() == 'e_arsiv') {
+        if ($this->current_user->isAnonymous()) {
+          $this->messenger->addMessage($config->get('girisyapmesaji'));
+          $redirect = new RedirectResponse($login->toString());
+          $event->setResponse($redirect);
+        }
+        elseif (!$this->current_user->hasPermission('bypass permission checks')) {
+          $subscription_type = $this->current_user->get('field_abonelik_turu');
+          $subscription_type_count = $subscription_type->count();
+          if ($subscription_type_count < 2){
+            $earchives_subscription = Term::load($this->current_user->field_abonelik_turu->referencedEntities()[0]->tid->value);
+            if (!str_contains($earchives_subscription->getName(), 'E-Arşiv')) {
+              $this->messenger->addWarning($config->get('earsivabonesidegilmesaji'));
+              $redirect = new RedirectResponse('/e-gazete-aboneligi');
+              $redirect->send();
             }
           }
+        }
+      }
+      if ($node->bundle() =='gazete_eki') {
+        if ($this->current_user->isAnonymous()) {
+          $this->messenger->addMessage($config->get('girisyapmesaji'));
+          $redirect = new RedirectResponse($login->toString());
+          $event->setResponse($redirect);
         }
       }
     }
