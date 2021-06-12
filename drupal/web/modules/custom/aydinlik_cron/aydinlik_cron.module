@@ -14,24 +14,24 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_cron().
  */
 function aydinlik_cron_cron() {
-$users = User::loadMultiple();
-$dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
-$today = $dateTime->format('Y-m-d');
+  $users = User::loadMultiple();
+  $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
+  $today = $dateTime->format('Y-m-d');
 
-foreach($users as $user) {
-  $user_name = $user->field_adiniz->value;
-  $user_surname = $user->field_soyadiniz->value;
-  if ($user->field_abonelik_bitis_tarihi->value < $today && $user->field_abonelik_bitis_tarihi->value != '') {
-    if ($user->hasRole('abone'))  {
-      $user->removeRole('abone');
-      $user->save();
-      $message = $user_name. ' '. $user_surname. ' '.  'adlı kullanıcının abonelik rolü kaldırılmıştır.';
-          \Drupal::logger('aydinlik_cron')->warning($message);
+  foreach($users as $user) {
+    $user_name = $user->field_adiniz->value;
+    $user_surname = $user->field_soyadiniz->value;
+    if ($user->field_abonelik_bitis_tarihi->value < $today && $user->field_abonelik_bitis_tarihi->value != '') {
+      if ($user->hasRole('abone'))  {
+        $user->removeRole('abone');
+        $user->save();
+        $message = $user_name. ' '. $user_surname. ' '.  'adlı kullanıcının abonelik rolü kaldırılmıştır.';
+        \Drupal::logger('aydinlik_cron')->warning($message);
+      }
     }
-  }
-  if ($user->field_abonelik_referans_kodu->value != NULL){
+    if ($user->field_abonelik_referans_kodu->value != NULL){
       $src = $user->field_abonelik_referans_kodu->value;
-      if ($user->field_abonelik_bitis_tarihi[0]->value != NULL && $user->field_abonelik_bitis_tarihi[0]->value <= $today ) {
+      if ($user->field_abonelik_bitis_tarihi->value != NULL && $user->field_abonelik_bitis_tarihi->value <= $today ) {
         $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
         $request->setSubscriptionReferenceCode($src);
         $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,Drupal\iyzipay\Config::options());
@@ -47,16 +47,16 @@ foreach($users as $user) {
         //$order_created = date('Y-m-d',substr($result->getCreatedDate(),0,10));
         if ($last_payment == 'SUCCESS') {
           if (str_contains ($ppn, 'Aylık')) {
-            $fabt = date('Y-m-d', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi[0]->value)));
-            $user->field_abonelik_bitis_tarihi[0]->value = $fabt;
+            $fabt = date('Y-m-d', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
+            $user->field_abonelik_bitis_tarihi->value = $fabt;
             $user->addRole('abone');
             $user->save();
             $message = $user_name. ' '. $user_surname. ' '.  'Aylık abonelik başarılı bir şekilde uzatılmıştır.';
             \Drupal::logger('aydinlik_cron')->notice($message);
           }
           if (str_contains ($ppn, 'Yıllık')) {
-            $fabt = date('Y-m-d', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi[0]->value)));
-            $user->field_abonelik_bitis_tarihi[0]->value = $fabt;
+            $fabt = date('Y-m-d', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
+            $user->field_abonelik_bitis_tarihi->value = $fabt;
             $user->addRole('abone');
             $user->save();
             $message = $user_name. ' '. $user_surname. ' '. 'Yıllık abonelik başarılı bir şekilde uzatılmıştır.';
@@ -64,11 +64,11 @@ foreach($users as $user) {
           }
         }
         else {
-            $user->field_abonelik_durumu->value = 'Yenileme bekliyor';
-            $user->removeRole('abone');
-            $user->save();
-            $message = $user_name. ' '. $user_surname. ' '. 'Aboneliğin uzatılması sırasında bir hata oluştu. Lütfen abone ile iletişime geçiniz.';
-            \Drupal::logger('aydinlik_cron')->error($message);
+          $user->field_abonelik_durumu->value = 'Yenileme bekliyor';
+          $user->removeRole('abone');
+          $user->save();
+          $message = $user_name. ' '. $user_surname. ' '. 'Aboneliğin uzatılması sırasında bir hata oluştu. Lütfen abone ile iletişime geçiniz.';
+          \Drupal::logger('aydinlik_cron')->error($message);
         }
       }
     }
