@@ -442,6 +442,163 @@ taxonomies:
       weight: '0'
       parent: '0'
       uuid: 483f3bf5-70c9-4bb1-a572-035e59f70897
+menus:
+  -
+    menu_name: account
+    title: 'Alışveriş Sepetim'
+    parent: null
+    uri: 'internal:/cart'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 2b3259a0-40ed-45e0-b02a-7785b36943d6
+  -
+    menu_name: account
+    title: 'Alışveriş Sepetim'
+    parent: null
+    uri: 'internal:/cart'
+    link_title: ''
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: ac3e562d-7243-4ea9-9e16-b23753b85512
+  -
+    menu_name: footer
+    title: 'Gizlilik İlkesi'
+    parent: null
+    uri: 'entity:node/4030'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: d0f3c864-d2cb-4f06-bf7a-d74eb55090d3
+  -
+    menu_name: footer
+    title: 'Kullanım Koşulları'
+    parent: null
+    uri: 'entity:node/4029'
+    link_title: ''
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 567c7b98-8dc3-4e12-a99b-038a415249fd
+  -
+    menu_name: footer
+    title: 'Mesafeli Satış ve E-Gazete Abonelik Sözleşmesi'
+    parent: null
+    uri: 'entity:node/4038'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 3caebf03-9736-4477-8f41-02af03477464
+  -
+    menu_name: footer
+    title: Hakkımızda
+    parent: null
+    uri: 'entity:node/4039'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: e5731c72-c722-4563-944b-56411d306568
+  -
+    menu_name: main
+    title: 'Bize Ulaşın'
+    parent: null
+    uri: 'entity:node/4006'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-45'
+    langcode: tr
+    uuid: 8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0
+  -
+    menu_name: main
+    title: 'Satın Al'
+    parent: null
+    uri: 'entity:node/4087'
+    link_title: null
+    description: null
+    enabled: '1'
+    expanded: '0'
+    weight: '-49'
+    langcode: tr
+    uuid: 3647f1b2-5bea-40d6-92ee-392dce8cfed9
+  -
+    menu_name: main
+    title: 'Abonelik Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4092'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 1f07352f-6136-4678-9151-592fc2b82bd2
+  -
+    menu_name: main
+    title: 'Abonelik İptal Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4100'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 3049a386-7b2d-4b78-adb1-4f4c83facf5e
+  -
+    menu_name: main
+    title: 'Öğrenci Abonelik Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4100'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 4474ab5c-f10b-4d84-a8c3-965c2341ade0
+  -
+    menu_name: main
+    title: 'Abonelik Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4101'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 7721d5a7-97cd-4d01-9bac-f12b1e9717dc
+  -
+    menu_name: main
+    title: 'Abonelik İptal Başvurusu'
+    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
+    uri: 'entity:node/4102'
+    link_title: null
+    description: null
+    enabled: '0'
+    expanded: '0'
+    weight: '0'
+    langcode: tr
+    uuid: 5e3ce283-7c87-492b-b153-c1d407ed8d11
 blocks:
   -
     info: 'Aydınlık Video'
@@ -638,160 +795,3 @@ blocks:
           value: "<p>Lorem ipsum dolor sit ahmet</p>\r\n"
           summary: ''
           format: basic_html
-menus:
-  -
-    menu_name: account
-    title: 'Alışveriş Sepetim'
-    parent: null
-    uri: 'internal:/cart'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 2b3259a0-40ed-45e0-b02a-7785b36943d6
-  -
-    menu_name: account
-    title: 'Alışveriş Sepetim'
-    parent: null
-    uri: 'internal:/cart'
-    link_title: ''
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: ac3e562d-7243-4ea9-9e16-b23753b85512
-  -
-    menu_name: footer
-    title: 'Gizlilik İlkesi'
-    parent: null
-    uri: 'entity:node/4030'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: d0f3c864-d2cb-4f06-bf7a-d74eb55090d3
-  -
-    menu_name: footer
-    title: 'Kullanım Koşulları'
-    parent: null
-    uri: 'entity:node/4029'
-    link_title: ''
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 567c7b98-8dc3-4e12-a99b-038a415249fd
-  -
-    menu_name: footer
-    title: 'Mesafeli Satış ve E-Gazete Abonelik Sözleşmesi'
-    parent: null
-    uri: 'entity:node/4038'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 3caebf03-9736-4477-8f41-02af03477464
-  -
-    menu_name: footer
-    title: Hakkımızda
-    parent: null
-    uri: 'entity:node/4039'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: e5731c72-c722-4563-944b-56411d306568
-  -
-    menu_name: main
-    title: 'Bize Ulaşın'
-    parent: null
-    uri: 'entity:node/4006'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-45'
-    langcode: tr
-    uuid: 8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0
-  -
-    menu_name: main
-    title: 'Satın Al'
-    parent: null
-    uri: 'entity:node/4087'
-    link_title: null
-    description: null
-    enabled: '1'
-    expanded: '0'
-    weight: '-49'
-    langcode: tr
-    uuid: 3647f1b2-5bea-40d6-92ee-392dce8cfed9
-  -
-    menu_name: main
-    title: 'Abonelik Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4092'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 1f07352f-6136-4678-9151-592fc2b82bd2
-  -
-    menu_name: main
-    title: 'Abonelik İptal Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4100'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 3049a386-7b2d-4b78-adb1-4f4c83facf5e
-  -
-    menu_name: main
-    title: 'Öğrenci Abonelik Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4100'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 4474ab5c-f10b-4d84-a8c3-965c2341ade0
-  -
-    menu_name: main
-    title: 'Abonelik Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4101'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 7721d5a7-97cd-4d01-9bac-f12b1e9717dc
-  -
-    menu_name: main
-    title: 'Abonelik İptal Başvurusu'
-    parent: 'menu_link_content:8df9ec54-d7c8-44b3-82ec-ba2790bf9cc0'
-    uri: 'entity:node/4102'
-    link_title: null
-    description: null
-    enabled: '0'
-    expanded: '0'
-    weight: '0'
-    langcode: tr
-    uuid: 5e3ce283-7c87-492b-b153-c1d407ed8d11
