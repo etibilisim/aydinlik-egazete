@@ -1,7 +1,14 @@
 aydinlik.settings:
-  path: '/admin/config/system/aydinlik-settings'
+  path: '/admin/config/system/aydinlik-message-settings'
   defaults:
     _form: 'Drupal\aydinlik\Form\AydinlikMessagesForm'
     _title: 'Aydınlık Kullanıcı Mesajları Yönetimi'
   requirements:
     _role: administrator+yonetici
+aydinlik_batch.subscription_check:
+  path: '/admin/config/system/aydinlik-subscription-check-form'
+  defaults:
+    _title: 'Aydınlık Subscription Check Form'
+    _form: '\Drupal\aydinlik\Form\AydinlikSubscriptionCheckForm'
+  requirements:
+    _permission: 'access content'
