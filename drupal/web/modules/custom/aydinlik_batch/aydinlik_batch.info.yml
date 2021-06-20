@@ -1,7 +1,4 @@
 name: Aydınlık Batch
-description: Aydınlık abonelik kontrol
-defaults:
-    _form: '\Drupal\aydinlik_batch\Form\AydinlikBatchForm'
-    _title: 'Verifying subscirptions...'
+description: Aydınlık abonelik işlemleri
 type: module
 core_version_requirement: ^8 | ^9

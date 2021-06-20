@@ -9,13 +9,13 @@ use Drupal\user\Entity\User;
 /**
  * Implements a Batch example Form.
  */
-class AydinlikBatchForm extends FormBase {
+class AydinlikSubscriptionCheckForm extends FormBase {
 
   /**
    * {@inheritdoc}.
    */
   public function getFormId() {
-    return 'aydinlikbatchform';
+    return 'aydinliksubscriptioncheckform';
   }
 
   /**
@@ -25,12 +25,11 @@ class AydinlikBatchForm extends FormBase {
   
     $form['subscriptionCodes'] = [
       '#type' => 'textarea', 
-      '#title' => 'Subscription Codes',
+      '#title' => t('Subscription Codes'),
       '#size' => 1000,
-      '#description' => t('Enter the line separated subscription codes'),
+      '#description' => t('Enter the line separated subscription codes that you want to check'),
       '#required' => TRUE,  
     ];
-
     $form['submit_button'] = [
       '#type' => 'submit',
       '#value' => $this->t('Check subscriptions'),
@@ -53,23 +52,21 @@ class AydinlikBatchForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $ref_codes = explode("\n",$form_state->getValue('subscriptionCodes'));
-
-    
     $batch = array(
       'title' => t('Verifying subscirptions...'),
       'init_message'     => t('Processing'),
       'operations' => [],
       'progress_message' => t('Processed @current out of @total.'),
       'error_message'    => t('An error occurred during processing'),
-      'finished' => '\Drupal\aydinlik_batch\Form\AydinlikBatchForm::batchFinished',
+      'finished' => '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionCheckForm::batchFinished',
     );
     foreach ($ref_codes as $ref_code) {
       $ref_code = trim($ref_code);
-      $batch['operations'][] = ['Drupal\aydinlik_batch\Form\AydinlikBatchForm::subscription_check', [$ref_code]];
+      $batch['operations'][] = ['Drupal\aydinlik_batch\Form\AydinlikSubscriptionCheckForm::subscription_check', [$ref_code]];
     }
       batch_set($batch);
       \Drupal::messenger()->addMessage('Abonelikler kontrol edildi. Yanlış abonelikler iptal edildi.');
-    }
+  }
     public static function subscription_check($ref_code) {
       $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
       $request->setSubscriptionReferenceCode($ref_code);
@@ -119,6 +116,16 @@ class AydinlikBatchForm extends FormBase {
               \Drupal::messenger()->addWarning($message);
               \Drupal::logger('aydinlik_batch')->notice($message);
             }
+          }
+          else {
+            $name = $user->field_adiniz->value;
+            $surname = $user->field_soyadiniz->value;
+            $ns = $name . ' ' . $surname;
+            $user->field_abonelik_referans_kodu->value = "Yanlış Referans Kodu Silindi";
+            $user->save();
+            $message = $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu yanlış aboneliği iptal edilmiştir.';
+              \Drupal::messenger()->addWarning($message);
+              \Drupal::logger('aydinlik_batch')->notice($message);
           }
         }
       }

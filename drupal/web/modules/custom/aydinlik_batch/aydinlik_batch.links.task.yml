@@ -1,0 +1,10 @@
+aydinlik_batch.subscription_check_tab:
+  title: "Subscription Check"
+  route_name: aydinlik_batch.subscription_check
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+  weight: -2
+aydinlik_batch.subscription_retry_tab:
+  title: "Subscription Retry"
+  route_name: aydinlik_batch.subscription_retry
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+  weight: -2

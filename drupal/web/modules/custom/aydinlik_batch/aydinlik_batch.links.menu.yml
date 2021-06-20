@@ -1,6 +1,6 @@
-aydinlik_batch_subscription_control:
-  title: 'Aydınlık Abonelik Kontrolü'
-  description: 'Aydınlık için yanlış aboneliklerin kontrolü'
-  route_name: aydinlik_batch_subscription_control
+aydinlik_batch.subscription_check:
+  title: 'Aydınlık Abonelik İşlemleri'
+  description: 'Abonelik işlemlerinin kontrolü ve yeniden ödeme alınmasını sağlar'
+  route_name: aydinlik_batch.subscription_check
   parent: system.admin_config_system
   weight: 1

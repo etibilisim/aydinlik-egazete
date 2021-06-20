@@ -1,7 +1,14 @@
-aydinlik_batch_subscription_control:
-  path: '/admin/config/system/batch-form'
+aydinlik_batch.subscription_check:
+  path: '/admin/config/system/aydinlik-subscriptions'
   defaults:
-    _title: 'Aydınlık Batch Form'
-    _form: '\Drupal\aydinlik_batch\Form\AydinlikBatchForm'
+    _title: 'Aydınlık Subscription Check Form'
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionCheckForm'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer site configuration'
+aydinlik_batch.subscription_retry:
+  path: '/admin/config/system/aydinlik-subscriptions/subscription-retry-form'
+  defaults:
+    _title: 'Aydınlık Subscription Retry Form'
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionRetryForm'
+  requirements:
+    _permission: 'administer site configuration'
