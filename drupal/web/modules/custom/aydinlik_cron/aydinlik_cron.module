@@ -48,6 +48,7 @@ function aydinlik_cron_cron() {
         $ppn = $result->getPricingPlanName(); //$ppn is pricing plan name
         //$order_created = date('Y-m-d',substr($result->getCreatedDate(),0,10));
         if ($last_payment == 'SUCCESS') {
+          $user->field_abonelik_durumu->value = 'Aktif';
           if (str_contains ($ppn, 'Aylık')) {
             $fabt = date('Y-m-d', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
             $user->field_abonelik_bitis_tarihi->value = $fabt;
