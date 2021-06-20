@@ -40,7 +40,12 @@ function aydinlik_cron_cron() {
           $last_order = end($orders);
           $last_order = end($orders);
           $last_payments = $last_order->paymentAttempts;
-          $last_payment = end($last_payments)->paymentStatus;
+          if ($last_payments != NULL) {
+            $last_payment = end($last_payments)->paymentStatus;
+          }
+          else {
+            $last_payment = 'FAILURE';
+          }
         }
         else {
           $last_payment = 'FAILURE';
