@@ -40,7 +40,7 @@ function aydinlik_cron_cron() {
           $last_order = end($orders);
           $last_order = end($orders);
           $last_payments = $last_order->paymentAttempts;
-          $last_payment = end($last_payments);
+          $last_payment = end($last_payments)->paymentStatus;
         }
         else {
           $last_payment = 'FAILURE';
@@ -57,7 +57,7 @@ function aydinlik_cron_cron() {
             \Drupal::logger('aydinlik_cron')->notice($message);
           }
           if (str_contains ($ppn, 'Yıllık')) {
-            $fabt = date('Y-m-d', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
+            $fabt = date('Y-m-d', strtotime('1 year',strtotime($user->field_abonelik_bitis_tarihi->value)));
             $user->field_abonelik_bitis_tarihi->value = $fabt;
             $user->addRole('abone');
             $user->save();
