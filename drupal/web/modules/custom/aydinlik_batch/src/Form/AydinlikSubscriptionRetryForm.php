@@ -131,7 +131,7 @@ class AydinlikSubscriptionRetryForm extends FormBase {
             $user->save();
             $message = $email.' eposta hesaplı '. $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu aboneliği için yeniden ödeme alınamamıştır. Hata mesajı: '. $retry_result->getErrorMessage();
             \Drupal::messenger()->addError($message);
-            \Drupal::logger('aydinlik_batch')->notice($message);
+            \Drupal::logger('aydinlik_batch')->info($message);
           }
         }
         else{
@@ -140,7 +140,7 @@ class AydinlikSubscriptionRetryForm extends FormBase {
           $user->save();
           $message = $email.' eposta hesaplı '. $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu aboneliği için yeniden ödeme henüz talep edilemez. Hata mesajı: '.$retry_result->getErrorMessage();
           \Drupal::messenger()->addError($message);
-          \Drupal::logger('aydinlik_batch')->notice($message);
+          \Drupal::logger('aydinlik_batch')->info($message);
         }
       }
     }

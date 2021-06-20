@@ -41,6 +41,7 @@
         "drupal/flood_control": "^2.1",
         "drupal/fontawesome": "^2.17",
         "drupal/imce": "^2.3",
+        "drupal/iyzipay": "^1.0@alpha",
         "drupal/login_emailusername": "^1.2",
         "drupal/mail_login": "^2.4",
         "drupal/mask": "^1.0@alpha",

@@ -38,7 +38,9 @@ function aydinlik_cron_cron() {
         $orders = $result->getOrders();
         if ($orders != NULL) {
           $last_order = end($orders);
-          $last_payment = $last_order->paymentAttempts[0]->paymentStatus;
+          $last_order = end($orders);
+          $last_payments = $last_order->paymentAttempts;
+          $last_payment = end($last_payments);
         }
         else {
           $last_payment = 'FAILURE';
