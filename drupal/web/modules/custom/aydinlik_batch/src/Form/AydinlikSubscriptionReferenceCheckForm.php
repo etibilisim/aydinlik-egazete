@@ -99,5 +99,21 @@ class AydinlikSubscriptionReferenceCheckForm extends FormBase {
         $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Yenileme bekliyor olarak düzenlenmiştir.';
         Drupal::messenger()->addWarning($message);
       }
+      if ($result->getSubscriptionStatus() == 'CANCELED') {
+        $email = $result->getCustomerEmail();
+        $users = \Drupal::entityTypeManager()->getStorage('user')
+          ->loadByProperties(['mail' => $email]);
+        $user = reset($users);
+        if ($user->field_abonelik_referans_kodu->value == 'Yanlış Referans Kodu Silindi') {
+          $user->field_abonelik_referans_kodu->value = '';
+          $user->save();
+          $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği iptal edildiğinden silinmiştir.';
+          Drupal::messenger()->addWarning($message);
+        }
+        else {
+          $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu abonelikten başka bir aboneliği olduğu için değişiklik yapılmamıştır.';
+          Drupal::messenger()->addError($message);
+        }
+      }
     }
   }
