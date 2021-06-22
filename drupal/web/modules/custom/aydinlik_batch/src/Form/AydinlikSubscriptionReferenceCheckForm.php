@@ -85,6 +85,8 @@ class AydinlikSubscriptionReferenceCheckForm extends FormBase {
         $user->field_abonelik_durumu->value = 'Aktif';
         $user->field_abonelik_referans_kodu->value = $ref_code;
         $user->save();
+        $message = $email . 'eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Aktif olarak düzenlenmiştir.';
+        Drupal::messenger()->addMessage($message);
       }
       if ($result->getSubscriptionStatus() == 'UNPAID') {
         $email = $result->getCustomerEmail();
@@ -94,6 +96,8 @@ class AydinlikSubscriptionReferenceCheckForm extends FormBase {
         $user->field_abonelik_durumu->value = 'Yenileme Bekliyor';
         $user->field_abonelik_referans_kodu->value = $ref_code;
         $user->save();
+        $message = $email . 'eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Yenileme bekliyor olarak düzenlenmiştir.';
+        Drupal::messenger()->addWarning($message);
       }
     }
   }
