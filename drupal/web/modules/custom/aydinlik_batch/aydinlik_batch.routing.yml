@@ -12,3 +12,10 @@ aydinlik_batch.subscription_retry:
     _form: '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionRetryForm'
   requirements:
     _permission: 'administer site configuration'
+aydinlik_batch.subscription_reference_check:
+  path: '/admin/config/system/aydinlik-subscriptions/subscription-reference-check-form'
+  defaults:
+    _title: 'Aydınlık Subscription Reference Check Form'
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionReferenceCheckForm'
+  requirements:
+    _permission: 'administer site configuration'

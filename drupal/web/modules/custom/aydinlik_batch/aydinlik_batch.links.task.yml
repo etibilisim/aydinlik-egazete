@@ -8,3 +8,8 @@ aydinlik_batch.subscription_retry_tab:
   route_name: aydinlik_batch.subscription_retry
   base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
   weight: -2
+aydinlik_batch.subscription_reference_check_tab:
+  title: "Subscription Reference Check Form"
+  route_name: aydinlik_batch.subscription_reference_check
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+  weight: -2

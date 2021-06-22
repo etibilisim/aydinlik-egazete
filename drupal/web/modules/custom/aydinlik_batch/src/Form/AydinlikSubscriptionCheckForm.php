@@ -2,9 +2,15 @@
 
 namespace Drupal\aydinlik_batch\Form;
 
+use Drupal;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\iyzipay\Config;
 use Drupal\user\Entity\User;
+use Iyzipay\Model\Subscription\SubscriptionCancel;
+use Iyzipay\Model\Subscription\SubscriptionDetails;
+use Iyzipay\Request\Subscription\SubscriptionCancelRequest;
+use Iyzipay\Request\Subscription\SubscriptionDetailsRequest;
 
 /**
  * Implements a Batch example Form.
@@ -22,31 +28,31 @@ class AydinlikSubscriptionCheckForm extends FormBase {
    * {@inheritdoc}.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-  
+
     $form['subscriptionCodes'] = [
-      '#type' => 'textarea', 
+      '#type' => 'textarea',
       '#title' => t('Subscription Codes'),
       '#size' => 1000,
       '#description' => t('Enter the line separated subscription codes that you want to check'),
-      '#required' => TRUE,  
+      '#required' => TRUE,
     ];
     $form['submit_button'] = [
       '#type' => 'submit',
       '#value' => $this->t('Check subscriptions'),
-    ]; 
+    ];
 
     return $form;
   }
-   
+
 
   /**
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-  
+
   }
 
-  
+
   /**
    * {@inheritdoc}
    */
@@ -65,21 +71,21 @@ class AydinlikSubscriptionCheckForm extends FormBase {
       $batch['operations'][] = ['Drupal\aydinlik_batch\Form\AydinlikSubscriptionCheckForm::subscription_check', [$ref_code]];
     }
       batch_set($batch);
-      \Drupal::messenger()->addMessage('Abonelikler kontrol edildi. Yanlış abonelikler iptal edildi.');
+      Drupal::messenger()->addMessage('Abonelikler kontrol edildi. Yanlış abonelikler iptal edildi.');
   }
     public static function subscription_check($ref_code) {
-      $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
+      $request = new SubscriptionDetailsRequest();
       $request->setSubscriptionReferenceCode($ref_code);
-      $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,\Drupal\iyzipay\Config::options());
+      $result = SubscriptionDetails::retrieve($request, Config::options());
       if ($result->getStatus() == 'success') {
         $email = $result->getCustomerEmail();
         $productName = $result->getProductName();
-  
+
         $users = User::loadMultiple();
         foreach ($users as $user) {
           $umail = $user->mail->value;
           if ($email == $umail) {
-  
+
             if ($user->field_abonelik_suresi->target_id == '1354') {
               $sType = 'Aylık Abonelik';
             }
@@ -108,24 +114,14 @@ class AydinlikSubscriptionCheckForm extends FormBase {
               $name = $user->field_adiniz->value;
               $surname = $user->field_soyadiniz->value;
               $ns = $name . ' ' . $surname;
-              $request = new \Iyzipay\Request\Subscription\SubscriptionCancelRequest();
+              $request = new SubscriptionCancelRequest();
               $request->setLocale("tr");
               $request->setSubscriptionReferenceCode($ref_code);
-              $result = \Iyzipay\Model\Subscription\SubscriptionCancel::cancel($request, \Drupal\iyzipay\Config::options());
+              $result = SubscriptionCancel::cancel($request, Config::options());
               $message = $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu yanlış aboneliği iptal edilmiştir.';
-              \Drupal::messenger()->addWarning($message);
-              \Drupal::logger('aydinlik_batch')->notice($message);
+              Drupal::messenger()->addWarning($message);
+              Drupal::logger('aydinlik_batch')->notice($message);
             }
-          }
-          else {
-            $name = $user->field_adiniz->value;
-            $surname = $user->field_soyadiniz->value;
-            $ns = $name . ' ' . $surname;
-            $user->field_abonelik_referans_kodu->value = "Yanlış Referans Kodu Silindi";
-            $user->save();
-            $message = $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu yanlış aboneliği iptal edilmiştir.';
-              \Drupal::messenger()->addWarning($message);
-              \Drupal::logger('aydinlik_batch')->notice($message);
           }
         }
       }
