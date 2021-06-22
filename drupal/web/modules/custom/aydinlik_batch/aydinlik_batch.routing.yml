@@ -19,3 +19,10 @@ aydinlik_batch.subscription_reference_check:
     _form: '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionReferenceCheckForm'
   requirements:
     _permission: 'administer site configuration'
+aydinlik_batch.email_check:
+  path: '/admin/config/system/aydinlik-subscriptions/email-check-form'
+  defaults:
+    _title: 'Aydınlık Email Check Form'
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikEmailCheckForm'
+  requirements:
+    _permission: 'administer site configuration'
