@@ -13,7 +13,10 @@ dependencies:
     - field.field.user.user.field_adiniz
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
+    - field.field.user.user.field_kullanici_notlari
     - field.field.user.user.field_onay
+    - field.field.user.user.field_son_abonelik_islem_durumu
+    - field.field.user.user.field_son_abonelik_islem_tarihi
     - field.field.user.user.field_soyadiniz
     - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
@@ -96,12 +99,34 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_kullanici_notlari:
+    weight: 18
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_onay:
     weight: 13
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_son_abonelik_islem_durumu:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_son_abonelik_islem_tarihi:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_soyadiniz:
     weight: 1

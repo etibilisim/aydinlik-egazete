@@ -9,11 +9,11 @@ label: İyzipay
 weight: null
 plugin: iyzipay_onsite
 configuration:
-  api_key: sandbox-alVh774XfpyJhevEZcJKQIljWVNiWOdy
-  secret_key: sandbox-7ivc8P7x9rk1f24ftNeBeK3FMgsGhIi3
-  api_url: 'https://sandbox-api.iyzipay.com'
+  api_key: cNydzxv8cievgqaLw8aOrziTE6u7GyE6
+  secret_key: 3M6hla28BbwTNEwSNajlSgtFHnfpwxjk
+  api_url: 'https://api.iyzipay.com'
   display_label: Iyzipay
-  mode: test
+  mode: live
   payment_method_types:
     - full_credit_card
   collect_billing_information: true

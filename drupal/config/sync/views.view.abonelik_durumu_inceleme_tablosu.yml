@@ -910,7 +910,7 @@ display:
           exposed: true
           expose:
             operator_id: field_abonelik_referans_kodu_value_op
-            label: 'Abonelik Referans Kodu (field_abonelik_referans_kodu)'
+            label: 'Abonelik Referans Kodu'
             description: ''
             use_operator: true
             operator: field_abonelik_referans_kodu_value_op
@@ -1140,7 +1140,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: abonelik-durumu-inceleme-tablosu
+      path: admin/abonelik-durumu-inceleme-tablosu
       menu:
         type: normal
         title: 'Abonelik Durumu İnceleme Tablosu'

@@ -1,0 +1,24 @@
+uuid: a28f177e-836b-4c3d-8f78-f3baf84f941a
+langcode: tr
+status: true
+dependencies:
+  module:
+    - datetime
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_son_abonelik_islem_tarihi
+field_name: field_son_abonelik_islem_tarihi
+entity_type: user
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

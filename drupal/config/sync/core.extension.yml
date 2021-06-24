@@ -53,6 +53,15 @@ module:
   entity: 0
   entity_browser: 0
   entity_reference_revisions: 0
+  event_log_track: 0
+  event_log_track_auth: 0
+  event_log_track_file: 0
+  event_log_track_media: 0
+  event_log_track_menu: 0
+  event_log_track_node: 0
+  event_log_track_taxonomy: 0
+  event_log_track_user: 0
+  event_log_track_workflows: 0
   field: 0
   field_permissions: 0
   field_ui: 0
@@ -132,6 +141,7 @@ module:
   webform_ui: 0
   webform_views: 0
   webform_xlsx_export: 0
+  workflows: 0
   xls_serialization: 0
   pathauto: 1
   webform_bootstrap: 1

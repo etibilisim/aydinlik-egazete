@@ -1,0 +1,20 @@
+uuid: cd7a1580-0426-46dc-9ca3-84fc47d65982
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_kullanici_notlari
+  module:
+    - user
+id: user.user.field_kullanici_notlari
+field_name: field_kullanici_notlari
+entity_type: user
+bundle: user
+label: 'Kullanıcı Notları'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -2,6 +2,17 @@
 
 namespace Drupal\aydinlik\EventSubscriber;
 
+use DateTime;
+use Drupal;
+use Drupal\iyzipay\Config;
+use Iyzipay\Model\Customer;
+use Iyzipay\Model\PaymentCard;
+use Iyzipay\Model\Subscription\SubscriptionActivate;
+use Iyzipay\Model\Subscription\SubscriptionCreate;
+use Iyzipay\Model\Subscription\SubscriptionDetails;
+use Iyzipay\Request\Subscription\SubscriptionActivateRequest;
+use Iyzipay\Request\Subscription\SubscriptionCreateRequest;
+use Iyzipay\Request\Subscription\SubscriptionDetailsRequest;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
 use Drupal\Core\Entity\EntityTypeManager;
@@ -24,7 +35,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\commerce_payment\Entity\Payment;
 use Iyzipay\Request\RetrieveInstallmentInfoRequest;
 use Iyzipay\Model\InstallmentInfo;
-
 /**
  * Class OrderCompleteSubscriber.
  *
@@ -35,7 +45,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
   /**
    * Drupal\Core\Entity\EntityTypeManager definition.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManager
+   * @var EntityTypeManager
    */
   protected $current_user;
   protected $entityQuery;
@@ -53,7 +63,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   static function getSubscribedEvents() {
-    $events['commerce_order.place.post_transition'] = ['orderCompleteHandler', 50];
+    $events['commerce_order.place.post_transition'] = ['orderCompleteHandler'];
 
     return $events;
   }
@@ -69,8 +79,8 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
     //$order = $event->getEntity();
     $orders = Order::loadMultiple();
     $order = end($orders);
-    $this->current_user = User::load($order->uid[0]->target_id);
-    $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
+    $this->current_user = User::load($order->uid->target_id);
+    $dateTime = DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
     $today = $dateTime->format('Y-m-d');
     $this->entity;
     // @var \Drupal\commerce_order\Entity\OrderInterface $order
@@ -80,27 +90,27 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
     $order_item = reset($order_items);
     $product_variation = $order_item->getPurchasedEntity();
     $sku = $product_variation->getSku();
-    $config = \Drupal::configFactory()->getEditable('iyzipay.settings');
+    $config = Drupal::configFactory()->getEditable('iyzipay.settings');
     $bin_number = substr($config->get('number'),0,6);
     # create request class
-    $request = new \Iyzipay\Request\RetrieveInstallmentInfoRequest();
-    $request->setLocale(\Iyzipay\Model\Locale::TR);
+    $request = new RetrieveInstallmentInfoRequest();
+    $request->setLocale(Locale::TR);
     $request->setConversationId($order_id);
     $request->setBinNumber($bin_number);
     $request->setPrice("$order_price");
 
     # make request
-    $installmentInfo = \Iyzipay\Model\InstallmentInfo::retrieve($request, \Drupal\iyzipay\Config::options());
+    $installmentInfo = InstallmentInfo::retrieve($request, Config::options());
 
     $cardType = $installmentInfo->getInstallmentDetails()[0]->getCardType();
     $paymentStatus = $installmentInfo->getStatus();
-    
+
     $from = ["aylik", "yillik", "ogrenci", "avrupa", "disi","-"];
     $to = ["Aylık", "Yıllık", "Öğrenci", "Avrupa", "Dışı", " "];
     $name = ucwords(str_replace($from, $to, $sku));
     if($paymentStatus == "success"){
-      $epaper_subscription = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'E-Gazete Aboneliği']);
-      $subscription_duration = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $name]);
+      $epaper_subscription = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'E-Gazete Aboneliği']);
+      $subscription_duration = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $name]);
       $this->current_user->field_abonelik_suresi[0] = ['target_id' => reset($subscription_duration)->id()];
       switch ($sku) {
         case 'aylik-abonelik':
@@ -130,7 +140,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             $this->current_user->field_abonelik_baslangic_tarihi->value = $today;
           }
           $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 year'));
-          $earchive_subscription = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'E-Arşiv Aboneliği']);
+          $earchive_subscription = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'E-Arşiv Aboneliği']);
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($epaper_subscription)->id()];
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($earchive_subscription)->id()];
           $this->current_user->addRole('abone');
@@ -147,33 +157,33 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $order_item = reset($order_items);
           $product_variation = $order_item->getPurchasedEntity();
           $sku_field = $product_variation->field_sku->value;
-          $user = User::load(\Drupal::currentUser()->id());
-          /* $ad_soyad = $user->field_adiniz_soyadiniz->value;
+          //$this->current_user = User::load(Drupal::currentUser()->id());
+          /* $ad_soyad = $this->>$this->current_user->field_adiniz_soyadiniz->value;
           $parts = explode(' ', $ad_soyad);
           $last = array_pop($parts);
           $parts = array(implode(' ', $parts), $last); */
-          $ad = $user->field_adiniz->value;
-          $soyad = $user->field_soyadiniz->value;
+          $ad = $this->current_user->field_adiniz->value;
+          $soyad = $this->current_user->field_soyadiniz->value;
           $ad_soyad = $ad.' '.$soyad;
-          $request = new \Iyzipay\Request\Subscription\SubscriptionCreateRequest();
+          $request = new SubscriptionCreateRequest();
           $request->setLocale("tr");
           $request->setConversationId($order_id);
           $request->setPricingPlanReferenceCode($sku_field);
           $request->setSubscriptionInitialStatus("PENDING");
-          $paymentCard = new \Iyzipay\Model\PaymentCard();
+          $paymentCard = new PaymentCard();
           $paymentCard->setCardHolderName($config->get('holder_name'));
           $paymentCard->setCardNumber($config->get('number'));
           $paymentCard->setExpireMonth($config->get('expiration_month'));
           $paymentCard->setExpireYear($config->get('expiration_year'));
           $paymentCard->setCvc($config->get('cvc'));
           $request->setPaymentCard($paymentCard);
-          $customer = new \Iyzipay\Model\Customer();
+          $customer = new Customer();
           $customer->setName($ad);
           $customer->setSurname($soyad);
-          $gsm_number = $user->field_telefon->value;
+          $gsm_number = $this->current_user->field_telefon->value;
           $num='';
           $gsm_st='';
-          if (strlen($gsm_number) >= 10 && $user->field_adres->country_code == 'TR'){
+          if (strlen($gsm_number) >= 10 && $this->current_user->field_adres->country_code == 'TR'){
             $gsm_lastten = substr($gsm_number, -10);
             $gsm_valid = '+90'.$gsm_lastten;
           }
@@ -213,36 +223,36 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             }
           }
           $customer->setGsmNumber($gsm_valid);
-          $customer->setEmail($user->getEmail());
-          $customer->setIdentityNumber(($user->field_tc->value)?: '11111111110');
+          $customer->setEmail($this->current_user->getEmail());
+          $customer->setIdentityNumber(($this->current_user->field_tc->value)?: '11111111110');
           $customer->setShippingContactName($ad_soyad);
-          $customer->setShippingCity(($user->field_adres->administrative_area)?:'İstanbul');
-          $customer->setShippingCountry(($user->field_adres->country_code)?:'TR');
-          $customer->setShippingAddress(($user->field_adres->address_line1)?:'Beyoğlu');
-          $customer->setShippingZipCode(($user->field_adres->postal_code)?:'34100');
+          $customer->setShippingCity(($this->current_user->field_adres->administrative_area)?:'İstanbul');
+          $customer->setShippingCountry(($this->current_user->field_adres->country_code)?:'TR');
+          $customer->setShippingAddress(($this->current_user->field_adres->address_line1)?:'Beyoğlu');
+          $customer->setShippingZipCode(($this->current_user->field_adres->postal_code)?:'34100');
           $customer->setBillingContactName($ad_soyad);
-          $customer->setBillingCity(($user->field_adres->administrative_area)?:'İstanbul');
-          $customer->setBillingCountry(($user->field_adres->country_code)?:'TR');
-          $customer->setBillingAddress(($user->field_adres->address_line1)?:'Beyoğlu');
-          $customer->setBillingZipCode(($user->field_adres->postal_code)?:'34100');
+          $customer->setBillingCity(($this->current_user->field_adres->administrative_area)?:'İstanbul');
+          $customer->setBillingCountry(($this->current_user->field_adres->country_code)?:'TR');
+          $customer->setBillingAddress(($this->current_user->field_adres->address_line1)?:'Beyoğlu');
+          $customer->setBillingZipCode(($this->current_user->field_adres->postal_code)?:'34100');
           $request->setCustomer($customer);
-          $result = \Iyzipay\Model\Subscription\SubscriptionCreate::create($request,\Drupal\iyzipay\Config::options());
+          $result = SubscriptionCreate::create($request, Config::options());
           $rs = $result->getStatus(); //$rs is the result_status.
           $src = $result->getReferenceCode(); //$src is Subscription reference code.
           /**
            * If result is success activate subscription
           */
           if ($rs == 'success') {
-              $request = new \Iyzipay\Request\Subscription\SubscriptionActivateRequest();
+              $request = new SubscriptionActivateRequest();
               $request->setLocale("tr");
               $request->setConversationId($order->id());
               $request->setSubscriptionReferenceCode($src);
-              $result = \Iyzipay\Model\Subscription\SubscriptionActivate::update($request,\Drupal\iyzipay\Config::options());
+              $result = SubscriptionActivate::update($request, Config::options());
           }
           //Retrive subscription details and saving field_abonelik_durumu
-          $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
+          $request = new SubscriptionDetailsRequest();
           $request->setSubscriptionReferenceCode($src);
-          $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,\Drupal\iyzipay\Config::options());
+          $result = SubscriptionDetails::retrieve($request, Config::options());
           $ss = $result->getSubscriptionStatus(); //$ss is subscription status.
           if ($ss == 'ACTIVE') {
             $this->current_user->field_abonelik_durumu->value = 'Aktif';
@@ -257,10 +267,10 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $order->field_kart_turu->value = 'Kredi Kartı';
           $order->save();
           if ($order->total_paid->number != $order->total_price->number) {
-            \Drupal::messenger()->addError(t('Your payment has failed and subscription was not created.'));
+            Drupal::messenger()->addError(t('Your payment has failed and subscription was not created.'));
           }
           else {
-            \Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
+            Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
           }
           $config->delete();
         }
@@ -272,11 +282,11 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $this->current_user->addRole('abone');
           $this->current_user->save();
           if ($order->total_paid->number != $order->total_price->number) {
-            \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
+            Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
           }
           else {
-            \Drupal::messenger()->addMessage(t('Your payment card is a debit card. Subsciption can not be created.'));
-            \Drupal::messenger()->addMessage(t('Your payment was successfully received.'));
+            Drupal::messenger()->addMessage(t('Your payment card is a debit card. Subsciption can not be created.'));
+            Drupal::messenger()->addMessage(t('Your payment was successfully received.'));
             $this->current_user->addRole('abone');
             $this->current_user->save();
           }
@@ -289,35 +299,35 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $order_item = reset($order_items);
           $product_variation = $order_item->getPurchasedEntity();
           $sku_field = $product_variation->field_sku->value;
-          $user = User::load(\Drupal::currentUser()->id());
-          /* $ad_soyad = $user->field_adiniz_soyadiniz->value;
+          //$this->current_user = User::load(Drupal::currentUser()->id());
+          /* $ad_soyad = $this->>$this->current_user->field_adiniz_soyadiniz->value;
           $parts = explode(' ', $ad_soyad);
           $last = array_pop($parts);
           $parts = array(implode(' ', $parts), $last); */
-          $ad = $user->field_adiniz->value;
-          $soyad = $user->field_soyadiniz->value;
+          $ad = $this->current_user->field_adiniz->value;
+          $soyad = $this->current_user->field_soyadiniz->value;
           $ad_soyad = $ad.' '.$soyad;
-          $request = new \Iyzipay\Request\Subscription\SubscriptionCreateRequest();
+          $request = new SubscriptionCreateRequest();
           $request->setLocale("tr");
           $request->setConversationId($order_id);
           $request->setPricingPlanReferenceCode($sku_field);
           $request->setSubscriptionInitialStatus("PENDING");
-          $paymentCard = new \Iyzipay\Model\PaymentCard();
+          $paymentCard = new PaymentCard();
           $paymentCard->setCardHolderName($config->get('holder_name'));
           $paymentCard->setCardNumber($config->get('number'));
           $paymentCard->setExpireMonth($config->get('expiration_month'));
           $paymentCard->setExpireYear($config->get('expiration_year'));
           $paymentCard->setCvc($config->get('cvc'));
           $request->setPaymentCard($paymentCard);
-          $customer = new \Iyzipay\Model\Customer();
+          $customer = new Customer();
           $customer->setName($ad);
           $customer->setSurname($soyad);
-          //$customer->setGsmNumber(($user->field_telefon->value)?: '+905555555555');
+          //$customer->setGsmNumber(($this->>$this->current_user->field_telefon->value)?: '+905555555555');
           //$customer->setGsmNumber('+905555555555');
-          $gsm_number = $user->field_telefon->value;
+          $gsm_number = $this->current_user->field_telefon->value;
           $num='';
           $gsm_st='';
-          if (strlen($gsm_number) >= 10 && $user->field_adres->country_code == 'TR'){
+          if (strlen($gsm_number) >= 10 && $this->current_user->field_adres->country_code == 'TR'){
             $gsm_lastten = substr($gsm_number, -10);
             $gsm_valid = '+90'.$gsm_lastten;
           }
@@ -357,36 +367,36 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             }
           }
           $customer->setGsmNumber($gsm_valid);
-          $customer->setEmail($user->getEmail());
-          $customer->setIdentityNumber(($user->field_tc->value)?: '11111111111');
+          $customer->setEmail($this->current_user->getEmail());
+          $customer->setIdentityNumber(($this->current_user->field_tc->value)?: '11111111111');
           $customer->setShippingContactName($ad_soyad);
-          $customer->setShippingCity(($user->field_adres->administrative_area)?:'İstanbul');
-          $customer->setShippingCountry(($user->field_adres->country_code)?:'TR');
-          $customer->setShippingAddress(($user->field_adres->address_line1)?:'Beyoğlu');
-          $customer->setShippingZipCode(($user->field_adres->postal_code)?:'34100');
+          $customer->setShippingCity(($this->current_user->field_adres->administrative_area)?:'İstanbul');
+          $customer->setShippingCountry(($this->current_user->field_adres->country_code)?:'TR');
+          $customer->setShippingAddress(($this->current_user->field_adres->address_line1)?:'Beyoğlu');
+          $customer->setShippingZipCode(($this->current_user->field_adres->postal_code)?:'34100');
           $customer->setBillingContactName($ad_soyad);
-          $customer->setBillingCity(($user->field_adres->administrative_area)?:'İstanbul');
-          $customer->setBillingCountry(($user->field_adres->country_code)?:'TR');
-          $customer->setBillingAddress(($user->field_adres->address_line1)?:'Beyoğlu');
-          $customer->setBillingZipCode(($user->field_adres->postal_code)?:'34100');
+          $customer->setBillingCity(($this->current_user->field_adres->administrative_area)?:'İstanbul');
+          $customer->setBillingCountry(($this->current_user->field_adres->country_code)?:'TR');
+          $customer->setBillingAddress(($this->current_user->field_adres->address_line1)?:'Beyoğlu');
+          $customer->setBillingZipCode(($this->current_user->field_adres->postal_code)?:'34100');
           $request->setCustomer($customer);
-          $result = \Iyzipay\Model\Subscription\SubscriptionCreate::create($request,\Drupal\iyzipay\Config::options());
+          $result = SubscriptionCreate::create($request, Config::options());
           $rs = $result->getStatus(); //$rs is the result status.
           $src = $result->getReferenceCode(); //$src is subscription reference code.
           /**
            * If result is success activate subscription
           */
           if ($rs == 'success') {
-            $request = new \Iyzipay\Request\Subscription\SubscriptionActivateRequest();
+            $request = new SubscriptionActivateRequest();
             $request->setLocale("TR");
             $request->setConversationId($order->id());
             $request->setSubscriptionReferenceCode($src);
-            $result = \Iyzipay\Model\Subscription\SubscriptionActivate::update($request,\Drupal\iyzipay\Config::options());
+            $result = SubscriptionActivate::update($request, Config::options());
           }
           //Retrive subscription details and saving field_abonelik_durumu
-          $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
+          $request = new SubscriptionDetailsRequest();
           $request->setSubscriptionReferenceCode($src);
-          $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,\Drupal\iyzipay\Config::options());
+          $result = SubscriptionDetails::retrieve($request, Config::options());
           $ss = $result->getSubscriptionStatus(); //$ss is subscription status.
           if ($ss == 'ACTIVE') {
             $this->current_user->field_abonelik_durumu->value = 'Aktif';
@@ -398,26 +408,26 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             $this->current_user->field_abonelik_durumu->value = 'Beklemede';
             $this->current_user->save();
           }
-          
+
           $order->field_kart_turu->value = 'Yabancı Kart';
           $order->save();
           if ($order->total_paid->number != $order->total_price->number) {
-            \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
+            Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
           }
           else {
-            \Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
+            Drupal::messenger()->addMessage(t('Your payment was successfully received and subscription was created.'));
             $config->delete();
           }
         }
         catch (Exception $e) {
           $config->delete();
-          \Drupal::messenger()->addError(t('Your payment card is not a credit card. Subsciption can not be created, please contact us.'));
+          Drupal::messenger()->addError(t('Your payment card is not a credit card. Subsciption can not be created, please contact us.'));
         }
       }
     }
     else{
       $config->delete();
-          \Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
+          Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
     }
   }
 }

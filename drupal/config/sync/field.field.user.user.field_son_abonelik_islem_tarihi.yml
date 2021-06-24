@@ -1,0 +1,21 @@
+uuid: 2fa670ea-847f-4518-953d-502c1d1f8f1d
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_son_abonelik_islem_tarihi
+  module:
+    - datetime
+    - user
+id: user.user.field_son_abonelik_islem_tarihi
+field_name: field_son_abonelik_islem_tarihi
+entity_type: user
+bundle: user
+label: 'Son Abonelik İşlem Tarihi'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

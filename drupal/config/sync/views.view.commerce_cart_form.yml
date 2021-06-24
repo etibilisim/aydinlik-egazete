@@ -222,7 +222,7 @@ display:
           group_type: group
           admin_label: ''
           label: Adet
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''

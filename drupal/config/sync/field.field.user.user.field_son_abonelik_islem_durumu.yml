@@ -1,0 +1,20 @@
+uuid: b0351bb5-8765-439c-806e-5598af9fb2ac
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_son_abonelik_islem_durumu
+  module:
+    - user
+id: user.user.field_son_abonelik_islem_durumu
+field_name: field_son_abonelik_islem_durumu
+entity_type: user
+bundle: user
+label: 'Son Abonelik İşlem Durumu'
+description: 'Abonelik işleminiz(satın alma, yenileme vb.) ile ilgili yapılan son işlemin durumunu burada görebilirsiniz.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,25 +1,22 @@
-uuid: 8bb6c785-15f9-4722-9e3a-2ad930b7d3ff
+uuid: b19f039d-ccb7-41d6-8dc2-a867f0e9ad23
 langcode: tr
 status: true
 dependencies:
-  enforced:
-    module:
-      - commerce_cart
+  config:
+    - field.storage.user.field_abonelik_durumu
+    - field.storage.user.field_abonelik_referans_kodu
+    - field.storage.user.field_abonelik_suresi
+    - field.storage.user.field_kullanici_notlari
+    - system.menu.tools
   module:
-    - commerce
-    - commerce_order
-    - commerce_price
-    - commerce_store
     - user
-_core:
-  default_config_hash: tiKR1foQc_gOKNxs2Q5gMOUpn4T2rDMyqrCVLXQIrbc
-id: commerce_carts
-label: 'Alışveriş Sepetleri'
+id: duzenlenen_kullanici_bilgileri
+label: 'Düzenlenen Kullanıcı Bilgileri'
 module: views
 description: ''
-tag: Commerce
-base_table: commerce_order
-base_field: order_id
+tag: ''
+base_table: users_field_data
+base_field: uid
 display:
   default:
     display_plugin: default
@@ -30,9 +27,9 @@ display:
       access:
         type: perm
         options:
-          perm: 'access commerce_order overview'
+          perm: 'access toolbar'
       cache:
-        type: none
+        type: tag
         options: {  }
       query:
         type: views_query
@@ -45,7 +42,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: Apply
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -53,9 +50,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: mini
         options:
-          items_per_page: 50
+          items_per_page: 100
           offset: 0
           id: 0
           total_pages: null
@@ -68,338 +65,62 @@ display:
             offset: false
             offset_label: Offset
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
-          quantity: 9
+            previous: ‹‹
+            next: ››
       style:
         type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            type: type
-            store_id: store_id
-            uid: uid
-            mail: uid
-            total_price__number: total_price__number
-            changed: changed
-            operations: operations
-          info:
-            type:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: true
-              responsive: priority-medium
-            store_id:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: true
-              responsive: priority-medium
-            uid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: '<br />'
-              empty_column: false
-              responsive: ''
-            mail:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            total_price__number:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            changed:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: true
-              responsive: ''
-            operations:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: changed
-          empty_table: true
       row:
         type: fields
       fields:
-        commerce_order_bulk_form:
-          id: commerce_order_bulk_form
-          table: commerce_order
-          field: commerce_order_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          entity_type: user
+          entity_field: name
           alter:
             alter_text: false
-            text: ''
             make_link: false
-            path: ''
             absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
             trim: false
-            preserve_tags: ''
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
             html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
-          action_title: 'With selection'
-          include_exclude: exclude
-          selected_actions: {  }
-          entity_type: commerce_order
-          plugin_id: bulk_form
-        type:
-          id: type
-          table: commerce_order
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Tip
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          hide_single_bundle: true
-          entity_type: commerce_order
-          entity_field: type
-          plugin_id: commerce_entity_bundle
-        store_id:
-          id: store_id
-          table: commerce_order
-          field: store_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Mağaza
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          hide_single_store: true
-          entity_type: commerce_order
-          entity_field: store_id
-          plugin_id: commerce_store
-        uid:
-          id: uid
-          table: commerce_order
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Müşteri
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: commerce_order
-          entity_field: uid
           plugin_id: field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: İsim
+          exclude: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_alter_empty: true
+          click_sort_column: value
+          type: user_name
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         mail:
           id: mail
-          table: commerce_order
+          table: users_field_data
           field: mail
           relationship: none
           group_type: group
@@ -458,83 +179,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: commerce_order
+          entity_type: user
           entity_field: mail
           plugin_id: field
-        total_price__number:
-          id: total_price__number
-          table: commerce_order
-          field: total_price__number
+        field_abonelik_durumu:
+          id: field_abonelik_durumu
+          table: user__field_abonelik_durumu
+          field: field_abonelik_durumu
           relationship: none
           group_type: group
           admin_label: ''
-          label: Toplam
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: number
-          type: commerce_price_default
-          settings:
-            strip_trailing_zeroes: false
-            currency_display: symbol
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: commerce_order
-          entity_field: total_price
-          plugin_id: field
-        changed:
-          id: changed
-          table: commerce_order
-          field: changed
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Güncellendi
+          label: 'Abonelik Durumu'
           exclude: false
           alter:
             alter_text: false
@@ -576,9 +231,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: timestamp_ago
+          type: string
           settings:
-            granularity: 2
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -589,17 +244,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: commerce_order
-          entity_field: changed
           plugin_id: field
-        operations:
-          id: operations
-          table: commerce_order
-          field: operations
+        field_abonelik_referans_kodu:
+          id: field_abonelik_referans_kodu
+          table: user__field_abonelik_referans_kodu
+          field: field_abonelik_referans_kodu
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: 'Abonelik Referans Kodu'
           exclude: false
           alter:
             alter_text: false
@@ -640,126 +293,252 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          destination: true
-          entity_type: commerce_order
-          plugin_id: entity_operations
-      filters:
-        cart:
-          id: cart
-          table: commerce_order
-          field: cart
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_abonelik_suresi:
+          id: field_abonelik_suresi
+          table: user__field_abonelik_suresi
+          field: field_abonelik_suresi
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          label: 'Abonelik Süresi'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_kullanici_notlari:
+          id: field_kullanici_notlari
+          table: user__field_kullanici_notlari
+          field: field_kullanici_notlari
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Kullanıcı Notları'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        changed:
+          id: changed
+          table: users_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Son Güncelleme tarihi'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: short
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: user
+          entity_field: changed
+          plugin_id: field
+      filters:
+        status:
           value: '1'
+          table: users_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: user
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        field_kullanici_notlari_value:
+          id: field_kullanici_notlari_value
+          table: user__field_kullanici_notlari
+          field: field_kullanici_notlari_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: 'not empty'
+          value: ''
           group: 1
           exposed: false
           expose:
             operator_id: ''
-            operator_limit_selection: false
             label: ''
             description: ''
             use_operator: false
             operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: commerce_order
-          entity_field: cart
-          plugin_id: boolean
-        type:
-          id: type
-          table: commerce_order
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: type_op
-            operator_limit_selection: false
-            label: Tip
-            description: ''
-            use_operator: false
-            operator: type_op
-            identifier: type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-            hide_single_bundle: true
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: commerce_order
-          entity_field: type
-          plugin_id: commerce_entity_bundle
-        combine:
-          id: combine
-          table: views
-          field: combine
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: combine_op
-            label: ' E-Posta veya Kullanıcı adı'
-            description: ' E-Posta veya Kullanıcı adı şunu içerir'
-            use_operator: false
-            operator: combine_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: combine
+            identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              yonetici: '0'
-              administrator: '0'
-              abone: '0'
-              yurtici_abone: '0'
-              yurtdisi_abone: '0'
-              ogrenci_abone: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -773,40 +552,42 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          fields:
-            uid: uid
-            mail: mail
-          plugin_id: combine
-      sorts: {  }
-      title: 'Alışveriş Sepetleri'
-      header: {  }
-      footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
+          plugin_id: string
+      sorts:
+        changed:
+          id: changed
+          table: users_field_data
+          field: changed
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'Sipariş yok.'
-          plugin_id: text_custom
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: user
+          entity_field: changed
+          plugin_id: date
+      title: 'Düzenlenen Kullanıcı Bilgileri'
+      header: {  }
+      footer: {  }
+      empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      use_ajax: false
     cache_metadata:
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - user.permissions
-      cacheable: false
-      max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_abonelik_durumu'
+        - 'config:field.storage.user.field_abonelik_referans_kodu'
+        - 'config:field.storage.user.field_abonelik_suresi'
+        - 'config:field.storage.user.field_kullanici_notlari'
   page_1:
     display_plugin: page
     id: page_1
@@ -814,23 +595,25 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/commerce/orders/carts
+      path: admin/duzenlenen-kullanici-bilgileri
       menu:
-        type: tab
-        title: 'Alışveriş Sepetleri'
+        type: normal
+        title: 'Düzenlenen Kullanıcı Bilgileri'
         description: ''
         expanded: false
         parent: ''
-        weight: 0
+        weight: -44
         context: '0'
-        menu_name: admin
+        menu_name: tools
     cache_metadata:
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - user.permissions
-      cacheable: false
-      max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_abonelik_durumu'
+        - 'config:field.storage.user.field_abonelik_referans_kodu'
+        - 'config:field.storage.user.field_abonelik_suresi'
+        - 'config:field.storage.user.field_kullanici_notlari'

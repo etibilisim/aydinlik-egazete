@@ -14,7 +14,10 @@ dependencies:
     - field.field.user.user.field_adiniz
     - field.field.user.user.field_adiniz_soyadiniz
     - field.field.user.user.field_adres
+    - field.field.user.user.field_kullanici_notlari
     - field.field.user.user.field_onay
+    - field.field.user.user.field_son_abonelik_islem_durumu
+    - field.field.user.user.field_son_abonelik_islem_tarihi
     - field.field.user.user.field_soyadiniz
     - field.field.user.user.field_taahhut_tarihi
     - field.field.user.user.field_tc
@@ -52,7 +55,10 @@ hidden:
   field_adiniz: true
   field_adiniz_soyadiniz: true
   field_adres: true
+  field_kullanici_notlari: true
   field_onay: true
+  field_son_abonelik_islem_durumu: true
+  field_son_abonelik_islem_tarihi: true
   field_soyadiniz: true
   field_taahhut_tarihi: true
   field_tc: true

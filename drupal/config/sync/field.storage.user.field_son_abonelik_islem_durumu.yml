@@ -1,0 +1,25 @@
+uuid: 6a2c4334-4cf8-49cc-8236-882b6050378b
+langcode: tr
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_son_abonelik_islem_durumu
+field_name: field_son_abonelik_islem_durumu
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

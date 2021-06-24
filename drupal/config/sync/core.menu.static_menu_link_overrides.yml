@@ -30,11 +30,11 @@ definitions:
     expanded: false
     enabled: false
   node__add_page:
-    weight: -44
+    weight: -43
     menu_name: tools
     parent: ''
-    expanded: false
     enabled: true
+    expanded: false
 _core:
   default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ
 langcode: tr

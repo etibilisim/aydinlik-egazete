@@ -5,7 +5,8 @@ dependencies:
   config:
     - field.storage.commerce_order.field_kart_turu
     - field.storage.user.field_abonelik_durumu
-    - field.storage.user.field_adiniz_soyadiniz
+    - field.storage.user.field_adiniz
+    - field.storage.user.field_soyadiniz
   module:
     - commerce
     - commerce_order
@@ -677,69 +678,6 @@ display:
           entity_type: commerce_order
           entity_field: store_id
           plugin_id: commerce_store
-        field_adiniz_soyadiniz:
-          id: field_adiniz_soyadiniz
-          table: user__field_adiniz_soyadiniz
-          field: field_adiniz_soyadiniz
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: 'Ad - Soyad'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         uid:
           id: uid
           table: commerce_order
@@ -804,6 +742,132 @@ display:
           field_api_classes: false
           entity_type: commerce_order
           entity_field: uid
+          plugin_id: field
+        field_adiniz:
+          id: field_adiniz
+          table: user__field_adiniz
+          field: field_adiniz
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: Adınız
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_soyadiniz:
+          id: field_soyadiniz
+          table: user__field_soyadiniz
+          field: field_soyadiniz
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: 'Ad - Soyad'
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ field_adiniz }} {{ field_soyadiniz }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           plugin_id: field
         field_abonelik_durumu:
           id: field_abonelik_durumu
@@ -1242,6 +1306,57 @@ display:
           entity_type: commerce_order
           entity_field: state
           plugin_id: state_machine_state
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: ' E-Posta, Ad-Soyad veya Kullanıcı adı'
+            description: ' E-Posta, Ad-Soyad veya Kullanıcı adı şunu içerir'
+            use_operator: false
+            operator: combine_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              yonetici: '0'
+              administrator: '0'
+              abone: '0'
+              yurtici_abone: '0'
+              yurtdisi_abone: '0'
+              ogrenci_abone: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            uid: uid
+            field_adiniz: field_adiniz
+            field_soyadiniz: field_soyadiniz
+            mail: mail
+          plugin_id: combine
       sorts: {  }
       title: Siparişler
       header: {  }
@@ -1299,7 +1414,8 @@ display:
       tags:
         - 'config:field.storage.commerce_order.field_kart_turu'
         - 'config:field.storage.user.field_abonelik_durumu'
-        - 'config:field.storage.user.field_adiniz_soyadiniz'
+        - 'config:field.storage.user.field_adiniz'
+        - 'config:field.storage.user.field_soyadiniz'
   page_1:
     display_plugin: page
     id: page_1
@@ -1334,4 +1450,5 @@ display:
       tags:
         - 'config:field.storage.commerce_order.field_kart_turu'
         - 'config:field.storage.user.field_abonelik_durumu'
-        - 'config:field.storage.user.field_adiniz_soyadiniz'
+        - 'config:field.storage.user.field_adiniz'
+        - 'config:field.storage.user.field_soyadiniz'

@@ -43,4 +43,6 @@ permissions:
   - 'view own field_onay'
   - 'view own field_satin_alinan_icerik'
   - 'view own field_satin_alinan_yil'
+  - 'view own field_son_abonelik_islem_durumu'
+  - 'view own field_son_abonelik_islem_tarihi'
   - 'view own field_taahhut_tarihi'
