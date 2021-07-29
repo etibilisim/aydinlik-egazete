@@ -1,17 +1,17 @@
-uuid: 4aabcc54-d714-4bce-ab68-5ae9778915bf
+uuid: fdb3edc0-846a-4190-97ea-d32f5df5c11a
 langcode: tr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_sesli_okuma
+    - field.storage.node.field_ses_dosyasi
     - node.type.e_dergi
   module:
     - file
-id: node.e_dergi.field_sesli_okuma
-field_name: field_sesli_okuma
+id: node.e_dergi.field_ses_dosyasi
+field_name: field_ses_dosyasi
 entity_type: node
 bundle: e_dergi
-label: 'Sesli Okuma'
+label: 'Ses Dosyası'
 description: ''
 required: false
 translatable: false
@@ -19,7 +19,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'ses-dosyalari/[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'mp3 wav'
+  file_extensions: 'mp3 wav mp4 mpeg4'
   max_filesize: ''
   description_field: true
   handler: 'default:file'

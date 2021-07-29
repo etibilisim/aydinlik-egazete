@@ -1,63 +1,73 @@
-uuid: b33691e7-2df3-4222-b7af-3e2f7e194a40
+uuid: 486d6f7d-e430-4a83-aee3-bc483c49fc60
 langcode: tr
 status: true
 dependencies:
   config:
-    - field.field.node.e_dergi.field_derginin_ciktigi_ay_yil
-    - field.field.node.e_dergi.field_e_dergi
-    - field.field.node.e_dergi.field_e_gazete_gorseller
-    - field.field.node.e_dergi.field_ses_dosyasi
+    - field.field.node.gazete_haberi.body
+    - field.field.node.gazete_haberi.field_haber_foto_galeri
+    - field.field.node.gazete_haberi.field_haberin_yayimlandigi_tarih
+    - field.field.node.gazete_haberi.field_one_cikan_gorsel
+    - field.field.node.gazete_haberi.field_yayimlandigi_gazete
     - image.style.thumbnail
-    - node.type.e_dergi
+    - node.type.gazete_haberi
   module:
     - datetime
-    - file
     - image
-    - imce
     - path
     - scheduler
-id: node.e_dergi.default
+    - text
+id: node.gazete_haberi.default
 targetEntityType: node
-bundle: e_dergi
+bundle: gazete_haberi
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 12
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_derginin_ciktigi_ay_yil:
-    weight: 2
-    type: datetime_default
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_e_dergi:
-    weight: 5
-    type: file_generic
-    settings:
-      progress_indicator: throbber
-    third_party_settings:
-      imce:
-        enabled: true
-    region: content
-  field_e_gazete_gorseller:
     weight: 3
-    type: image_image
-    settings:
-      preview_image_style: thumbnail
-      progress_indicator: throbber
-    third_party_settings:
-      imce:
-        enabled: true
     region: content
-  field_ses_dosyasi:
-    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+  field_haber_foto_galeri:
+    weight: 13
     settings:
       progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: file_generic
+    type: image_image
+    region: content
+  field_haberin_yayimlandigi_tarih:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_one_cikan_gorsel:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_yayimlandigi_gazete:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select
@@ -68,7 +78,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -76,17 +86,17 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 4
     region: content
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 12
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -94,14 +104,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 10
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 5
     region: content
     third_party_settings: {  }
   title:
@@ -114,7 +124,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -124,7 +134,7 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 13
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

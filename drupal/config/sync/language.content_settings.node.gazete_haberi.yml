@@ -1,0 +1,11 @@
+uuid: cd4b9d21-a874-4b78-80b8-ee5da4c44562
+langcode: tr
+status: true
+dependencies:
+  config:
+    - node.type.gazete_haberi
+id: node.gazete_haberi
+target_entity_type_id: node
+target_bundle: gazete_haberi
+default_langcode: site_default
+language_alterable: false

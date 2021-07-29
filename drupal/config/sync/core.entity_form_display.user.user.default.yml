@@ -46,16 +46,16 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_abonelik_baslangic_tarihi:
-    weight: 9
-    type: datetime_default
+    weight: 21
     settings: {  }
     third_party_settings: {  }
+    type: datetime_default
     region: content
   field_abonelik_bitis_tarihi:
-    weight: 10
-    type: datetime_default
+    weight: 22
     settings: {  }
     third_party_settings: {  }
+    type: datetime_default
     region: content
   field_abonelik_durumu:
     weight: 11

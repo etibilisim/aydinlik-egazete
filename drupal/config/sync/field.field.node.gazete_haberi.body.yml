@@ -1,0 +1,23 @@
+uuid: c26bfe88-bd60-4d5a-aa04-d0e6a0d01a27
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.gazete_haberi
+  module:
+    - text
+id: node.gazete_haberi.body
+field_name: body
+entity_type: node
+bundle: gazete_haberi
+label: 'Yazı Alanı'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

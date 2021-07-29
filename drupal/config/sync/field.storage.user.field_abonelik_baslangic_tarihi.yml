@@ -1,5 +1,5 @@
-uuid: 788dcf21-dfb3-4af3-a961-f9adbd191e4f
-langcode: und
+uuid: 6fe903ed-ce3c-4e14-9339-c1506ebbc2c6
+langcode: tr
 status: true
 dependencies:
   module:
@@ -14,7 +14,7 @@ field_name: field_abonelik_baslangic_tarihi
 entity_type: user
 type: datetime
 settings:
-  datetime_type: date
+  datetime_type: datetime
 module: datetime
 locked: false
 cardinality: 1

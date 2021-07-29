@@ -1,0 +1,70 @@
+uuid: 39a70472-3409-4299-8ba6-77bb08ffb8d8
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.field.node.gazete_haberi.body
+    - field.field.node.gazete_haberi.field_haber_foto_galeri
+    - field.field.node.gazete_haberi.field_haberin_yayimlandigi_tarih
+    - field.field.node.gazete_haberi.field_one_cikan_gorsel
+    - field.field.node.gazete_haberi.field_yayimlandigi_gazete
+    - node.type.gazete_haberi
+  module:
+    - datetime
+    - image
+    - text
+    - user
+id: node.gazete_haberi.default
+targetEntityType: node
+bundle: gazete_haberi
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_haber_foto_galeri:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_haberin_yayimlandigi_tarih:
+    weight: 104
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_one_cikan_gorsel:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_yayimlandigi_gazete:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

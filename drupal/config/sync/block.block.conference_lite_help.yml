@@ -11,7 +11,7 @@ _core:
 id: conference_lite_help
 theme: conference_lite
 region: content
-weight: -12
+weight: -14
 provider: null
 plugin: help_block
 settings:

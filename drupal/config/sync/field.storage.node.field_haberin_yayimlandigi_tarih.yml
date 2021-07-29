@@ -1,17 +1,17 @@
-uuid: 456b39f8-f276-436b-8a24-daf3ccc6e62d
+uuid: f6187bdd-63e4-4fa0-9369-d3de85bebc42
 langcode: tr
 status: true
 dependencies:
   module:
     - datetime
     - field_permissions
-    - user
+    - node
 third_party_settings:
   field_permissions:
-    permission_type: custom
-id: user.field_abonelik_bitis_tarihi
-field_name: field_abonelik_bitis_tarihi
-entity_type: user
+    permission_type: public
+id: node.field_haberin_yayimlandigi_tarih
+field_name: field_haberin_yayimlandigi_tarih
+entity_type: node
 type: datetime
 settings:
   datetime_type: datetime

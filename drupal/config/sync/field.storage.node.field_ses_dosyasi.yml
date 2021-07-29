@@ -1,4 +1,4 @@
-uuid: 76452b0d-95b9-4c7f-8fe3-23d77a22cd2b
+uuid: 1ac4447d-42a7-45be-9573-be65aa484c7b
 langcode: tr
 status: true
 dependencies:
@@ -8,19 +8,19 @@ dependencies:
     - node
 third_party_settings:
   field_permissions:
-    permission_type: custom
-id: node.field_sesli_okuma
-field_name: field_sesli_okuma
+    permission_type: public
+id: node.field_ses_dosyasi
+field_name: field_ses_dosyasi
 entity_type: node
 type: file
 settings:
   display_field: false
   display_default: false
-  uri_scheme: public
+  uri_scheme: private
   target_type: file
 module: file
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

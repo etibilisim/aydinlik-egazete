@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.e_dergi.field_derginin_ciktigi_ay_yil
     - field.field.node.e_dergi.field_e_dergi
     - field.field.node.e_dergi.field_e_gazete_gorseller
-    - field.field.node.e_dergi.field_sesli_okuma
+    - field.field.node.e_dergi.field_ses_dosyasi
     - image.style.e-gazete__nizleme_152x256
     - node.type.e_dergi
   module:
@@ -41,7 +41,7 @@ content:
       colorbox_caption: entity_title
       colorbox_caption_custom: ''
     third_party_settings: {  }
-  field_sesli_okuma:
+  field_ses_dosyasi:
     weight: 3
     label: above
     settings:

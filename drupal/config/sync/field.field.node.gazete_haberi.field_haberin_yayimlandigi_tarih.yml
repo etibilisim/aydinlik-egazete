@@ -1,0 +1,21 @@
+uuid: bf399054-f3b8-4a4e-b637-eb96d84057a7
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_haberin_yayimlandigi_tarih
+    - node.type.gazete_haberi
+  module:
+    - datetime
+id: node.gazete_haberi.field_haberin_yayimlandigi_tarih
+field_name: field_haberin_yayimlandigi_tarih
+entity_type: node
+bundle: gazete_haberi
+label: 'Haberin Yayımlandığı Tarih'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

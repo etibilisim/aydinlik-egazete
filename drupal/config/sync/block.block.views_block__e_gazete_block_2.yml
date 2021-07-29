@@ -12,7 +12,7 @@ dependencies:
 id: views_block__e_gazete_block_2
 theme: conference_lite
 region: content
-weight: -5
+weight: -6
 provider: null
 plugin: 'views_block:e_gazete-block_2'
 settings:

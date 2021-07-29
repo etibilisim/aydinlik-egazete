@@ -35,23 +35,23 @@ bundle: user
 mode: default
 content:
   field_abonelik_baslangic_tarihi:
-    type: datetime_custom
-    weight: 5
-    region: content
+    weight: 15
     label: above
     settings:
+      format_type: medium
       timezone_override: ''
-      date_format: d-m-Y
     third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_abonelik_bitis_tarihi:
-    type: datetime_custom
-    weight: 6
-    region: content
+    weight: 16
     label: above
     settings:
+      format_type: medium
       timezone_override: ''
-      date_format: d-m-Y
     third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_abonelik_durumu:
     weight: 9
     label: above

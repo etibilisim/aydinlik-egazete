@@ -12,7 +12,7 @@ dependencies:
 id: aydinlikvideo
 theme: conference_lite
 region: content
-weight: -15
+weight: -7
 provider: null
 plugin: 'block_content:322665b9-c85a-4712-8baa-4f74769fa89f'
 settings:
