@@ -62,7 +62,7 @@ function aydinlik_cron_cron() {
         if ($last_payment == 'SUCCESS') {
           $user->field_abonelik_durumu->value = 'Aktif';
           if (str_contains ($ppn, 'Aylık')) {
-            $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
+            $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime($today)));
             $user->field_abonelik_bitis_tarihi->value = $subscription_end_date;
             $user->addRole('abone');
             $user->save();
@@ -70,7 +70,7 @@ function aydinlik_cron_cron() {
             \Drupal::logger('aydinlik_cron')->notice($message);
           }
           if (str_contains ($ppn, 'Yıllık')) {
-            $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 year',strtotime($user->field_abonelik_bitis_tarihi->value)));
+            $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 year',strtotime($today)));
             $user->field_abonelik_bitis_tarihi->value = $subscription_end_date;
             $user->addRole('abone');
             $user->save();
