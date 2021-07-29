@@ -65,7 +65,7 @@ function aydinlik_cron_cron() {
           $user->field_abonelik_durumu->value = 'Aktif';
           if (str_contains ($ppn, 'Aylık')) {
             $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime(date("Y-m-d\TH:i:s",$today_ts))));
-            $last_subscription_update_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime(date("Y-m-d\TH:i:s",$today_ts))));
+            $last_subscription_update_date = date("Y-m-d\TH:i:s",$today_ts);
             $user->field_abonelik_bitis_tarihi->value = $subscription_end_date;
             $user->field_son_abonelik_islem_tarihi->value = $last_subscription_update_date;
             $user->addRole('abone');
@@ -75,7 +75,7 @@ function aydinlik_cron_cron() {
           }
           if (str_contains ($ppn, 'Yıllık')) {
             $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 year',strtotime(date("Y-m-d\TH:i:s",$today_ts))));
-            $last_subscription_update_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime(date("Y-m-d\TH:i:s",$today_ts))));
+            $last_subscription_update_date = date("Y-m-d\TH:i:s",$today_ts);
             $user->field_abonelik_bitis_tarihi->value = $subscription_end_date;
             $user->field_son_abonelik_islem_tarihi->value = $last_subscription_update_date;
             $user->addRole('abone');
