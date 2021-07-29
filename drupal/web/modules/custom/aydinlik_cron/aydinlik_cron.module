@@ -16,8 +16,9 @@ use Drupal\Core\Form\FormStateInterface;
 function aydinlik_cron_cron() {
   $users = User::loadMultiple();
   $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s'));
+  date_default_timezone_set('UTC');
   $date = date("Y-m-d\TH:i:s");
-  $today = new \DateTime($date, new \DateTimeZone('Europe/Istanbul'));
+  $today = new \DateTime($date, new \DateTimeZone('UTC'));
   $today_ts = $today->getTimestamp();
 /*
  * Checking every user when cronjob is run
