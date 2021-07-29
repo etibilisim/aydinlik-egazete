@@ -16,7 +16,8 @@ use Drupal\Core\Form\FormStateInterface;
 function aydinlik_cron_cron() {
   $users = User::loadMultiple();
   $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s'));
-  $today = new DateTime();
+  $date = date("Y-m-d\TH:i:s");
+  $today = new \DateTime($date, new \DateTimeZone('Europe/Istanbul'));
   $today_ts = $today->getTimestamp();
 /*
  * Checking every user when cronjob is run
@@ -26,7 +27,7 @@ function aydinlik_cron_cron() {
     $user_surname = $user->field_soyadiniz->value;
     $sed = $user->field_abonelik_bitis_tarihi->value;
     $subscription_end_date = new \DateTime;
-    $subscription_end_date = new \DateTime($sed, new \DateTimeZone('Europe/Istanbul'));
+    $subscription_end_date = new \DateTime($sed, new \DateTimeZone('UTC'));
     $subscription_end_date_ts = $subscription_end_date->getTimestamp();
     if ($subscription_end_date_ts < $today_ts && $subscription_end_date_ts != '') {
       if ($user->hasRole('abone'))  {
