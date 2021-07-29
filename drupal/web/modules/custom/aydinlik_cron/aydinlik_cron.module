@@ -28,7 +28,7 @@ function aydinlik_cron_cron() {
     $subscription_end_date = new \DateTime;
     $subscription_end_date = new \DateTime($sed, new \DateTimeZone('Europe/Istanbul'));
     $subscription_end_date_ts = $subscription_end_date->getTimestamp();
-    if ($subscription_end_date_ts < $today && $subscription_end_date_ts != '') {
+    if ($subscription_end_date_ts < $today_ts && $subscription_end_date_ts != '') {
       if ($user->hasRole('abone'))  {
         $user->removeRole('abone');
         $user->save();
@@ -38,7 +38,7 @@ function aydinlik_cron_cron() {
     }
     if ($user->field_abonelik_referans_kodu->value != NULL){
       $src = $user->field_abonelik_referans_kodu->value;
-      if ($user->field_abonelik_bitis_tarihi->value != NULL && $user->field_abonelik_bitis_tarihi->value <= $today ) {
+      if ($subscription_end_date_ts != NULL && $subscription_end_date_ts <= $today_ts ) {
         $request = new \Iyzipay\Request\Subscription\SubscriptionDetailsRequest();
         $request->setSubscriptionReferenceCode($src);
         $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,Drupal\iyzipay\Config::options());
