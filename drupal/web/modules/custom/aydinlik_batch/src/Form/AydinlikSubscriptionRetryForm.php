@@ -119,6 +119,8 @@ class AydinlikSubscriptionRetryForm extends FormBase {
                       $user->field_abonelik_durumu->value = 'Aktif';
                       $message = $email.' eposta hesaplı '. $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu '. $productName. ' adlı ürünü için yeniden ödeme başarılı bir şekilde alındı. Uzatma işlemi bir sonraki dönemsel görev çalıştığında yapılacaktır.';
                       $kullanici_notları = $user->field_kullanici_notlari->value;
+                      $fabt = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
+                      $user->field_abonelik_bitis_tarihi->value = $fabt;
                       $user->field_kullanici_notlari->value = $kullanici_notları."\n".$message;
                       $user->addRole('abone');
                       $user->save();
@@ -128,10 +130,10 @@ class AydinlikSubscriptionRetryForm extends FormBase {
                     else{
                         $user->field_son_abonelik_islem_durumu->value = 'Abonelik yenilenmedi';
                         $kullanici_notları = $user->field_kullanici_notlari->value;
-                        $user->field_kullanici_notlari->value = $kullanici_notları."\n".$message;
+                      $message = $email.' eposta hesaplı '. $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu aboneliği için yeniden ödeme alınamamıştır. Hata mesajı: '. $error_message;
+                      $user->field_kullanici_notlari->value = $kullanici_notları."\n".$message;
                         $user->save();
                         $error_message = $last_payment->errorMessage;
-                        $message = $email.' eposta hesaplı '. $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu aboneliği için yeniden ödeme alınamamıştır. Hata mesajı: '. $error_message;
                         \Drupal::messenger()->addError($message);
                         \Drupal::logger('aydinlik_batch')->info($message);
                     }

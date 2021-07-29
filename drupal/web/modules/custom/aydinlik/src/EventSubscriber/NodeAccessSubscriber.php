@@ -73,10 +73,19 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
         }
         elseif (!$this->current_user->hasPermission('bypass permission checks')) {
           if ($this->current_user->hasRole('abone')) {
-            if ($node->bundle() == 'e_dergi') {
-              $publication_date = $node->field_derginin_ciktigi_ay_yil->value;
-              $subscription_start_date = $this->current_user->field_abonelik_baslangic_tarihi->value;
-              $subscription_end_date = $this->current_user->field_abonelik_bitis_tarihi->value;
+            if ($node->bundle() == 'e_dergi'|| $node->bundle() == 'gazete_haberi') {
+              $pd = $node->field_derginin_ciktigi_ay_yil->value;
+              $publication_date = new \DateTime;
+              $publication_date =new \DateTime($pd, new \DateTimeZone('UTC'));
+              $publication_date_ts = $publication_date->getTimestamp();
+              $ssd = $this->current_user->field_abonelik_baslangic_tarihi->value;
+              $subscription_start_date = new \DateTime;
+              $subscription_start_date = new \DateTime($ssd, new \DateTimeZone('UTC'));
+              $subscription_start_date_ts = $subscription_start_date->getTimestamp();
+              $sed = $this->current_user->field_abonelik_bitis_tarihi->value;
+              $subscription_end_date = new \DateTime;
+              $subscription_end_date = new \DateTime($sed, new \DateTimeZone('UTC'));
+              $subscription_end_date_ts = $subscription_end_date->getTimestamp();
               $subscription_duration = Term::load($this->current_user->field_abonelik_suresi->referencedEntities()[0]->tid->value);
               $subscription_type = $this->current_user->get('field_abonelik_turu');
               $subscription_type_count = $subscription_type->count();
@@ -89,14 +98,14 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
                 }
               }
               if (str_contains($subscription_duration->getName(), 'Yıllık')) {
-                if ($publication_date>$subscription_end_date) {
+                if ($publication_date_ts>$subscription_end_date_ts) {
                   $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
                   $redirect = new RedirectResponse($login->toString());
                   $redirect->send();
                 }
               }
               if (!str_contains($subscription_duration->getName(), 'Yıllık')) {
-                if ($subscription_start_date > $publication_date || $publication_date > $subscription_end_date) {
+                if ($subscription_start_date_ts > $publication_date_ts || $publication_date_ts > $subscription_end_date_ts) {
                   $this->messenger->addWarning($config->get('icerikaboneligiaraligimesaji'));
                   $redirect = new RedirectResponse($login->toString());
                   $redirect->send();
@@ -139,5 +148,4 @@ class NodeAccessSubscriber implements EventSubscriberInterface {
       }
     }
   }
-
 }

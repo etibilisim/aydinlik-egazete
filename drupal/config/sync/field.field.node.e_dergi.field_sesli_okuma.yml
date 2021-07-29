@@ -1,0 +1,27 @@
+uuid: 4aabcc54-d714-4bce-ab68-5ae9778915bf
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sesli_okuma
+    - node.type.e_dergi
+  module:
+    - file
+id: node.e_dergi.field_sesli_okuma
+field_name: field_sesli_okuma
+entity_type: node
+bundle: e_dergi
+label: 'Sesli Okuma'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'ses-dosyalari/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'mp3 wav'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

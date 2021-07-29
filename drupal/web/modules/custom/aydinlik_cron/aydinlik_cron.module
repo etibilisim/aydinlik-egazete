@@ -15,13 +15,20 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function aydinlik_cron_cron() {
   $users = User::loadMultiple();
-  $dateTime = \DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
-  $today = $dateTime->format('Y-m-d');
-
+  $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s'));
+  $today = new DateTime();
+  $today_ts = $today->getTimestamp();
+/*
+ * Checking every user when cronjob is run
+ */
   foreach($users as $user) {
     $user_name = $user->field_adiniz->value;
     $user_surname = $user->field_soyadiniz->value;
-    if ($user->field_abonelik_bitis_tarihi->value < $today && $user->field_abonelik_bitis_tarihi->value != '') {
+    $sed = $user->field_abonelik_bitis_tarihi->value;
+    $subscription_end_date = new \DateTime;
+    $subscription_end_date = new \DateTime($sed, new \DateTimeZone('Europe/Istanbul'));
+    $subscription_end_date_ts = $subscription_end_date->getTimestamp();
+    if ($subscription_end_date_ts < $today && $subscription_end_date_ts != '') {
       if ($user->hasRole('abone'))  {
         $user->removeRole('abone');
         $user->save();
@@ -51,20 +58,20 @@ function aydinlik_cron_cron() {
           $last_payment = 'FAILURE';
         }
         $ppn = $result->getPricingPlanName(); //$ppn is pricing plan name
-        //$order_created = date('Y-m-d',substr($result->getCreatedDate(),0,10));
+        //$order_created = date('Y-m-d H:i:s',substr($result->getCreatedDate(),0,10));
         if ($last_payment == 'SUCCESS') {
           $user->field_abonelik_durumu->value = 'Aktif';
           if (str_contains ($ppn, 'Aylık')) {
-            $fabt = date('Y-m-d', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
-            $user->field_abonelik_bitis_tarihi->value = $fabt;
+            $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime($user->field_abonelik_bitis_tarihi->value)));
+            $user->field_abonelik_bitis_tarihi->value = $subscription_end_date;
             $user->addRole('abone');
             $user->save();
             $message = $user_name. ' '. $user_surname. ' '.  'Aylık abonelik başarılı bir şekilde uzatılmıştır.';
             \Drupal::logger('aydinlik_cron')->notice($message);
           }
           if (str_contains ($ppn, 'Yıllık')) {
-            $fabt = date('Y-m-d', strtotime('1 year',strtotime($user->field_abonelik_bitis_tarihi->value)));
-            $user->field_abonelik_bitis_tarihi->value = $fabt;
+            $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 year',strtotime($user->field_abonelik_bitis_tarihi->value)));
+            $user->field_abonelik_bitis_tarihi->value = $subscription_end_date;
             $user->addRole('abone');
             $user->save();
             $message = $user_name. ' '. $user_surname. ' '. 'Yıllık abonelik başarılı bir şekilde uzatılmıştır.';

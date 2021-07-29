@@ -13,6 +13,7 @@ drupal/private/*
 /drupal/web/*.sql
 /drupal/web/*.sql.zip
 /drupal/web/*.zip
+/drupal/tmp
 
 
 # Ignore Drupal's files directory

@@ -161,6 +161,7 @@ permissions:
   - 'view field_onay'
   - 'view field_satin_alinan_icerik'
   - 'view field_satin_alinan_yil'
+  - 'view field_sesli_okuma'
   - 'view field_son_abonelik_islem_durumu'
   - 'view field_son_abonelik_islem_tarihi'
   - 'view field_taahhut_tarihi'

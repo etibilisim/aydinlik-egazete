@@ -80,8 +80,12 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
     $orders = Order::loadMultiple();
     $order = end($orders);
     $this->current_user = User::load($order->uid->target_id);
-    $dateTime = DateTime::createFromFormat('Y-m-d',date('Y-m-d'));
-    $today = $dateTime->format('Y-m-d');
+    $dateTime = DateTime::createFromFormat('Y-m-d\TH:i:s',date('Y-m-d\TH:i:s'));
+    $today = new DateTime();
+    $today = new DateTime();
+    date_default_timezone_set('UTC');
+    $today = new \DateTime('now', new \DateTimeZone('UTC'));
+    $today_ts = $today->getTimestamp();
     $this->entity;
     // @var \Drupal\commerce_order\Entity\OrderInterface $order
     $order_id = $order->id();
@@ -119,9 +123,9 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             unset($this->current_user->field_abonelik_turu);
           }
           if ($this->current_user->field_abonelik_baslangic_tarihi->value == NULL) {
-            $this->current_user->field_abonelik_baslangic_tarihi->value = $today;
+            $this->current_user->set('field_son_abonelik_islem_tarihi', date('Y-m-d\TH:i:s',$today_ts));
           }
-          $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 month'));
+          $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d\TH:i:s', strtotime('+1 month'));
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($epaper_subscription)->id()];
           if ($this->current_user->field_taahhut_tarihi->value != NULL){
             $this->current_user->field_abonelik_turu[] = ['target_id' => 3];
@@ -137,9 +141,9 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             unset($this->current_user->field_abonelik_turu);
           }
           if ($this->current_user->field_abonelik_baslangic_tarihi->value == NULL) {
-            $this->current_user->field_abonelik_baslangic_tarihi->value = $today;
+            $this->current_user->set('field_abonelik_baslangic_tarihi', date('Y-m-d\TH:i:s',$today_ts));
           }
-          $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d', strtotime('+1 year'));
+          $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d\TH:i:s', strtotime('+1 year'));
           $earchive_subscription = Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => 'E-Arşiv Aboneliği']);
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($epaper_subscription)->id()];
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($earchive_subscription)->id()];
