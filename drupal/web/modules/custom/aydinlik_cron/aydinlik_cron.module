@@ -46,25 +46,13 @@ function aydinlik_cron_cron() {
         $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,Drupal\iyzipay\Config::options());
         $orders = $result->getOrders();
         if ($orders != NULL) {
-          if (count($orders) > 1){
-            $last_order = $orders[1];
-            $last_payments = $last_order->paymentAttempts;
-            if ($last_payments != NULL) {
-              $last_payment = end($last_payments)->paymentStatus;
-            }
-            else {
-              $last_payment = 'FAILURE';
-            }
+          $last_order = $orders[0];
+          $last_payments = $last_order->paymentAttempts;
+          if ($last_payments != NULL) {
+            $last_payment = end($last_payments)->paymentStatus;
           }
-          else{
-            $last_order = $orders[0];
-            $last_payments = $last_order->paymentAttempts;
-            if ($last_payments != NULL) {
-              $last_payment = end($last_payments)->paymentStatus;
-            }
-            else {
-              $last_payment = 'FAILURE';
-            }
+          else {
+            $last_payment = 'FAILURE';
           }
         }
         else {
@@ -72,7 +60,7 @@ function aydinlik_cron_cron() {
         }
         $ppn = $result->getPricingPlanName(); //$ppn is pricing plan name
         //$order_created = date('Y-m-d H:i:s',substr($result->getCreatedDate(),0,10));
-        if ($last_payment == 'SUCCESS') {
+        if ($last_payment == 'WAITING') {
           $user->field_abonelik_durumu->value = 'Aktif';
           if (str_contains ($ppn, 'Aylık')) {
             $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime(date("Y-m-d\TH:i:s",$today_ts))));
