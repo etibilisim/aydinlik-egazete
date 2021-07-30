@@ -26,3 +26,10 @@ aydinlik_batch.email_check:
     _form: '\Drupal\aydinlik_batch\Form\AydinlikEmailCheckForm'
   requirements:
     _permission: 'administer site configuration'
+aydinlik_batch.unpaid_check:
+  path: '/admin/config/system/aydinlik-subscriptions/unpaiid-check-form'
+  defaults:
+    _title: 'Aydınlık Unpaid Check Form'
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikUnpaidSubscriptionCheckForm'
+  requirements:
+    _permission: 'administer site configuration'
