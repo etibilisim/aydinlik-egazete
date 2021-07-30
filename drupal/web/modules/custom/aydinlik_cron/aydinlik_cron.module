@@ -47,20 +47,11 @@ function aydinlik_cron_cron() {
         $orders = $result->getOrders();
         if ($orders != NULL) {
           $last_order = $orders[0];
-          $last_payments = $last_order->paymentAttempts;
-          if ($last_payments != NULL) {
-            $last_payment = end($last_payments)->paymentStatus;
-          }
-          else {
-            $last_payment = 'FAILURE';
-          }
-        }
-        else {
-          $last_payment = 'FAILURE';
+          $last_order_status = $last_order->orderStatus;
         }
         $ppn = $result->getPricingPlanName(); //$ppn is pricing plan name
         //$order_created = date('Y-m-d H:i:s',substr($result->getCreatedDate(),0,10));
-        if ($last_payment == 'WAITING') {
+        if ($last_order_status == 'WAITING') {
           $user->field_abonelik_durumu->value = 'Aktif';
           if (str_contains ($ppn, 'Aylık')) {
             $subscription_end_date = date('Y-m-d\TH:i:s', strtotime('1 month',strtotime(date("Y-m-d\TH:i:s",$today_ts))));
