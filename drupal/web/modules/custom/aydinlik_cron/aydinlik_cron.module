@@ -39,13 +39,25 @@ function aydinlik_cron_cron() {
         $result = \Iyzipay\Model\Subscription\SubscriptionDetails::retrieve($request,Drupal\iyzipay\Config::options());
         $orders = $result->getOrders();
         if ($orders != NULL) {
-          $last_order = $orders[0];
-          $last_payments = $last_order->paymentAttempts;
-          if ($last_payments != NULL) {
-            $last_payment = end($last_payments)->paymentStatus;
+          if (count($orders) > 1){
+            $last_order = $orders[1];
+            $last_payments = $last_order->paymentAttempts;
+            if ($last_payments != NULL) {
+              $last_payment = end($last_payments)->paymentStatus;
+            }
+            else {
+              $last_payment = 'FAILURE';
+            }
           }
-          else {
-            $last_payment = 'FAILURE';
+          else{
+            $last_order = $orders[0];
+            $last_payments = $last_order->paymentAttempts;
+            if ($last_payments != NULL) {
+              $last_payment = end($last_payments)->paymentStatus;
+            }
+            else {
+              $last_payment = 'FAILURE';
+            }
           }
         }
         else {
