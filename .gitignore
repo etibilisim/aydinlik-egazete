@@ -9,11 +9,12 @@
 # Ignore sensitive information
 /drupal/web/sites/*/settings.php
 /drupal/web/sites/*/settings.local.php
-drupal/private/*
+/drupal/private/*
 /drupal/web/*.sql
 /drupal/web/*.sql.zip
 /drupal/web/*.zip
 /drupal/tmp
+/drupal/tmp/*
 /drupal/private
 
 
