@@ -53,7 +53,7 @@ function aydinlik_cron_cron() {
         
         //$order_created = date('Y-m-d H:i:s',substr($result->getCreatedDate(),0,10));
         if ($result_status == 'success') {
-          if ($last_order_status == 'WAITING') {
+          if ($last_order_status == 'WAITING' && count($orders) > 1) {
             $ppn = $result->getPricingPlanName(); //$ppn is pricing plan name
             $user->field_abonelik_durumu->value = 'Aktif';
             if (str_contains ($ppn, 'Aylık')) {
