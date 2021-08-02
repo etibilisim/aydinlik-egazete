@@ -74,19 +74,41 @@ class AydinlikSubscriptionReferenceCheckForm extends FormBase {
       Drupal::messenger()->addMessage('Abonelikler kontrol edildi. Referans kodları ilgili profillere eklendi.');
   }
     public static function reference_check($ref_code) {
+      date_default_timezone_set('UTC');
       $request = new SubscriptionDetailsRequest();
       $request->setSubscriptionReferenceCode($ref_code);
       $result = SubscriptionDetails::retrieve($request, Config::options());
+      $email = $result->getCustomerEmail();
+      $users = \Drupal::entityTypeManager()->getStorage('user')
+        ->loadByProperties(['mail' => $email]);
+      $user = reset($users);
+      $user_name = $user->field_adiniz->value;
+      $user_surname = $user->field_soyadiniz->value;
+      $sed = $user->field_abonelik_bitis_tarihi->value;
+      //$subscription_end_date = new \DateTime;
+      $subscription_end_date = new \DateTime($sed, new \DateTimeZone('UTC'));
+      $subscription_end_date_ts = $subscription_end_date->getTimestamp();
+      $result_status = $result->getStatus();
+      $orders = $result->getOrders();
+      if ($orders != NULL) {
+        $last_order = $orders[0];
+        $last_order_status = $last_order->orderStatus;
+      }
+      $last_order_start_date_ts = substr($last_order->startPeriod,0,10);
+      $last_order_start_date = date('Y-m-d\TH:i:s', $last_order_start_date_ts);
+      $last_order_start_date = new \DateTime($last_order_start_date, new \DateTimeZone('UTC'));
+      $last_order_sd_ts = $last_order_start_date->getTimestamp();
+      $last_order_start_date = date('Y-m-d\TH:i:s', $last_order_sd_ts);
       if ($result->getSubscriptionStatus() == 'ACTIVE') {
-        $email = $result->getCustomerEmail();
-        $users = \Drupal::entityTypeManager()->getStorage('user')
-          ->loadByProperties(['mail' => $email]);
-        $user = reset($users);
-        $user->field_abonelik_durumu->value = 'Aktif';
-        $user->field_abonelik_referans_kodu->value = $ref_code;
-        $user->save();
-        $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Aktif olarak düzenlenmiştir.';
-        Drupal::messenger()->addMessage($message);
+        if ($last_order_status == 'WAITING') {
+          $user->field_abonelik_durumu->value = 'Aktif';
+          $user->field_abonelik_referans_kodu->value = $ref_code;
+          $user->field_abonelik_bitis_tarihi->value = $last_order_start_date;
+          $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Aktif olarak düzenlenmiştir.';
+          $user->field_kullanici_notlari->value = $user->field_kullanici_notlari->value.'\n'.$message.'-'.date('d.m.y H:i:s');
+          $user->save();
+          Drupal::messenger()->addMessage($message);
+        }
       }
       if ($result->getSubscriptionStatus() == 'UNPAID') {
         $email = $result->getCustomerEmail();
@@ -95,8 +117,9 @@ class AydinlikSubscriptionReferenceCheckForm extends FormBase {
         $user = reset($users);
         $user->field_abonelik_durumu->value = 'Yenileme Bekliyor';
         $user->field_abonelik_referans_kodu->value = $ref_code;
-        $user->save();
         $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Yenileme bekliyor olarak düzenlenmiştir.';
+        $user->field_kullanici_notlari->value = $user->field_kullanici_notlari->value.'\n'.$message.'-'.date('d.m.y H:i:s');
+        $user->save();
         Drupal::messenger()->addWarning($message);
       }
       if ($result->getSubscriptionStatus() == 'CANCELED') {
@@ -106,8 +129,9 @@ class AydinlikSubscriptionReferenceCheckForm extends FormBase {
         $user = reset($users);
         if ($user->field_abonelik_referans_kodu->value == 'Yanlış Referans Kodu Silindi') {
           $user->field_abonelik_referans_kodu->value = '';
-          $user->save();
           $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği iptal edildiğinden silinmiştir.';
+          $user->field_kullanici_notlari->value = $user->field_kullanici_notlari->value.'</ br>'.$message.'-'.date('d.m.y H:i:s');
+          $user->save();
           Drupal::messenger()->addWarning($message);
         }
         else {

@@ -15,13 +15,13 @@ use Iyzipay\Request\Subscription\SubscriptionDetailsRequest;
 /**
  * Implements a Batch example Form.
  */
-class AydinlikSubscriptionCheckForm extends FormBase {
+class AydinlikWrongSubscriptionCheckForm extends FormBase {
 
   /**
    * {@inheritdoc}.
    */
   public function getFormId() {
-    return 'aydinliksubscriptioncheckform';
+    return 'aydinlikwrongsubscriptioncheckform';
   }
 
   /**
@@ -64,11 +64,11 @@ class AydinlikSubscriptionCheckForm extends FormBase {
       'operations' => [],
       'progress_message' => t('Processed @current out of @total.'),
       'error_message'    => t('An error occurred during processing'),
-      'finished' => '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionCheckForm::batchFinished',
+      'finished' => '\Drupal\aydinlik_batch\Form\AydinlikWrongSubscriptionCheckForm::batchFinished',
     );
     foreach ($ref_codes as $ref_code) {
       $ref_code = trim($ref_code);
-      $batch['operations'][] = ['Drupal\aydinlik_batch\Form\AydinlikSubscriptionCheckForm::subscription_check', [$ref_code]];
+      $batch['operations'][] = ['Drupal\aydinlik_batch\Form\AydinlikWrongSubscriptionCheckForm::subscription_check', [$ref_code]];
     }
       batch_set($batch);
       Drupal::messenger()->addMessage('Abonelikler kontrol edildi. Yanlış abonelikler iptal edildi.');
@@ -119,6 +119,10 @@ class AydinlikSubscriptionCheckForm extends FormBase {
               $request->setSubscriptionReferenceCode($ref_code);
               $result = SubscriptionCancel::cancel($request, Config::options());
               $message = $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu yanlış aboneliği iptal edilmiştir.';
+              $user->field_abonelik_durumu->value = 'Düzenlenmiş';
+              $user->field_abonelik_referans_kodu->value = '';
+              $user->field_kullanici_notlari->value = $user->field_kullanici_notlari->value.'\n'.$message.'-'.date('d.m.y H:i:s');
+              $user->save();
               Drupal::messenger()->addWarning($message);
               Drupal::logger('aydinlik_batch')->notice($message);
             }

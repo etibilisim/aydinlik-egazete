@@ -1,8 +1,8 @@
-aydinlik_batch.subscription_check:
+aydinlik_batch.wrong_subscription_check:
   path: '/admin/config/system/aydinlik-subscriptions'
   defaults:
-    _title: 'Aydınlık Subscription Check Form'
-    _form: '\Drupal\aydinlik_batch\Form\AydinlikSubscriptionCheckForm'
+    _title: 'Aydınlık Wrong Subscription Check Form'
+    _form: '\Drupal\aydinlik_batch\Form\AydinlikWrongSubscriptionCheckForm'
   requirements:
     _permission: 'administer site configuration'
 aydinlik_batch.subscription_retry:

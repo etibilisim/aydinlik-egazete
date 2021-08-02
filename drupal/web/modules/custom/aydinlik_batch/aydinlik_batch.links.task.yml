@@ -1,25 +1,25 @@
-aydinlik_batch.subscription_check_tab:
-  title: "Subscription Check"
-  route_name: aydinlik_batch.subscription_check
-  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+aydinlik_batch.subscription_wrong_check_tab:
+  title: "Wrong Subscription Check"
+  route_name: aydinlik_batch.wrong_subscription_check
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.wrong_subscription_check
   weight: -2
 aydinlik_batch.subscription_retry_tab:
   title: "Subscription Retry"
   route_name: aydinlik_batch.subscription_retry
-  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.wrong_subscription_check
   weight: -2
 aydinlik_batch.subscription_reference_check_tab:
   title: "Subscription Reference Check Form"
   route_name: aydinlik_batch.subscription_reference_check
-  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.wrong_subscription_check
   weight: -2
 aydinlik_batch.email_check_tab:
   title: "Email Check Form"
   route_name: aydinlik_batch.email_check
-  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.wrong_subscription_check
   weight: -2
 aydinlik_batch.unpaid_check_tab:
   title: "Unpaid Check Form"
   route_name: aydinlik_batch.unpaid_check
-  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.subscription_check
+  base_route: aydinlik_batch.admin_config_system_aydinlik_batch.wrong_subscription_check
   weight: -2

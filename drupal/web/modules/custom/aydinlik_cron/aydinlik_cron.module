@@ -20,9 +20,9 @@ function aydinlik_cron_cron() {
   $date = date("Y-m-d\TH:i:s");
   $today = new \DateTime($date, new \DateTimeZone('UTC'));
   $today_ts = $today->getTimestamp();
-/*
- * Checking every user when cronjob is run
- */
+  /*
+   * Checking every user when cronjob is run
+   */
   foreach($users as $user) {
     $user_name = $user->field_adiniz->value;
     $user_surname = $user->field_soyadiniz->value;
@@ -50,7 +50,7 @@ function aydinlik_cron_cron() {
           $last_order = $orders[0];
           $last_order_status = $last_order->orderStatus;
         }
-        
+
         //$order_created = date('Y-m-d H:i:s',substr($result->getCreatedDate(),0,10));
         if ($result_status == 'success') {
           if ($last_order_status == 'WAITING' && count($orders) > 1) {

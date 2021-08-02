@@ -122,8 +122,9 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           if (!empty($this->current_user->field_abonelik_turu)) {
             unset($this->current_user->field_abonelik_turu);
           }
+          $this->current_user->set('field_son_abonelik_islem_tarihi', date('Y-m-d\TH:i:s',$today_ts));
           if ($this->current_user->field_abonelik_baslangic_tarihi->value == NULL) {
-            $this->current_user->set('field_son_abonelik_islem_tarihi', date('Y-m-d\TH:i:s',$today_ts));
+            $this->current_user->set('field_abonelik_baslangic_tarihi', date('Y-m-d\TH:i:s',$today_ts));
           }
           $this->current_user->field_abonelik_bitis_tarihi->value = date('Y-m-d\TH:i:s', strtotime('+1 month'));
           $this->current_user->field_abonelik_turu[] = ['target_id' => reset($epaper_subscription)->id()];
@@ -140,6 +141,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           if (!empty($this->current_user->field_abonelik_turu)) {
             unset($this->current_user->field_abonelik_turu);
           }
+          $this->current_user->set('field_son_abonelik_islem_tarihi', date('Y-m-d\TH:i:s',$today_ts));
           if ($this->current_user->field_abonelik_baslangic_tarihi->value == NULL) {
             $this->current_user->set('field_abonelik_baslangic_tarihi', date('Y-m-d\TH:i:s',$today_ts));
           }
@@ -205,15 +207,15 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             }
             if (str_contains($gsm_st, '54')) {
               for ($i=0; $i<8; $i++) {
-                  $sayi1 = rand(1,6);
-                  $num = $num.$sayi1;
+                $sayi1 = rand(1,6);
+                $num = $num.$sayi1;
               }
               $gsm_valid = $gsm_st.$num;
             }
             if (str_contains($gsm_st, '50')) {
               for ($i=0; $i<8; $i++) {
-                  $sayi1 = rand(5,7);
-                  $num = $num.$sayi1;
+                $sayi1 = rand(5,7);
+                $num = $num.$sayi1;
               }
               $gsm_valid = $gsm_st.$num;
             }
@@ -245,13 +247,13 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $src = $result->getReferenceCode(); //$src is Subscription reference code.
           /**
            * If result is success activate subscription
-          */
+           */
           if ($rs == 'success') {
-              $request = new SubscriptionActivateRequest();
-              $request->setLocale("tr");
-              $request->setConversationId($order->id());
-              $request->setSubscriptionReferenceCode($src);
-              $result = SubscriptionActivate::update($request, Config::options());
+            $request = new SubscriptionActivateRequest();
+            $request->setLocale("tr");
+            $request->setConversationId($order->id());
+            $request->setSubscriptionReferenceCode($src);
+            $result = SubscriptionActivate::update($request, Config::options());
           }
           //Retrive subscription details and saving field_abonelik_durumu
           $request = new SubscriptionDetailsRequest();
@@ -349,15 +351,15 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
             }
             if (str_contains($gsm_st, '54')) {
               for ($i=0; $i<8; $i++) {
-                  $sayi1 = rand(1,6);
-                  $num = $num.$sayi1;
+                $sayi1 = rand(1,6);
+                $num = $num.$sayi1;
               }
               $gsm_valid = $gsm_st.$num;
             }
             if (str_contains($gsm_st, '50')) {
               for ($i=0; $i<8; $i++) {
-                  $sayi1 = rand(5,7);
-                  $num = $num.$sayi1;
+                $sayi1 = rand(5,7);
+                $num = $num.$sayi1;
               }
               $gsm_valid = $gsm_st.$num;
             }
@@ -389,7 +391,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
           $src = $result->getReferenceCode(); //$src is subscription reference code.
           /**
            * If result is success activate subscription
-          */
+           */
           if ($rs == 'success') {
             $request = new SubscriptionActivateRequest();
             $request->setLocale("TR");
@@ -431,7 +433,7 @@ class OrderCompleteSubscriber implements EventSubscriberInterface {
     }
     else{
       $config->delete();
-          Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
+      Drupal::messenger()->addError(t('Your payment was failed and subscription was not created.'));
     }
   }
 }
