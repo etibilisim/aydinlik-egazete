@@ -5,19 +5,18 @@ dependencies:
   module:
     - node
 id: node
-label: 'Content - Default'
+label: 'Gazete Haberi URL Yol Ayarı'
 type: 'canonical_entities:node'
-pattern: '[node:content-type]/[node:title]'
+pattern: 'haber/[node:title]'
 selection_criteria:
-  8fc14725-b99a-49e3-bdda-39d2a9ce7b39:
+  6daae5ea-4fd5-4517-83c2-114f92da2d0e:
     id: node_type
     bundles:
-      e_arsiv: e_arsiv
-      e_dergi: e_dergi
+      gazete_haberi: gazete_haberi
     negate: false
     context_mapping:
       node: node
-    uuid: 8fc14725-b99a-49e3-bdda-39d2a9ce7b39
+    uuid: 6daae5ea-4fd5-4517-83c2-114f92da2d0e
 selection_logic: and
 weight: 0
 relationships: {  }

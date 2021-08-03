@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.gazete_haberi.body
     - field.field.node.gazete_haberi.field_haber_foto_galeri
+    - field.field.node.gazete_haberi.field_haber_sayfa
     - field.field.node.gazete_haberi.field_haberin_yayimlandigi_tarih
     - field.field.node.gazete_haberi.field_one_cikan_gorsel
     - field.field.node.gazete_haberi.field_yayimlandigi_gazete
@@ -33,6 +34,7 @@ content:
     region: content
 hidden:
   field_haber_foto_galeri: true
+  field_haber_sayfa: true
   field_haberin_yayimlandigi_tarih: true
   field_one_cikan_gorsel: true
   field_yayimlandigi_gazete: true

@@ -12,7 +12,7 @@ dependencies:
 id: views_block__e_arsiv_block_1
 theme: conference_lite
 region: content
-weight: -5
+weight: -4
 provider: null
 plugin: 'views_block:e_arsiv-block_1'
 settings:

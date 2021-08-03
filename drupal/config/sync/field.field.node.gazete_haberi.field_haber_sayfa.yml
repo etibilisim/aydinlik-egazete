@@ -1,0 +1,23 @@
+uuid: 5c8cd2c9-b10c-4177-812f-7ebe44a72927
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_haber_sayfa
+    - node.type.gazete_haberi
+id: node.gazete_haberi.field_haber_sayfa
+field_name: field_haber_sayfa
+entity_type: node
+bundle: gazete_haberi
+label: 'Haberin Gazetede Bulunduğu Sayfa'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

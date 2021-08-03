@@ -9,17 +9,16 @@ label: 'Content - Default'
 type: 'canonical_entities:node'
 pattern: '[node:content-type]/[node:title]'
 selection_criteria:
-  c1ca7fce-d9ae-45db-b0b3-9c8e4407133f:
+  74e7df54-6f6d-439c-bf10-b9805533ce86:
     id: node_type
     bundles:
       e_arsiv: e_arsiv
       e_dergi: e_dergi
       gazete_eki: gazete_eki
-      gazete_haberi: gazete_haberi
     negate: false
     context_mapping:
       node: node
-    uuid: c1ca7fce-d9ae-45db-b0b3-9c8e4407133f
+    uuid: 74e7df54-6f6d-439c-bf10-b9805533ce86
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.gazete_haberi.body
     - field.field.node.gazete_haberi.field_haber_foto_galeri
+    - field.field.node.gazete_haberi.field_haber_sayfa
     - field.field.node.gazete_haberi.field_haberin_yayimlandigi_tarih
     - field.field.node.gazete_haberi.field_one_cikan_gorsel
     - field.field.node.gazete_haberi.field_yayimlandigi_gazete
@@ -22,12 +23,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_haber_foto_galeri:
-    weight: 103
+    weight: 3
     label: above
     settings:
       image_style: ''
@@ -36,7 +37,7 @@ content:
     type: image
     region: content
   field_haberin_yayimlandigi_tarih:
-    weight: 104
+    weight: 4
     label: above
     settings:
       format_type: medium
@@ -45,7 +46,7 @@ content:
     type: datetime_default
     region: content
   field_one_cikan_gorsel:
-    weight: 102
+    weight: 2
     label: above
     settings:
       image_style: ''
@@ -54,7 +55,7 @@ content:
     type: image
     region: content
   field_yayimlandigi_gazete:
-    weight: 105
+    weight: 5
     label: above
     settings:
       link: true
@@ -62,9 +63,10 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
+  field_haber_sayfa: true
   langcode: true
