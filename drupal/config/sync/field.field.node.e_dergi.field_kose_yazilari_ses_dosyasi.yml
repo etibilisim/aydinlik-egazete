@@ -1,17 +1,17 @@
-uuid: fdb3edc0-846a-4190-97ea-d32f5df5c11a
+uuid: 0cf648de-b099-459d-9daa-8f1af40bf0f3
 langcode: tr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ses_dosyasi
+    - field.storage.node.field_kose_yazilari_ses_dosyasi
     - node.type.e_dergi
   module:
     - file
-id: node.e_dergi.field_ses_dosyasi
-field_name: field_ses_dosyasi
+id: node.e_dergi.field_kose_yazilari_ses_dosyasi
+field_name: field_kose_yazilari_ses_dosyasi
 entity_type: node
 bundle: e_dergi
-label: 'Ses Dosyası'
+label: 'Köşe Yazıları Ses Dosyası'
 description: ''
 required: false
 translatable: false
@@ -19,9 +19,9 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'ses-dosyalari/[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'mp3 wav mp4 mpeg4'
+  file_extensions: 'mp3 wav mp4 mpeg4 m4a'
   max_filesize: ''
-  description_field: true
+  description_field: false
   handler: 'default:file'
   handler_settings: {  }
 field_type: file

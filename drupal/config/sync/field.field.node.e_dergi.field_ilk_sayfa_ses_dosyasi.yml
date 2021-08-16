@@ -1,0 +1,27 @@
+uuid: 4080ccb7-4dd0-4669-8d4f-8eafe838fcac
+langcode: tr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ilk_sayfa_ses_dosyasi
+    - node.type.e_dergi
+  module:
+    - file
+id: node.e_dergi.field_ilk_sayfa_ses_dosyasi
+field_name: field_ilk_sayfa_ses_dosyasi
+entity_type: node
+bundle: e_dergi
+label: 'İlk Sayfa Ses Dosyası'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'ses-dosyalari/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'mp3 wav mp4 mpeg4 m4a'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -6,11 +6,11 @@ dependencies:
     - field.field.node.e_dergi.field_derginin_ciktigi_ay_yil
     - field.field.node.e_dergi.field_e_dergi
     - field.field.node.e_dergi.field_e_gazete_gorseller
-    - field.field.node.e_dergi.field_ses_dosyasi
+    - field.field.node.e_dergi.field_ilk_sayfa_ses_dosyasi
+    - field.field.node.e_dergi.field_kose_yazilari_ses_dosyasi
     - image.style.e-gazete__nizleme_152x256
     - node.type.e_dergi
   module:
-    - audiofield
     - colorbox
     - file
     - user
@@ -20,13 +20,13 @@ bundle: e_dergi
 mode: default
 content:
   field_e_dergi:
-    type: file_default
-    weight: 1
-    region: content
-    label: inline
+    weight: 4
+    label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
+    type: file_default
+    region: content
   field_e_gazete_gorseller:
     type: colorbox
     weight: 2
@@ -41,37 +41,27 @@ content:
       colorbox_caption: entity_title
       colorbox_caption_custom: ''
     third_party_settings: {  }
-  field_ses_dosyasi:
-    weight: 3
+  field_ilk_sayfa_ses_dosyasi:
+    weight: 5
     label: above
     settings:
-      audio_player: default_mp3_player
-      audio_player_jplayer_theme: none
-      audio_player_wavesurfer_audiorate: 1
-      audio_player_wavesurfer_autocenter: true
-      audio_player_wavesurfer_bargap: 0
-      audio_player_wavesurfer_barheight: 1
-      audio_player_wavesurfer_barwidth: null
-      audio_player_wavesurfer_cursorcolor: '#000000'
-      audio_player_wavesurfer_cursorwidth: 1
-      audio_player_wavesurfer_progresscolor: '#000000'
-      audio_player_wavesurfer_wavecolor: '#000000'
-      audio_player_wavesurfer_playnexttrack: true
-      audio_player_wordpress_animation: true
-      audio_player_soundmanager_theme: default
-      audio_player_initial_volume: 8
-      audio_player_wavesurfer_combine_files: false
-      audio_player_wavesurfer_forcedecode: false
-      audio_player_wavesurfer_normalize: false
-      audio_player_wavesurfer_responsive: false
-      audio_player_wavesurfer_use_peakfile: 0
-      audio_player_wordpress_combine_files: false
-      audio_player_autoplay: false
-      audio_player_lazyload: false
-      download_button: false
-      download_link: false
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
     third_party_settings: {  }
-    type: audiofield_audioplayer
+    type: file_audio
+    region: content
+  field_kose_yazilari_ses_dosyasi:
+    weight: 6
+    label: above
+    settings:
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
+    third_party_settings: {  }
+    type: file_audio
     region: content
   links:
     weight: 0

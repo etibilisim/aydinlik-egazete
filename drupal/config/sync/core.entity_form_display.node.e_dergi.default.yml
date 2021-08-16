@@ -6,7 +6,8 @@ dependencies:
     - field.field.node.e_dergi.field_derginin_ciktigi_ay_yil
     - field.field.node.e_dergi.field_e_dergi
     - field.field.node.e_dergi.field_e_gazete_gorseller
-    - field.field.node.e_dergi.field_ses_dosyasi
+    - field.field.node.e_dergi.field_ilk_sayfa_ses_dosyasi
+    - field.field.node.e_dergi.field_kose_yazilari_ses_dosyasi
     - image.style.thumbnail
     - node.type.e_dergi
   module:
@@ -52,8 +53,15 @@ content:
       imce:
         enabled: true
     region: content
-  field_ses_dosyasi:
-    weight: 6
+  field_ilk_sayfa_ses_dosyasi:
+    weight: 26
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_kose_yazilari_ses_dosyasi:
+    weight: 27
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
