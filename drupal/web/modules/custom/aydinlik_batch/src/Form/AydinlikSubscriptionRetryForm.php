@@ -79,8 +79,9 @@ class AydinlikSubscriptionRetryForm extends FormBase {
         $result = SubscriptionDetails::retrieve($request, Config::options());
         $orders = [];
         $orders = $result->getOrders();
-        $orc = end($orders)->referenceCode;
-        $last_order = end($orders);
+        $orc = $orders[0]->referenceCode;
+        $last_order = $orders[0];
+        $last_order_status = $last_order->orderStatus;
         $last_payments = $last_order->paymentAttempts;
         $last_payment = end($last_payments);
         $last_payment_ts = new \DateTime();
@@ -106,15 +107,16 @@ class AydinlikSubscriptionRetryForm extends FormBase {
                     $result = SubscriptionDetails::retrieve($request, Config::options());
                     $orders = [];
                     $orders = $result->getOrders();
-                    $orc = end($orders)->referenceCode;
-                    $last_order = end($orders);
+                    $orc = $orders[0]->referenceCode;
+                    $last_order = $orders[0];
+                    $last_order_status = $last_order->orderStatus;
                     $last_payments = $last_order->paymentAttempts;
                     $last_payment = end($last_payments);
                     $last_payment_ts = new \DateTime();
                     $last_payment_ts = new \DateTime('now', new \DateTimeZone('UTC'));
                     $last_payment_ts = substr($retry_result->getSystemTime(),0,10);
                     $user->set('field_son_abonelik_islem_tarihi', date('Y-m-d\TH:i:s',$last_payment_ts));
-                    if ($last_payment->paymentStatus == 'SUCCESS') {
+                    if ($last_order_status->paymentStatus == 'WAITING') {
                       $user->field_son_abonelik_islem_durumu->value = 'Abonelik yenilendi';
                       $user->field_abonelik_durumu->value = 'Aktif';
                       $message = $email.' eposta hesaplı '. $ns . ' kullanıcısının ' . $ref_code . ' referans kodlu '. $productName. ' adlı ürünü için yeniden ödeme başarılı bir şekilde alındı. Uzatma işlemi bir sonraki dönemsel görev çalıştığında yapılacaktır.';

@@ -78,7 +78,7 @@ class AydinlikUnpaidSubscriptionCheckForm extends FormBase {
       $request = new SubscriptionDetailsRequest();
       $request->setSubscriptionReferenceCode($ref_code);
       $result = SubscriptionDetails::retrieve($request, Config::options());
-      
+
       if ($result->getSubscriptionStatus() == 'UNPAID') {
         $email = $result->getCustomerEmail();
         $users = \Drupal::entityTypeManager()->getStorage('user')
@@ -99,7 +99,7 @@ class AydinlikUnpaidSubscriptionCheckForm extends FormBase {
           $user->removeRole('abone');
         }
         $user->save();
-        $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Yenileme bekliyor olarak düzenlenmiştir ve abonelik bitiş tarihi geriye alınmıştır.';
+        $message = $email . ' eposta hesaplı kullanıcının ' . $ref_code . ' referans kodlu aboneliği ilgili alana eklenmiştir ve abonelik durumu Yenileme bekliyor olarak düzenlenmiştir ve abonelik bitiş tarihi gözden geçirilmiş yanlışlık varsa düzeltilmiştir.';
         Drupal::messenger()->addWarning($message);
       }
     }

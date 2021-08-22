@@ -13,7 +13,7 @@ use Iyzipay\Request\Subscription\SubscriptionCancelRequest;
 use Iyzipay\Request\Subscription\SubscriptionDetailsRequest;
 
 /**
- * Implements a Batch example Form.
+ * Implements a Form that you can check users' subscription status by reference codes.
  */
 class AydinlikSubscriptionReferenceCheckForm extends FormBase {
 

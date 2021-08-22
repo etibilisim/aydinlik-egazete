@@ -9,7 +9,7 @@ use Drupal\iyzipay\Config;
 use Drupal\user\Entity\User;
 
 /**
- * Implements a Batch example Form.
+ * Implements a user check and delete wrong reference codes that you know has wrong reference codes.
  */
 class AydinlikEmailCheckForm extends FormBase {
 
