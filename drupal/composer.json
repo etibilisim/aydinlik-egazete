@@ -50,7 +50,6 @@
         "drupal/migrate_tools": "^5.0",
         "drupal/pathauto": "^1.8",
         "drupal/pdf": "^1.1",
-        "drupal/recaptcha": "^3.0",
         "drupal/redirect_after_registration": "^1.1",
         "drupal/restui": "^1.19",
         "drupal/scheduler": "^1.3",
