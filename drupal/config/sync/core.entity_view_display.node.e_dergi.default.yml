@@ -20,7 +20,7 @@ bundle: e_dergi
 mode: default
 content:
   field_e_dergi:
-    weight: 4
+    weight: 1
     label: above
     settings:
       use_description_as_link_text: true
@@ -42,7 +42,7 @@ content:
       colorbox_caption_custom: ''
     third_party_settings: {  }
   field_ilk_sayfa_ses_dosyasi:
-    weight: 5
+    weight: 3
     label: above
     settings:
       controls: true
@@ -53,7 +53,7 @@ content:
     type: file_audio
     region: content
   field_kose_yazilari_ses_dosyasi:
-    weight: 6
+    weight: 4
     label: above
     settings:
       controls: true
